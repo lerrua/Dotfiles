@@ -9,22 +9,25 @@ Bundle 'gmarik/vundle'
 
 " my bundles
 Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on
 
+" Enviroment
+set encoding=utf-8 
 set t_Co=256
 colorscheme ir_black
 
 " Coding
 syntax enable
 set expandtab                   " use spaces, not tabs
-set encoding=utf-8 
 set number
 set visualbell
-set pastetoggle=<F2>           " pastetoggle (sane indentation on pastes)
+set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
+set showcmd                     " show incomplete cmds down the bottom
 set showmode                    " Display the current mode
 
-" Whitespaces
+" Formatting
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -38,6 +41,16 @@ set laststatus=2                " Always show the statusline
 set hlsearch                    " highlight matches
 set incsearch                   " searches starts as soon as you type - before pressing [enter]
 
-" NerdTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+" Plugins {
+    " NerdTree
+    map <C-n> :NERDTreeToggle<CR>
+    let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+
+    " CtrlP
+    let g:ctrlp_working_path_mode = 0
+    nnoremap <silent> <C-t> :CtrlP<CR>
+    nnoremap <silent> <C-b> :CtrlPBuffer<CR>
+    let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+            \ 'file': '\.pyc$|\.exe$\|\.so$\|\.dll$' }
+" }
