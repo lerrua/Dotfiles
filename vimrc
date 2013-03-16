@@ -8,6 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " my bundles
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on
 
@@ -34,3 +35,7 @@ set laststatus=2                " Always show the statusline
 " Searching
 set hlsearch                    " highlight matches
 set incsearch                   " searches starts as soon as you type - before pressing [enter]
+
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
