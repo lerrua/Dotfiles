@@ -51,9 +51,7 @@ set incsearch                   " searches starts as soon as you type - before p
     let g:ctrlp_working_path_mode = 0
     nnoremap <silent> <C-t> :CtrlP<CR>
     nnoremap <silent> <C-b> :CtrlPBuffer<CR>
-    let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-            \ 'file': '\.pyc$|\.exe$\|\.so$\|\.dll$' }
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
     " Tagbar
     nmap <silent> <C-l> :TagbarToggle<CR>
