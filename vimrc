@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 " my bundles
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
 
@@ -53,4 +54,7 @@ set incsearch                   " searches starts as soon as you type - before p
     let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
             \ 'file': '\.pyc$|\.exe$\|\.so$\|\.dll$' }
+
+    " Tagbar
+    nmap <silent> <C-l> :TagbarToggle<CR>
 " }
