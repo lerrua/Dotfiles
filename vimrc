@@ -21,6 +21,8 @@ set expandtab                   " use spaces, not tabs
 set encoding=utf-8 
 set number
 set visualbell
+set pastetoggle=<F2>           " pastetoggle (sane indentation on pastes)
+set showmode                    " Display the current mode
 
 " Whitespaces
 set tabstop=4
