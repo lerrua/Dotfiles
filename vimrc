@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'klen/python-mode'
 
 filetype plugin indent on
 
@@ -55,4 +56,19 @@ set incsearch                   " searches starts as soon as you type - before p
 
     " Tagbar
     nmap <silent> <C-l> :TagbarToggle<CR>
+
+    " Python-Mode
+    let g:pymode_rope = 1           " Load rope plugin
+    let g:pymode_lint = 1           " Load pylint code plugin
+    let g:pymode_lint_onfly = 0
+    let g:pymode_lint_write = 1     " Check code every save
+    let g:pymode_lint_cwindow = 1   " Auto open cwindow if errors be finded
+    let g:pymode_lint_message = 1   " Show error message if cursor placed at the error line
+    let g:pymode_lint_hold = 0      " Hold cursor in current window when quickfix is open
+    let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+    
+    let g:pymode_folding = 0        " Enable python folding
+    let g:pymode_virtualenv = 1     " Auto fix vim python paths if virtualenv enabled
+    let g:pymode_indent = 1         " Enable pymode indentation
+    let g:pymode_syntax_all = 1     " Enable all python highlightings
 " }
