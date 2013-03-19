@@ -29,6 +29,10 @@ set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
 set showcmd                     " show incomplete cmds down the bottom
 set showmode                    " Display the current mode
 
+" Key mapping for tab navigation
+nmap <Tab> gt
+nmap <S-Tab> gT
+
 " Formatting
 set tabstop=4
 set shiftwidth=4
