@@ -32,6 +32,7 @@ set showmode                    " Display the current mode
 " Key mapping for tab navigation
 nmap <Tab> gt
 nmap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
 
 " Formatting
 set tabstop=4
@@ -49,7 +50,7 @@ set incsearch                   " searches starts as soon as you type - before p
 
 " Plugins {
     " NerdTree
-    map <C-n> :NERDTreeToggle<CR>
+    nnoremap <silent> <C-n> :NERDTreeToggle<CR>
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 
     " CtrlP
