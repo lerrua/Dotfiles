@@ -18,7 +18,7 @@ filetype plugin indent on
 " Enviroment
 set encoding=utf-8 
 set t_Co=256
-colorscheme ir_black
+colorscheme inkpot
 
 " Coding
 syntax enable
@@ -28,6 +28,7 @@ set visualbell
 set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
 set showcmd                     " show incomplete cmds down the bottom
 set showmode                    " Display the current mode
+let mapleader=","
 
 " Key mapping for tab navigation
 nmap <Tab> gt
@@ -60,7 +61,7 @@ set incsearch                   " searches starts as soon as you type - before p
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
     " Tagbar
-    nmap <silent> <C-l> :TagbarToggle<CR>
+    nmap <silent> <leader>l :TagbarToggle<CR>
 
     " Python-Mode
     let g:pymode_rope = 1           " Load rope plugin
