@@ -28,6 +28,9 @@ set visualbell
 set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
 set showcmd                     " show incomplete cmds down the bottom
 set showmode                    " Display the current mode
+set noswapfile                  " Don't use swapfile
+set nobackup                    " Don't create annoying backup files
+set noerrorbells                " No beeps
 let mapleader=","
 
 " Key mapping for tab navigation
