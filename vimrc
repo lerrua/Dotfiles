@@ -53,6 +53,7 @@ set incsearch                   " searches starts as soon as you type - before p
     " NerdTree
     nnoremap <silent> <C-n> :NERDTreeToggle<CR>
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+    let g:nerdtree_tabs_open_on_gui_startup = 0
 
     " CtrlP
     let g:ctrlp_working_path_mode = 0
