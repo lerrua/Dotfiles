@@ -7,50 +7,59 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-" my bundles
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'klen/python-mode'
+" Bundles {
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'majutsushi/tagbar'
+    Bundle 'klen/python-mode'
+" }
 
 filetype plugin indent on
 
-" Enviroment
-set encoding=utf-8 
-set t_Co=256
-colorscheme inkpot
+" Enviroment {
+    set encoding=utf-8 
+    set t_Co=256
+    colorscheme inkpot
+" }
 
-" Coding
-syntax enable
-set expandtab                   " use spaces, not tabs
-set number
-set visualbell
-set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
-set showcmd                     " show incomplete cmds down the bottom
-set showmode                    " Display the current mode
-set noswapfile                  " Don't use swapfile
-set nobackup                    " Don't create annoying backup files
-set noerrorbells                " No beeps
-let mapleader=","
+" Coding {
+    syntax enable
+    set expandtab                   " use spaces, not tabs
+    set number
+    set visualbell
+    set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
+    set showcmd                     " show incomplete cmds down the bottom
+    set showmode                    " Display the current mode
+    set noswapfile                  " Don't use swapfile
+    set nobackup                    " Don't create annoying backup files
+    set noerrorbells                " No beeps
+    let mapleader=","
+    
+    " Copy text or cut to clipboard
+    vmap <C-c> "+y
+    vmap <C-x> "+d
 
-" Key mapping for tab navigation
-nmap <Tab> gt
-nmap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+    " Key mapping for tab navigation
+    nmap <Tab> gt
+    nmap <S-Tab> gT
+    nnoremap <silent> <S-t> :tabnew<CR>
+" }
 
-" Formatting
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set nowrap
-set list
-set listchars=tab:▸\ ,eol:¬     " whitespace characters from Textmate
-set laststatus=2                " Always show the statusline
+" Formatting {
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set autoindent
+    set nowrap
+    set list
+    set listchars=tab:▸\ ,eol:¬     " whitespace characters from Textmate
+    set laststatus=2                " Always show the statusline
+" }
 
-" Searching
-set hlsearch                    " highlight matches
-set incsearch                   " searches starts as soon as you type - before pressing [enter]
+" Searching {
+    set hlsearch                    " highlight matches
+    set incsearch                   " searches starts as soon as you type - before pressing [enter]
+" }
 
 " Plugins {
     " NerdTree
