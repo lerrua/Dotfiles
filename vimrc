@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
 
 " Bundles {
     Bundle 'scrooloose/nerdtree'
+    Bundle 'scrooloose/nerdcommenter'
     Bundle 'kien/ctrlp.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'klen/python-mode'
@@ -34,7 +35,7 @@ filetype plugin indent on
     set nobackup                    " Don't create annoying backup files
     set noerrorbells                " No beeps
     let mapleader=","
-    
+
     " Copy text or cut to clipboard
     vmap <C-c> "+y
     vmap <C-x> "+d
