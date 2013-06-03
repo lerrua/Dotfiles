@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
     Bundle 'kien/ctrlp.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'klen/python-mode'
+    Bundle 'tpope/vim-fugitive'
 " }
 
 filetype plugin indent on
