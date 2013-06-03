@@ -61,7 +61,14 @@ filetype plugin indent on
     set nowrap
     set list
     set listchars=tab:▸\ ,eol:¬     " whitespace characters from Textmate
-    set laststatus=2                " Always show the statusline
+    
+    "statusline setup
+    set statusline=%f               " tail of the filename
+    set statusline+=%=              " left/right separator
+    set statusline+=%c,             " cursor column
+    set statusline+=%l/%L           " cursor line/total lines
+    set statusline+=\ %P            " percent through file
+    set laststatus=2                " always show the statusline
 " }
 
 " Searching {
