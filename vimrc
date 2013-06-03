@@ -45,6 +45,12 @@ filetype plugin indent on
     nmap <Tab> gt
     nmap <S-Tab> gT
     nnoremap <silent> <S-t> :tabnew<CR>
+
+    " Key mapping for textmate-like indentation
+    nmap <D-[> <<
+    nmap <D-]> >>
+    vmap <D-[> <gv
+    vmap <D-]> >gv
 " }
 
 " Formatting {
