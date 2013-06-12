@@ -107,3 +107,9 @@ filetype plugin indent on
     let g:pymode_indent = 1         " Enable pymode indentation
     let g:pymode_syntax_all = 1     " Enable all python highlightings
 " }
+
+" PersonalSettings {
+    if filereadable("~/.vimrc.local")
+        so ~/.vimrc.local
+    endif
+" }
