@@ -65,8 +65,9 @@ filetype plugin indent on
     "statusline setup
     set statusline=%f               " tail of the filename
     set statusline+=%=              " left/right separator
+    set statusline+=%l/             " cursor line
     set statusline+=%c,             " cursor column
-    set statusline+=%l/%L           " cursor line/total lines
+    set statusline+=\%L,            " total lines
     set statusline+=\ %P            " percent through file
     set laststatus=2                " always show the statusline
 " }
