@@ -80,6 +80,7 @@ filetype plugin indent on
 " Plugins {
     " NerdTree
     nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+    nnoremap <silent> <leader>t :NERDTreeFind<CR>
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
     let g:nerdtree_tabs_open_on_gui_startup = 0
 
