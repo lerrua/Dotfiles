@@ -28,7 +28,7 @@ filetype plugin indent on
     syntax enable
     set expandtab                   " use spaces, not tabs
     set number
-    set visualbell
+    set novisualbell
     set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
     set showcmd                     " show incomplete cmds down the bottom
     set showmode                    " Display the current mode
