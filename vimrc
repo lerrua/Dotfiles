@@ -14,7 +14,7 @@ Bundle 'gmarik/vundle'
     Bundle 'majutsushi/tagbar'
     Bundle 'klen/python-mode'
     Bundle 'tpope/vim-fugitive'
-    Bundle 'nathanaelkane/vim-indent-guides'
+    Bundle 'Yggdroot/indentLine'
 " }
 
 filetype plugin indent on
@@ -108,14 +108,9 @@ filetype plugin indent on
     let g:pymode_virtualenv = 1     " Auto fix vim python paths if virtualenv enabled
     let g:pymode_indent = 1         " Enable pymode indentation
     let g:pymode_syntax_all = 1     " Enable all python highlightings
-    " Indent Guides
-    set ts=4 sw=4 et
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_auto_colors = 0
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=lightgrey   ctermbg=darkgrey
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=blue
-
+    " indentLine
+    let g:indentLine_color_term = 239
+    let g:indentLine_char = '¦'
 " }
 
 " PersonalSettings {
