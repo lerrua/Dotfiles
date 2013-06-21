@@ -83,7 +83,8 @@ filetype plugin indent on
     nnoremap <silent> <C-n> :NERDTreeToggle<CR>
     nnoremap <silent> <leader>t :NERDTreeFind<CR>
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-    let g:nerdtree_tabs_open_on_gui_startup = 0
+    autocmd vimenter * if !argc() | NERDTree | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
     " CtrlP
     let g:ctrlp_working_path_mode = 0
@@ -102,12 +103,12 @@ filetype plugin indent on
     let g:pymode_lint_cwindow = 1   " Auto open cwindow if errors be finded
     let g:pymode_lint_message = 1   " Show error message if cursor placed at the error line
     let g:pymode_lint_hold = 0      " Hold cursor in current window when quickfix is open
-    let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
-    
+    let g:pymode_lint_checker = "pyflakes,pep8"
     let g:pymode_folding = 0        " Enable python folding
     let g:pymode_virtualenv = 1     " Auto fix vim python paths if virtualenv enabled
     let g:pymode_indent = 1         " Enable pymode indentation
     let g:pymode_syntax_all = 1     " Enable all python highlightings
+
     " indentLine
     let g:indentLine_color_term = 239
     let g:indentLine_char = '¦'
