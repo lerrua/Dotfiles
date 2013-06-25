@@ -22,7 +22,7 @@ filetype plugin indent on
 " Enviroment {
     set encoding=utf-8 
     set t_Co=256
-    colorscheme inkpot
+    colorscheme jellybeans
 " }
 
 " Coding {
@@ -44,6 +44,9 @@ filetype plugin indent on
     " Copy text or cut to clipboard
     vmap <C-c> "+y
     vmap <C-x> "+d
+
+    " De-selects highlighted text
+    nnoremap <silent> <leader><space> :noh<cr>
 
     " Key mapping for tab navigation
     nmap <Tab> gt
