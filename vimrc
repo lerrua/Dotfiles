@@ -114,8 +114,7 @@ filetype plugin indent on
     let g:indentLine_char = '¦'
 " }
 
-" PersonalSettings {
-    if filereadable("~/.vimrc.local")
-        so ~/.vimrc.local
-    endif
-" }
+" Source a local configuration file if available.
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
