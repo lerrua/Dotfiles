@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
     Bundle 'klen/python-mode'
     Bundle 'tpope/vim-fugitive'
     Bundle 'Yggdroot/indentLine'
+    Bundle 'kana/vim-fakeclip'
 " }
 
 filetype plugin indent on

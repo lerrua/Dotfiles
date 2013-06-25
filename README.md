@@ -3,7 +3,7 @@
 
 Linux
 ```
-apt-get install exuberant-ctags
+apt-get install exuberant-ctags xclip vim-gnome
 ```
 
 Mac OSX
