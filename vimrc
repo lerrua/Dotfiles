@@ -37,6 +37,9 @@ filetype plugin indent on
     set nobackup                    " Don't create annoying backup files
     set noerrorbells                " No beeps
     let mapleader=","
+    
+    " Quit with 'q' instead of ':q'. VERY useful!
+    map q :q<CR>
 
     " Copy text or cut to clipboard
     vmap <C-c> "+y
@@ -71,6 +74,22 @@ filetype plugin indent on
     set statusline+=\%L,            " total lines
     set statusline+=\ %P            " percent through file
     set laststatus=2                " always show the statusline
+
+    " File-type specific settings
+    if has("autocmd")
+        " Python code
+        augroup python
+            autocmd BufReadPre,FileReadPre      *.py set tabstop=4
+            autocmd BufReadPre,FileReadPre      *.py set expandtab
+        augroup END
+
+        " Ruby code.
+        augroup ruby
+            autocmd BufReadPre,FileReadPre      *.rb set tabstop=2
+            autocmd BufReadPre,FileReadPre      *.rb set expandtab
+        augroup END
+    endif
+
 " }
 
 " Searching {
