@@ -87,7 +87,7 @@ filetype plugin indent on
             autocmd BufReadPre,FileReadPre      *.py set expandtab
         augroup END
 
-        " Ruby code.
+        " Ruby code
         augroup ruby
             autocmd BufReadPre,FileReadPre      *.rb set tabstop=2
             autocmd BufReadPre,FileReadPre      *.rb set expandtab
@@ -120,6 +120,7 @@ filetype plugin indent on
 
     " Python-Mode
     let g:pymode_rope = 1           " Load rope plugin
+    let g:pymode_rope_vim_completion = 1
     let g:pymode_lint = 1           " Load pylint code plugin
     let g:pymode_lint_onfly = 0
     let g:pymode_lint_write = 1     " Check code every save
@@ -131,6 +132,8 @@ filetype plugin indent on
     let g:pymode_virtualenv = 1     " Auto fix vim python paths if virtualenv enabled
     let g:pymode_indent = 1         " Enable pymode indentation
     let g:pymode_syntax_all = 1     " Enable all python highlightings
+    let g:pymode_motion = 1         " Enable python objects and motion
+    let g:pymode_utils_whitespaces = 1 " Autoremove unused whitespaces
 
     " indentLine
     let g:indentLine_color_term = 239
