@@ -102,6 +102,7 @@ filetype plugin indent on
     let g:ctrlp_working_path_mode = 0
     nnoremap <silent> <C-t> :CtrlP<CR>
     nnoremap <silent> <C-b> :CtrlPBuffer<CR>
+    nnoremap <silent> <F5> :CtrlPClearCache<CR>
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
     " Tagbar
