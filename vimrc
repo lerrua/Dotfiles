@@ -16,6 +16,7 @@ Bundle 'gmarik/vundle'
     Bundle 'tpope/vim-fugitive'
     Bundle 'Yggdroot/indentLine'
     Bundle 'kana/vim-fakeclip'
+    Bundle 'vim-scripts/grep.vim'
 " }
 
 filetype plugin indent on
@@ -128,6 +129,10 @@ filetype plugin indent on
     " indentLine
     let g:indentLine_color_term = 239
     let g:indentLine_char = '¦'
+
+    " grep.vim
+    nnoremap <silent> <leader>f :Rgrep<CR>
+    let Grep_Default_Options = '-IR'
 " }
 
 " Source a local configuration file if available.
