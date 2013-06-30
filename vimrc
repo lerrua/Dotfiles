@@ -80,20 +80,9 @@ filetype plugin indent on
     set laststatus=2                " always show the statusline
 
     " File-type specific settings
-    if has("autocmd")
-        " Python code
-        augroup python
-            autocmd BufReadPre,FileReadPre      *.py set tabstop=4
-            autocmd BufReadPre,FileReadPre      *.py set expandtab
-        augroup END
-
-        " Ruby code
-        augroup ruby
-            autocmd BufReadPre,FileReadPre      *.rb set tabstop=2
-            autocmd BufReadPre,FileReadPre      *.rb set expandtab
-        augroup END
-    endif
-
+    " Ruby
+    au BufNewFile,BufRead *.rb,*.rbw,*.gemspec    set filetype=ruby
+    autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " }
 
 " Searching {
@@ -104,7 +93,7 @@ filetype plugin indent on
 " Plugins {
     " NerdTree
     nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-    nnoremap <silent> <leader>t :NERDTreeFind<CR>
+    nnoremap <silent> <leader>n :NERDTreeFind<CR>
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
     autocmd vimenter * if !argc() | NERDTree | endif
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
