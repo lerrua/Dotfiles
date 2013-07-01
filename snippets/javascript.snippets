@@ -72,3 +72,12 @@ snippet get
 # Get Element
 snippet gett
 	getElementBy${1:Id}('${2}')${3}
+snippet ajax
+	$.ajax({
+		type: "POST",
+		url: "${1}",
+		data: {},
+		success: function (response) {
+			// code
+		}
+	});
