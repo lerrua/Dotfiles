@@ -17,6 +17,7 @@ Bundle 'gmarik/vundle'
     Bundle 'Yggdroot/indentLine'
     Bundle 'kana/vim-fakeclip'
     Bundle 'vim-scripts/grep.vim'
+    Bundle 'lerrua/snipmate.vim'
 " }
 
 filetype plugin indent on
