@@ -18,6 +18,7 @@ Bundle 'gmarik/vundle'
     Bundle 'kana/vim-fakeclip'
     Bundle 'vim-scripts/grep.vim'
     Bundle 'lerrua/snipmate.vim'
+    Bundle 'maciakl/vim-neatstatus'
 " }
 
 filetype plugin indent on
@@ -134,6 +135,12 @@ filetype plugin indent on
     " grep.vim
     nnoremap <silent> <leader>f :Rgrep<CR>
     let Grep_Default_Options = '-IR'
+
+    " vim-neatstatus
+    let g:NeatStatusLine_color_normal = 'guifg=#000000 guibg=#7dcc7d gui=NONE ctermfg=0 ctermbg=10 cterm=NONE'
+    let g:NeatStatusLine_color_insert = 'guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=15 ctermbg=26 cterm=bold'
+    let g:NeatStatusLine_color_line = 'guifg=#ff00ff guibg=#000000 gui=bold ctermfg=172 ctermbg=0 cterm=bold'
+    let g:NeatStatusLine_color_filetype = 'guifg=#000000 guibg=#00ffff gui=bold ctermfg=0 ctermbg=11 cterm=bold'
 " }
 
 " Source a local configuration file if available.
