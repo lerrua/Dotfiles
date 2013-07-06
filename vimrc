@@ -107,6 +107,11 @@ filetype plugin indent on
     nnoremap <silent> <C-b> :CtrlPBuffer<CR>
     nnoremap <silent> <F5> :CtrlPClearCache<CR>
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+    let g:ctrlp_match_window_bottom = 0
+    let g:ctrlp_match_window_reversed = 0
+    let g:ctrlp_working_path_mode = 0
+    let g:ctrlp_dotfiles = 0
+    let g:ctrlp_switch_buffer = 0
 
     " Tagbar
     nmap <silent> <leader>l :TagbarToggle<CR>
