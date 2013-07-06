@@ -140,7 +140,7 @@ filetype plugin indent on
     let g:NeatStatusLine_color_normal = 'guifg=#000000 guibg=#7dcc7d gui=NONE ctermfg=0 ctermbg=10 cterm=NONE'
     let g:NeatStatusLine_color_insert = 'guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=15 ctermbg=26 cterm=bold'
     let g:NeatStatusLine_color_line = 'guifg=#ff00ff guibg=#000000 gui=bold ctermfg=172 ctermbg=0 cterm=bold'
-    let g:NeatStatusLine_color_filetype = 'guifg=#000000 guibg=#00ffff gui=bold ctermfg=0 ctermbg=11 cterm=bold'
+    let g:NeatStatusLine_color_filetype = 'guifg=#000000 guibg=#00ffff gui=bold ctermfg=15 ctermbg=8 cterm=bold'
 " }
 
 " Source a local configuration file if available.
