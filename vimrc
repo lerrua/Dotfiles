@@ -19,6 +19,8 @@ Bundle 'gmarik/vundle'
     Bundle 'vim-scripts/grep.vim'
     Bundle 'lerrua/snipmate.vim'
     Bundle 'Lokaltog/vim-powerline'
+    Bundle 'xolox/vim-misc'
+    Bundle 'xolox/vim-session'
 " }
 
 filetype plugin indent on
@@ -110,8 +112,6 @@ filetype plugin indent on
     let g:ctrlp_match_window_bottom = 0
     let g:ctrlp_match_window_reversed = 0
     let g:ctrlp_working_path_mode = 0
-    let g:ctrlp_dotfiles = 0
-    let g:ctrlp_switch_buffer = 0
 
     " Tagbar
     nmap <silent> <leader>l :TagbarToggle<CR>
@@ -143,6 +143,9 @@ filetype plugin indent on
     
     " vim-powerline
     let g:Powerline_symbols = 'unicode'
+
+    " vim-session
+    let g:session_autosave = 'no'
 " }
 
 " Source a local configuration file if available.
