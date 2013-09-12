@@ -12,7 +12,6 @@ Bundle 'gmarik/vundle'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'kien/ctrlp.vim'
     Bundle 'majutsushi/tagbar'
-    Bundle 'klen/python-mode'
     Bundle 'tpope/vim-fugitive'
     Bundle 'Yggdroot/indentLine'
     Bundle 'kana/vim-fakeclip'
@@ -21,6 +20,7 @@ Bundle 'gmarik/vundle'
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-session'
+    Bundle 'davidhalter/jedi-vim'
 " }
 
 filetype plugin indent on
@@ -116,23 +116,6 @@ filetype plugin indent on
     " Tagbar
     nmap <silent> <leader>l :TagbarToggle<CR>
 
-    " Python-Mode
-    let g:pymode_rope = 1           " Load rope plugin
-    let g:pymode_rope_vim_completion = 1
-    let g:pymode_lint = 1           " Load pylint code plugin
-    let g:pymode_lint_onfly = 0
-    let g:pymode_lint_write = 1     " Check code every save
-    let g:pymode_lint_cwindow = 1   " Auto open cwindow if errors be finded
-    let g:pymode_lint_message = 1   " Show error message if cursor placed at the error line
-    let g:pymode_lint_hold = 0      " Hold cursor in current window when quickfix is open
-    let g:pymode_lint_checker = "pyflakes,pep8"
-    let g:pymode_folding = 0        " Enable python folding
-    let g:pymode_virtualenv = 1     " Auto fix vim python paths if virtualenv enabled
-    let g:pymode_indent = 1         " Enable pymode indentation
-    let g:pymode_syntax_all = 1     " Enable all python highlightings
-    let g:pymode_motion = 1         " Enable python objects and motion
-    let g:pymode_utils_whitespaces = 1 " Autoremove unused whitespaces
-
     " indentLine
     let g:indentLine_color_term = 239
     let g:indentLine_char = '¦'
@@ -146,6 +129,15 @@ filetype plugin indent on
 
     " vim-session
     let g:session_autosave = 'no'
+
+    " jedi-vim
+    let g:jedi#goto_assignments_command = "<leader>g"
+    let g:jedi#goto_definitions_command = "<leader>d"
+    let g:jedi#documentation_command = "K"
+    let g:jedi#usages_command = "<leader>n"
+    let g:jedi#completions_command = "<C-Space>"
+    let g:jedi#rename_command = "<leader>r"
+    let g:jedi#show_call_signatures = "1"
 " }
 
 " Source a local configuration file if available.
