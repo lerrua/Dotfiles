@@ -1,6 +1,12 @@
 ## Dependencies
 
 
+Flake8
+```
+sudo pip install flake8
+```
+
+
 Linux
 ```
 apt-get install exuberant-ctags xclip vim-gnome
