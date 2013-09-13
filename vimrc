@@ -21,6 +21,7 @@ Bundle 'gmarik/vundle'
     Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-session'
     Bundle 'davidhalter/jedi-vim'
+    Bundle 'scrooloose/syntastic'
 " }
 
 filetype plugin indent on
@@ -138,6 +139,10 @@ filetype plugin indent on
     let g:jedi#completions_command = "<C-Space>"
     let g:jedi#rename_command = "<leader>r"
     let g:jedi#show_call_signatures = "1"
+
+    " syntastic
+    let g:syntastic_python_checkers=['flake8']
+    let g:syntastic_always_populate_loc_list=1
 " }
 
 " Source a local configuration file if available.
