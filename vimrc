@@ -14,7 +14,6 @@ Bundle 'gmarik/vundle'
     Bundle 'majutsushi/tagbar'
     Bundle 'tpope/vim-fugitive'
     Bundle 'Yggdroot/indentLine'
-    Bundle 'kana/vim-fakeclip'
     Bundle 'vim-scripts/grep.vim'
     Bundle 'lerrua/snipmate.vim'
     Bundle 'Lokaltog/vim-powerline'
@@ -49,8 +48,8 @@ filetype plugin indent on
     map q :q<CR>
 
     " Copy text or cut to clipboard
-    vmap <C-c> "+y
-    vmap <C-x> "+d
+    set clipboard=unnamed
+    set clipboard=unnamedplus
 
     " De-selects highlighted text
     nnoremap <silent> <leader><space> :noh<cr>
