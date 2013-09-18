@@ -19,6 +19,7 @@ Bundle 'gmarik/vundle'
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-session'
+    Bundle 'sheerun/vim-polyglot'
     Bundle 'davidhalter/jedi-vim'
     Bundle 'scrooloose/syntastic'
 " }
@@ -89,11 +90,6 @@ filetype plugin indent on
     set statusline+=\%L,            " total lines
     set statusline+=\ %P            " percent through file
     set laststatus=2                " always show the statusline
-
-    " File-type specific settings
-    " Ruby
-    au BufNewFile,BufRead *.rb,*.rbw,*.gemspec    set filetype=ruby
-    autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " }
 
 " Searching {
@@ -135,6 +131,9 @@ filetype plugin indent on
 
     " vim-session
     let g:session_autosave = 'no'
+
+    " vim-javascript
+    let javascript_enable_domhtmlcss = 1
 
     " jedi-vim
     let g:jedi#goto_assignments_command = "<leader>g"
