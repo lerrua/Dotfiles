@@ -90,6 +90,7 @@ filetype plugin indent on
     set statusline+=\%L,            " total lines
     set statusline+=\ %P            " percent through file
     set laststatus=2                " always show the statusline
+
 " }
 
 " Searching {
@@ -134,6 +135,10 @@ filetype plugin indent on
 
     " vim-javascript
     let javascript_enable_domhtmlcss = 1
+
+    " vim-ruby
+    au BufNewFile,BufRead *.rb,*.rbw,*.gemspec    set filetype=ruby
+    autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
     " jedi-vim
     let g:jedi#goto_assignments_command = "<leader>g"
