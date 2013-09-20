@@ -1,4 +1,4 @@
-echo "Installing Vundle..."
+echo "Backuping vimfiles"
 for i in ~/.vim ~/.vimrc ~/.gvimrc; do [ -e $i ] && mv $i $i.old; done
 git clone https://github.com/lerrua/vimfiles.git ~/.vim/
 ln -s ~/.vim/vimrc ~/.vimrc
