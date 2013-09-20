@@ -17,8 +17,15 @@ Mac OSX
 brew install ctags
 ```
 
+## Install (recommended)
 
-## Install
+
+```
+curl https://raw.github.com/lerrua/vimfiles/master/bootstrap.sh -o - | sh
+```
+
+
+## Manual Installation
 
 
 ```
