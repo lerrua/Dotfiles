@@ -29,7 +29,7 @@ filetype plugin indent on
 " Enviroment {
     set encoding=utf-8 
     set t_Co=256
-    colorscheme jellybeans
+    colorscheme jellybeansX
 " }
 
 " Coding {
