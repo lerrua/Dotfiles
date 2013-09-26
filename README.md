@@ -17,7 +17,8 @@ Mac OSX
 brew install ctags
 ```
 
-## Install (recommended)
+## Installation 
+#####(recommended)
 
 
 ```
