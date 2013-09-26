@@ -145,12 +145,11 @@ filetype plugin indent on
     let g:jedi#goto_definitions_command = "<leader>d"
     let g:jedi#documentation_command = "K"
     let g:jedi#usages_command = "<leader>n"
-    let g:jedi#completions_command = "<C-Space>"
     let g:jedi#rename_command = "<leader>r"
     let g:jedi#show_call_signatures = "1"
 
     " syntastic
-    let g:syntastic_python_checkers=['flake8']
+    let g:syntastic_python_checkers=['python', 'flake8']
     let g:syntastic_always_populate_loc_list=1
     let g:syntastic_error_symbol='✗'
     let g:syntastic_warning_symbol='⚠'
