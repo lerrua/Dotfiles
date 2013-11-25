@@ -1,8 +1,13 @@
 snippet #!
 	#!/usr/bin/env python
+snippet utf8
+	#-*- coding:utf-8 -*-
 # PDB
 snippet pdb
 	import pdb; pdb.set_trace()
+# PUDB
+snippet pudb
+	import pudb; pudb.set_trace()
 snippet imp
 	import ${1:module}
 # Module Docstring
@@ -12,6 +17,19 @@ snippet docs
 	Author: ${2:`g:snips_author`}
 	Description: ${3}
 	'''
+snippet if
+	if ${1:needle}:
+		${2:# code...}
+snippet else
+	if ${1:needle}:
+		${2:# code...}
+	else:
+		${3:# code...}
+snippet elif
+	if ${1:needle}:
+		${2:# code...}
+	elif :${3:# code...}
+		${4:# code...}
 snippet wh
 	while ${1:condition}:
 		${2:# code...}
@@ -19,7 +37,7 @@ snippet for
 	for ${1:needle} in ${2:haystack}:
 		${3:# code...}
 # New Class
-snippet cl
+snippet class
 	class ${1:ClassName}(${2:object}):
 		"""${3:docstring for $1}"""
 		def __init__(self, ${4:arg}):
