@@ -18,17 +18,17 @@ snippet docs
 	Description: ${3}
 	'''
 snippet if
-	if ${1:needle}:
+	if ${1:condition}:
 		${2:# code...}
 snippet else
-	if ${1:needle}:
+	if ${1:condition}:
 		${2:# code...}
 	else:
 		${3:# code...}
 snippet elif
-	if ${1:needle}:
+	if ${1:condition}:
 		${2:# code...}
-	elif :${3:# code...}
+	elif :${3:condition}
 		${4:# code...}
 snippet wh
 	while ${1:condition}:
