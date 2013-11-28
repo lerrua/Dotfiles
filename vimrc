@@ -101,10 +101,18 @@ filetype plugin indent on
 
 " GUI {
     if has("gui_running")
-        set guioptions-=M  "remove menu bar
-        set guioptions-=T  "remove toolbar
-        set guioptions-=r  "remove right-hand scroll bar
+        set guioptions-=M           "remove menu bar
+        set guioptions-=T           "remove toolbar
+        set guioptions-=r           "remove right-hand scroll bar
         set listchars=tab:>-,trail:- " whitespace characters on gui
+
+        if has("gui_gtk2")
+            set guifont=Inconsolata\ 10
+        elseif has("gui_macvim")
+            set guifont=Menlo\ Regular:h14
+        elseif has("gui_win32")
+            set guifont=Consolas:h11:cANSI
+        endif
     endif
 " }
 
