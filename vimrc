@@ -97,6 +97,16 @@ filetype plugin indent on
     set hlsearch                    " highlight matches
     set incsearch                   " searches starts as soon as you type - before pressing [enter]
 " }
+"
+
+" GUI {
+    if has("gui_running")
+        set guioptions-=M  "remove menu bar
+        set guioptions-=T  "remove toolbar
+        set guioptions-=r  "remove right-hand scroll bar
+        set listchars=tab:>-,trail:- " whitespace characters on gui
+    endif
+" }
 
 " Plugins {
     " NerdTree
