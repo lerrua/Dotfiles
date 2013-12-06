@@ -37,7 +37,6 @@ filetype plugin indent on
     set expandtab                   " use spaces, not tabs
     set number
     set novisualbell
-    set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
     set showcmd                     " show incomplete cmds down the bottom
     set showmode                    " Display the current mode
     set noswapfile                  " Don't use swapfile
@@ -48,9 +47,8 @@ filetype plugin indent on
     " Quit with 'q' instead of ':q'. VERY useful!
     map q :q<CR>
 
-    " Copy text or cut to clipboard
+    " Copy text or cut to system clipboard
     set clipboard=unnamed
-    set clipboard=unnamedplus
 
     " De-selects highlighted text
     nnoremap <silent> <leader><space> :noh<cr>
