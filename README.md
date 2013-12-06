@@ -35,3 +35,10 @@ ln -s ~/.vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
 ```
+
+## Learn Vim
+
+Visit the following sites to learn more about Vim:
+
+* http://www.vimcasts.org
+* http://www.openvim.com
