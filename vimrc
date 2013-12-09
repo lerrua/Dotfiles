@@ -18,17 +18,25 @@ Bundle 'gmarik/vundle'
     Bundle 'lerrua/snipmate.vim'
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'xolox/vim-misc'
-    Bundle 'xolox/vim-session'
     Bundle 'sheerun/vim-polyglot'
     Bundle 'davidhalter/jedi-vim'
     Bundle 'scrooloose/syntastic'
 " }
 
-filetype plugin indent on
 
 " Enviroment {
-    set encoding=utf-8 
+    filetype plugin indent on
+
     set t_Co=256
+    set mouse=a
+    set encoding=utf-8 
+    set nobackup                    " Don't create annoying backup files
+    set nowrap
+    set noswapfile                  " Don't use swapfile
+    set noerrorbells                " No beeps
+    set history=1000                " remember more commands and search history
+    set undolevels=1000             " use many muchos levels of undo
+
     colorscheme jellybeansX
 " }
 
@@ -39,10 +47,8 @@ filetype plugin indent on
     set novisualbell
     set showcmd                     " show incomplete cmds down the bottom
     set showmode                    " Display the current mode
-    set noswapfile                  " Don't use swapfile
-    set nobackup                    " Don't create annoying backup files
-    set noerrorbells                " No beeps
-    set mouse=a
+    set autoindent
+    set copyindent                  " copy the previous indentation on autoindenting
     let mapleader=","
     nnoremap ; :
     
@@ -81,18 +87,14 @@ filetype plugin indent on
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
-    set history=1000                " remember more commands and search history
-    set undolevels=1000             " use many muchos levels of undo
     set title                       " change the terminal's title
-    set autoindent
-    set copyindent                  " copy the previous indentation on autoindenting
-    set nowrap
     set list
     set listchars=tab:▸\ ,eol:¬     " whitespace characters from Textmate
     set wildignore=*.swp,*.bak,*.pyc,*.class
     set smarttab                    " insert tabs on the start of a line according to
                                     "    shiftwidth, not tabstop
                                     "
+ 
     "statusline setup
     set statusline=%f               " tail of the filename
     set statusline+=%=              " left/right separator
@@ -101,7 +103,6 @@ filetype plugin indent on
     set statusline+=\%L,            " total lines
     set statusline+=\ %P            " percent through file
     set laststatus=2                " always show the statusline
-
 " }
 
 " Searching {
@@ -159,10 +160,7 @@ filetype plugin indent on
     " vim-powerline
     let g:Powerline_symbols = 'unicode'
 
-    " vim-session
-    let g:session_autosave = 'no'
-
-    " vim-javascript
+    " vim-polyglot javascript
     let javascript_enable_domhtmlcss = 1
 
     " vim-ruby
