@@ -65,10 +65,10 @@ filetype plugin indent on
     vmap <D-]> >gv
 
     " Add keyboard shortcuts for navigating splits
-    map <c-j> <c-w>j
-    map <c-k> <c-w>k
-    map <c-l> <c-w>l
-    map <c-h> <c-w>h
+    map <C-down> <c-w>j
+    map <C-up> <c-w>k
+    map <C-right> <c-w>l
+    map <C-left> <c-w>h
 " }
 
 " Formatting {
