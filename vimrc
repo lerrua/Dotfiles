@@ -42,7 +42,9 @@ filetype plugin indent on
     set noswapfile                  " Don't use swapfile
     set nobackup                    " Don't create annoying backup files
     set noerrorbells                " No beeps
+    set mouse=a
     let mapleader=","
+    nnoremap ; :
     
     " Quit with 'q' instead of ':q'. VERY useful!
     map q :q<CR>
@@ -69,17 +71,28 @@ filetype plugin indent on
     map <C-up> <c-w>k
     map <C-right> <c-w>l
     map <C-left> <c-w>h
+
+    " Quickly edit/reload the vimrc file
+    nmap <silent> <leader>ev :e $MYVIMRC<CR>
+    nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " }
 
 " Formatting {
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
+    set history=1000                " remember more commands and search history
+    set undolevels=1000             " use many muchos levels of undo
+    set title                       " change the terminal's title
     set autoindent
+    set copyindent                  " copy the previous indentation on autoindenting
     set nowrap
     set list
     set listchars=tab:▸\ ,eol:¬     " whitespace characters from Textmate
-
+    set wildignore=*.swp,*.bak,*.pyc,*.class
+    set smarttab                    " insert tabs on the start of a line according to
+                                    "    shiftwidth, not tabstop
+                                    "
     "statusline setup
     set statusline=%f               " tail of the filename
     set statusline+=%=              " left/right separator
