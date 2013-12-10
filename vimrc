@@ -21,6 +21,7 @@ Bundle 'gmarik/vundle'
     Bundle 'sheerun/vim-polyglot'
     Bundle 'davidhalter/jedi-vim'
     Bundle 'scrooloose/syntastic'
+    Bundle 'szw/vim-maximizer'
 " }
 
 
@@ -181,6 +182,9 @@ Bundle 'gmarik/vundle'
     let g:syntastic_error_symbol='✗'
     let g:syntastic_warning_symbol='⚠'
     let g:syntastic_auto_loc_list=1
+
+    " vim-maximizer
+    inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
 " }
 
 " Source a local configuration file if available.
