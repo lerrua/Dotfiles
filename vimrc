@@ -38,7 +38,7 @@ Bundle 'gmarik/vundle'
     set history=1000                " remember more commands and search history
     set undolevels=1000             " use many muchos levels of undo
 
-    colorscheme jellybeansX
+    colorscheme jellybeans
 " }
 
 " Coding {
