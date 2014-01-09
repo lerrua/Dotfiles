@@ -38,7 +38,7 @@ Bundle 'gmarik/vundle'
     set history=1000                " remember more commands and search history
     set undolevels=1000             " use many muchos levels of undo
 
-    colorscheme jellybeans
+    colorscheme no_quarter
 " }
 
 " Coding {
@@ -114,9 +114,10 @@ Bundle 'gmarik/vundle'
 
 " GUI {
     if has("gui_running")
-        set guioptions-=M           "remove menu bar
-        set guioptions-=T           "remove toolbar
-        set guioptions-=r           "remove right-hand scroll bar
+        colorscheme SolarizedDark
+        set guioptions-=M            " remove menu bar
+        set guioptions-=T            " remove toolbar
+        set guioptions-=r            " remove right-hand scroll bar
         set listchars=tab:>-,trail:- " whitespace characters on gui
 
         if has("gui_gtk2")
