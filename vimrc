@@ -90,7 +90,7 @@ Bundle 'gmarik/vundle'
     set softtabstop=4
     set title                       " change the terminal's title
     set list
-    set listchars=tab:▸\ ,eol:·     " whitespace characters from Textmate
+    set listchars=tab:▸\            " whitespace characters from Textmate
     set wildignore=*.swp,*.bak,*.pyc,*.class
     set smarttab                    " insert tabs on the start of a line according to
                                     "    shiftwidth, not tabstop
