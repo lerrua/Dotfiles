@@ -36,6 +36,11 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
 ```
 
+## Helpful Cheat Sheet commands
+
+http://csnipp.com/go_on/69
+
+
 ## Learn Vim
 
 Visit the following sites to learn more about Vim:
