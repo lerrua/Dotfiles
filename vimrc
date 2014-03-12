@@ -28,19 +28,25 @@ Bundle 'gmarik/vundle'
 " Enviroment {
     filetype plugin indent on
 
-    set t_Co=256
-    set mouse=a
     set encoding=utf-8 
+    set termencoding=utf-8
+    set t_Co=256
+    set term=xterm-256color
+    set mouse=a
     set nobackup                    " Don't create annoying backup files
     set nowrap
     set noswapfile                  " Don't use swapfile
     set noerrorbells                " No beeps
     set history=1000                " remember more commands and search history
     set undolevels=1000             " use many muchos levels of undo
-    set term=xterm-256color
-    set termencoding=utf-8
 
-    colorscheme no_quarter
+    " use 256 colors when possible
+    if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
+        let &t_Co = 256
+        colorscheme fisa
+    else
+        colorscheme no_quarter
+    endif
 " }
 
 " Coding {
@@ -52,14 +58,17 @@ Bundle 'gmarik/vundle'
     set showmode                    " Display the current mode
     set autoindent
     set copyindent                  " copy the previous indentation on autoindenting
+    set virtualedit=onemore         " Cursor goes beyond last character
     let mapleader=","
     nnoremap ; :
     
-    " Quit with 'q' instead of ':q'. VERY useful!
-    map q :q<CR>
-
     " Copy text or cut to system clipboard
     set clipboard=unnamed
+
+    " Show matching brackets/parenthesis
+    set showmatch
+    " Don't blink
+    set matchtime=0
 
     " De-selects highlighted text
     nnoremap <silent> <leader><space> :noh<cr>
@@ -69,11 +78,12 @@ Bundle 'gmarik/vundle'
     nmap <S-Tab> gT
     nnoremap <silent> <S-t> :tabnew<CR>
 
-    " Key mapping for textmate-like indentation
-    nmap <D-[> <<
-    nmap <D-]> >>
-    vmap <D-[> <gv
-    vmap <D-]> >gv
+    " Key mapping for sublime-like indentation
+    nnoremap <Tab> >>_
+    nnoremap <S-Tab> <<_
+    inoremap <S-Tab> <C-D>
+    vnoremap <Tab> >gv
+    vnoremap <S-Tab> <gv
 
     " Add keyboard shortcuts for navigating splits
     map <C-down> <c-w>j
@@ -135,7 +145,7 @@ Bundle 'gmarik/vundle'
 " Plugins {
     " NerdTree
     nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-    nnoremap <silent> <leader>n :NERDTreeFind<CR>
+    nnoremap <silent> <S-n> :NERDTreeFind<CR>
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
     autocmd vimenter * if !argc() | NERDTree | endif
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -151,7 +161,8 @@ Bundle 'gmarik/vundle'
     let g:ctrlp_working_path_mode = 0
 
     " Tagbar
-    nmap <silent> <leader>l :TagbarToggle<CR>
+    nmap <silent> <F4> :TagbarToggle<CR>
+    let g:tagbar_autofocus = 1
 
     " indentLine
     let g:indentLine_color_term = 239
@@ -172,12 +183,13 @@ Bundle 'gmarik/vundle'
     autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
     " jedi-vim
+    let g:jedi#popup_on_dot = 0
     let g:jedi#goto_assignments_command = "<leader>g"
     let g:jedi#goto_definitions_command = "<leader>d"
     let g:jedi#documentation_command = "K"
     let g:jedi#usages_command = "<leader>n"
     let g:jedi#rename_command = "<leader>r"
-    let g:jedi#show_call_signatures = "1"
+    let g:jedi#show_call_signatures = "0"
 
     " syntastic
     let g:syntastic_python_checkers=['python', 'pep8']
