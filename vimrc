@@ -62,6 +62,9 @@ Bundle 'gmarik/vundle'
     let mapleader=","
     nnoremap ; :
     
+    " Remove bad whitespaces
+    autocmd BufWritePre *.py :%s/\s\+$//e 
+
     " Copy text or cut to system clipboard
     set clipboard=unnamed
 
