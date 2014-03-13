@@ -82,11 +82,11 @@ Bundle 'gmarik/vundle'
     nnoremap <silent> <S-t> :tabnew<CR>
 
     " Key mapping for sublime-like indentation
-    nnoremap <Tab> >>_
-    nnoremap <S-Tab> <<_
-    inoremap <S-Tab> <C-D>
-    vnoremap <Tab> >gv
-    vnoremap <S-Tab> <gv
+    nnoremap > >>_
+    nnoremap < <<_
+    inoremap < <C-D>
+    vnoremap > >gv
+    vnoremap < <gv
 
     " Add keyboard shortcuts for navigating splits
     map <C-down> <c-w>j
