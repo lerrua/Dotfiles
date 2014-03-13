@@ -91,6 +91,15 @@ Bundle 'gmarik/vundle'
     map <C-right> <c-w>l
     map <C-left> <c-w>h
 
+    " Copy
+    noremap YY "+y<CR>
+
+    " Paste
+    noremap P "+gP<CR>
+
+    " Cut
+    noremap XX "+x<CR>
+    
     " Quickly edit/reload the vimrc file
     nmap <silent> <leader>ev :e $MYVIMRC<CR>
     nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -107,7 +116,6 @@ Bundle 'gmarik/vundle'
     set smarttab                    " insert tabs on the start of a line according to
                                     "    shiftwidth, not tabstop
                                     "
- 
     "statusline setup
     set statusline=%f               " tail of the filename
     set statusline+=%=              " left/right separator
