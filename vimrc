@@ -205,6 +205,7 @@ Bundle 'gmarik/vundle'
     let g:syntastic_error_symbol='✗'
     let g:syntastic_warning_symbol='⚠'
     let g:syntastic_auto_loc_list=1
+    let g:syntastic_aggregate_errors = 1
 
     " vim-maximizer
     inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
