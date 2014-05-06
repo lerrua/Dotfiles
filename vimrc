@@ -9,10 +9,10 @@ Bundle 'gmarik/vundle'
 
 " Bundles {
     Bundle 'scrooloose/nerdtree'
-    Bundle 'scrooloose/nerdcommenter'
     Bundle 'kien/ctrlp.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-commentary'
     Bundle 'Yggdroot/indentLine'
     Bundle 'vim-scripts/grep.vim'
     Bundle 'lerrua/snipmate.vim'
