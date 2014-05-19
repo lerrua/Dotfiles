@@ -59,6 +59,7 @@ Bundle 'gmarik/vundle'
     set autoindent
     set copyindent                  " copy the previous indentation on autoindenting
     set virtualedit=onemore         " Cursor goes beyond last character
+    set cursorline
     let mapleader=","
     nnoremap ; :
     
