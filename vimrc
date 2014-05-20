@@ -187,6 +187,11 @@ Bundle 'gmarik/vundle'
     " vim-polyglot javascript
     let javascript_enable_domhtmlcss = 1
 
+    " vim-python
+    autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79,99
+        \ formatoptions+=croq softtabstop=4 smartindent
+        \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+
     " vim-ruby
     au BufNewFile,BufRead *.rb,*.rbw,*.gemspec    set filetype=ruby
     autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
