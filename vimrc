@@ -16,6 +16,7 @@ Bundle 'gmarik/vundle'
     Bundle 'Yggdroot/indentLine'
     Bundle 'vim-scripts/grep.vim'
     Bundle 'lerrua/snipmate.vim'
+    Bundle 'lerrua/vim-colors'
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'xolox/vim-misc'
     Bundle 'sheerun/vim-polyglot'
@@ -185,10 +186,10 @@ Bundle 'gmarik/vundle'
     let g:Powerline_symbols = 'unicode'
 
     " vim-polyglot javascript
-    let javascript_enable_domhtmlcss = 1
+    let g:javascript_enable_domhtmlcss = 1
 
     " vim-python
-    autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79,99
+    autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
         \ formatoptions+=croq softtabstop=4 smartindent
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 
