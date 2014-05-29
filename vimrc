@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
 
 " Bundles {
     Bundle 'scrooloose/nerdtree'
+    Bundle 'scrooloose/syntastic'
     Bundle 'kien/ctrlp.vim'
     Bundle 'majutsushi/tagbar'
     Bundle 'tpope/vim-fugitive'
@@ -21,7 +22,6 @@ Bundle 'gmarik/vundle'
     Bundle 'xolox/vim-misc'
     Bundle 'sheerun/vim-polyglot'
     Bundle 'davidhalter/jedi-vim'
-    Bundle 'scrooloose/syntastic'
     Bundle 'szw/vim-maximizer'
 " }
 
@@ -101,6 +101,14 @@ Bundle 'gmarik/vundle'
 
     " Cut
     noremap XX "+x<CR>
+
+    " pbcopy
+    vmap <C-x> :!pbcopy<CR>
+    vmap <C-c> :w !pbcopy<CR><CR>
+
+    " F10 to toggle paste mode
+    map <F10> :set invpaste<CR>
+    set pastetoggle=<F10>
     
     " Quickly edit/reload the vimrc file
     nmap <silent> <leader>ev :e $MYVIMRC<CR>
