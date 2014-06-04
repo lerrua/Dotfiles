@@ -163,7 +163,7 @@ Bundle 'gmarik/vundle'
 " Plugins {
     " NerdTree
     nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-    nnoremap <silent> <S-n> :NERDTreeFind<CR>
+    nnoremap <silent> <F2> :NERDTreeFind<CR>
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
     autocmd vimenter * if !argc() | NERDTree | endif
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
