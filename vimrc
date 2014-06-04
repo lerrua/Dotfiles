@@ -169,14 +169,16 @@ Bundle 'gmarik/vundle'
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
     " CtrlP
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
     let g:ctrlp_working_path_mode = 0
+    let g:ctrlp_match_window_bottom = 0
+    let g:ctrlp_match_window_reversed = 0
+    let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+    let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore  +"'"
+
     nnoremap <silent> <C-t> :CtrlP<CR>
     nnoremap <silent> <C-b> :CtrlPBuffer<CR>
     nnoremap <silent> <F5> :CtrlPClearCache<CR>
-    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
-    let g:ctrlp_match_window_bottom = 0
-    let g:ctrlp_match_window_reversed = 0
-    let g:ctrlp_working_path_mode = 0
 
     " Tagbar
     nmap <silent> <F4> :TagbarToggle<CR>
