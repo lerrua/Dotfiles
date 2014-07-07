@@ -187,7 +187,8 @@ Bundle 'gmarik/vundle'
 
     " indentLine
     let g:indentLine_color_term = 239
-    let g:indentLine_char = '¦'
+    let g:indentLine_color_tty_light = 4
+    let g:indentLine_char = '┆'
 
     " grep.vim
     nnoremap <silent> <leader>f :Rgrep<CR>
