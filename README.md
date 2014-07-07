@@ -37,34 +37,34 @@ vim +BundleInstall +qall
 
 * Window navigation
 
-```Ctrl-Up``` = Go to up buffer window
+```Ctrl-w-Up``` = Go to up buffer window
 
-```Ctrl-Down``` = Go to down buffer window
+```Ctrl-w-Down``` = Go to down buffer window
 
-```Ctrl-Left``` = Go to left buffer window
+```Ctrl-w-Left``` = Go to left buffer window
 
-```Ctrl-Right``` = Go to right buffer window
+```Ctrl-w-Right``` = Go to right buffer window
 
 
 * Open files
 
 ```Ctrl-t``` = Open files in project
 
-```Ctrl-b``` = Open all closed files
+```Ctrl-b``` = Open buffers files
 
-```Ctrl-N``` = Open/Close tree
+```Ctrl-N``` = Toggle tree
 
-```Shift-N``` = Open tree by actual file
+```F2``` = Open tree by actual file
 
 * Autocomplete and file navigation
 
 ```Ctrl-Space``` = Autocomplete
 
-```F4``` = Show class/methods list
+```F4``` = Toggle Tagbar class/methods list
 
 ```F3``` = Maximize window buffer
 
-```,f``` = Search text
+```,f``` = Call grep search
 
 ```,g``` = Go to definition by word on cursor (function, method, class)
 
