@@ -24,6 +24,7 @@ Bundle 'gmarik/vundle'
     Bundle 'sheerun/vim-polyglot'
     Bundle 'davidhalter/jedi-vim'
     Bundle 'szw/vim-maximizer'
+    Bundle 'benmills/vimux'
 " }
 
 " Enviroment {
