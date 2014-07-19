@@ -50,7 +50,7 @@ vim +BundleInstall +qall
 
 ```Ctrl-t``` = Open files in project
 
-```Ctrl-b``` = Open buffers files
+```Ctrl-e``` = Open buffers files
 
 ```Ctrl-N``` = Toggle tree
 

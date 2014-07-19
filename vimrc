@@ -178,7 +178,7 @@ Bundle 'gmarik/vundle'
     let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore  +"'"
 
     nnoremap <silent> <C-t> :CtrlP<CR>
-    nnoremap <silent> <C-b> :CtrlPBuffer<CR>
+    nnoremap <silent> <C-e> :CtrlPBuffer<CR>
     nnoremap <silent> <F5> :CtrlPClearCache<CR>
 
     " Tagbar
