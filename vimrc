@@ -25,6 +25,7 @@ Bundle 'gmarik/vundle'
     Bundle 'davidhalter/jedi-vim'
     Bundle 'szw/vim-maximizer'
     Bundle 'benmills/vimux'
+    Bundle 'edkolev/tmuxline.vim'
 " }
 
 " Enviroment {
@@ -257,6 +258,16 @@ Bundle 'gmarik/vundle'
 
     " vim-maximizer
     inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
+
+    " tmuxline.vim
+    let g:tmuxline_theme = 'powerline'
+    let g:tmuxline_preset = 'tmux'
+    let g:tmuxline_separators = {
+        \ 'left' : '',
+        \ 'left_alt': '>',
+        \ 'right' : '',
+        \ 'right_alt' : '<',
+        \ 'space' : ' '}
 " }
 
 " Source a local configuration file if available.
