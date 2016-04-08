@@ -3,4 +3,8 @@ let g:airline_powerline_fonts = 1
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
-"
+" perfomance issues
+set nocursorcolumn
+set nocursorline
+set norelativenumber
+syntax sync minlines=256"
