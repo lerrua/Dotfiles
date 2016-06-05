@@ -8,3 +8,7 @@ set nocursorcolumn
 set nocursorline
 set norelativenumber
 syntax sync minlines=256"
+
+" enable mouse use
+set mouse=a
+set ttymouse=xterm2
