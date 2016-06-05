@@ -12,3 +12,7 @@ syntax sync minlines=256"
 " enable mouse use
 set mouse=a
 set ttymouse=xterm2
+
+let g:syntastic_auto_loc_list=2
+let g:jedi#auto_vim_configuration=0
+let g:jedi#use_tabs_not_buffers=1
