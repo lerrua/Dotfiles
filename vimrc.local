@@ -1,7 +1,6 @@
 " vim-devicons
 let g:airline_powerline_fonts = 1
-
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
 
 " perfomance issues
 set nocursorcolumn
@@ -13,6 +12,9 @@ syntax sync minlines=256"
 set mouse=a
 set ttymouse=xterm2
 
-let g:syntastic_auto_loc_list=2
+" jedi-vim setings tabs over buffers
 let g:jedi#auto_vim_configuration=0
 let g:jedi#use_tabs_not_buffers=1
+
+" syntastic
+let g:syntastic_python_flake8_args='--ignore=E501'
