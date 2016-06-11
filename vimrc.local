@@ -1,6 +1,5 @@
 " vim-devicons
 let g:airline_powerline_fonts = 1
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
 
 " perfomance issues
 set nocursorcolumn
@@ -32,3 +31,16 @@ highlight link SyntasticStyleWarningSign SignColumn
 
 let g:NERDTreeDirArrowExpandable = '📁'
 let g:NERDTreeDirArrowCollapsible = '📂'
+
+if has('gui_running')
+	colorscheme dracula
+	let g:airline_theme = 'dracula'
+
+	set guioptions-=m " Removes top menubar
+	set guioptions-=T " Removes top toolbar
+	set guioptions-=r " Removes right hand scroll bar
+	set go-=L " Removes left hand scroll bar
+	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h14
+else
+	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
+endif

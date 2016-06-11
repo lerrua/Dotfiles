@@ -1,1 +1,2 @@
 NeoBundle 'ryanoasis/vim-devicons'
+NeoBundle 'dracula/vim'
