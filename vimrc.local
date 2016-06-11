@@ -29,3 +29,6 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+let g:NERDTreeDirArrowExpandable = '📁'
+let g:NERDTreeDirArrowCollapsible = '📂'
