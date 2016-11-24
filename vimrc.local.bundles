@@ -1,2 +1,10 @@
-NeoBundle 'ryanoasis/vim-devicons'
-NeoBundle 'dracula/vim'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'reedes/vim-colors-pencil'
+Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim'
+Plug 'trevordmiller/nova-vim'
+
+Plug 'Shougo/neocomplete'
+
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'

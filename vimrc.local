@@ -1,46 +1,105 @@
 " vim-devicons
 let g:airline_powerline_fonts = 1
-
-" perfomance issues
-set nocursorcolumn
-set nocursorline
-set norelativenumber
-syntax sync minlines=256"
+" let g:airline_skip_empty_sections = 1
 
 " enable mouse use
 set mouse=a
 set ttymouse=xterm2
 
 " jedi-vim setings tabs over buffers
-let g:jedi#auto_vim_configuration=0
+" let g:jedi#auto_vim_configuration=0
 let g:jedi#use_tabs_not_buffers=1
 
 " syntastic
 let g:syntastic_python_flake8_args='--ignore=E501'
 
 let g:syntastic_auto_loc_list=2
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_error_symbol = '❌'
+" let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
 let g:syntastic_style_error_symbol = '💩'
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-let g:NERDTreeDirArrowExpandable = '📁'
-let g:NERDTreeDirArrowCollapsible = '📂'
+"highlight link SyntasticErrorSign SignColumn
+"highlight link SyntasticWarningSign SignColumn
+"highlight link SyntasticStyleErrorSign SignColumn
+"highlight link SyntasticStyleWarningSign SignColumn
+nnoremap <silent> <leader>f :Grep<CR>
 
 if has('gui_running')
-	colorscheme dracula
-	let g:airline_theme = 'dracula'
+	set cursorline
+	set background=light
+	colorscheme solarized
+	" colorscheme nova
+	let g:airline_theme = 'solarized'
 
+	let g:NERDTreeDirArrowExpandable = '📁'
+	let g:NERDTreeDirArrowCollapsible = '📂'
+
+	let g:nerdtree_tabs_focus_on_files=0
+	let g:nerdtree_tabs_open_on_gui_startup=0
+	" macvim fixes for vim-devicons and airline
+	autocmd FileType nerdtree setlocal nolist
+	let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+	set ambiwidth=double
+
+	set linespace=0
 	set guioptions-=m " Removes top menubar
 	set guioptions-=T " Removes top toolbar
 	set guioptions-=r " Removes right hand scroll bar
 	set go-=L " Removes left hand scroll bar
-	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h14
+	set guifont=Fira\ Mono\ Bold\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Pomicons:h14
+
+	" airline symbols
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ' '
+	set noerrorbells visualbell t_vb=
+	if has('autocmd')
+	  autocmd GUIEnter * set visualbell t_vb=
+	endif
 else
 	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
+
+	" perfomance issues
+	set nocursorcolumn
+	set nocursorline
+	set norelativenumber
+	set ttyfast
+	syntax sync minlines=256"
 endif
+
+
+"------------------------------------------------------------------------------
+" NeoComplete
+"------------------------------------------------------------------------------
+" Disable AutoComplPop.
+let g:neocomplete#enable_auto_select = 1
+let g:acp_enableAtStartup = 1
+
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" AutoComplPop like behavior.
+let g:neocomplete#enable_auto_select = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" Go auto-complete
+let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
+
+" Python auto-complete
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:neocomplete#force_omni_input_patterns.python =
+\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'"
