@@ -4,6 +4,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim'
 Plug 'trevordmiller/nova-vim'
 
+Plug 'w0rp/ale'
+
 Plug 'Shougo/neocomplete'
 
 Plug 'Shougo/neosnippet'
