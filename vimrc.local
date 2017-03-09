@@ -45,7 +45,7 @@ if has('gui_running')
 	set cursorline
 	set background=light
 	colorscheme solarized
-	" colorscheme nova
+	" gui colorscheme
 	let g:airline_theme = 'solarized'
 
 	let g:NERDTreeDirArrowExpandable = '📁'
@@ -66,10 +66,14 @@ if has('gui_running')
 	set guifont=Fira\ Mono\ Bold\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Pomicons:h14
 
 	" airline symbols
+	" TODO: review it after VimDevIcons fix new macvim compatibility
+	" and replace it with true airline separators
 	let g:airline_left_sep = ''
 	let g:airline_left_alt_sep = ''
 	let g:airline_right_sep = ''
 	let g:airline_right_alt_sep = ' '
+
+	" remove visualbell on gui
 	set noerrorbells visualbell t_vb=
 	if has('autocmd')
 	  autocmd GUIEnter * set visualbell t_vb=
