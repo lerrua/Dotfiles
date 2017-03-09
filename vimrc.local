@@ -76,7 +76,7 @@ if has('gui_running')
 	" remove visualbell on gui
 	set noerrorbells visualbell t_vb=
 	if has('autocmd')
-	  autocmd GUIEnter * set visualbell t_vb=
+		autocmd GUIEnter * set visualbell t_vb=
 	endif
 else
 	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
@@ -112,7 +112,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " AutoComplPop like behavior.
 if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
+	let g:neocomplete#force_omni_input_patterns = {}
 endif
 
 " Go auto-complete
@@ -124,4 +124,4 @@ let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#smart_auto_mappings = 0
 let g:neocomplete#force_omni_input_patterns.python =
-\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'"
+			\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'"
