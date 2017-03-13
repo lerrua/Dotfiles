@@ -11,3 +11,6 @@ Plug 'Shougo/neocomplete'
 
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'

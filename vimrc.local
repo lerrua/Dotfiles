@@ -130,3 +130,7 @@ let g:neocomplete#force_omni_input_patterns.python =
 nmap <silent><Leader>0 <Esc>:Pytest file<CR>
 nmap <silent><Leader>c <Esc>:Pytest class<CR>
 nmap <silent><Leader>m <Esc>:Pytest method<CR>
+
+
+nnoremap <silent> <leader>e :FZF -m<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
