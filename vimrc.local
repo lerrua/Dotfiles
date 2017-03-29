@@ -157,3 +157,16 @@ nmap <silent><Leader>m <Esc>:Pytest method<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>f :Ag<CR>
+
+" Zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" Resize panes
+nnoremap <silent> <leader><Right> :vertical resize +5<cr>
+nnoremap <silent> <leader><Left> :vertical resize -5<cr>
+nnoremap <silent> <leader><Up> :resize +5<cr>
+nnoremap <silent> <leader><Down> :resize -5<cr>
+
+" Automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
