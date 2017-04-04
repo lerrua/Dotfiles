@@ -170,3 +170,7 @@ nnoremap <silent> <leader><Down> :resize -5<cr>
 
 " Automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+
+" auto pep8
+let g:formatter_yapf_style = 'pep8'
+noremap <F8> :Autoformat<CR>
