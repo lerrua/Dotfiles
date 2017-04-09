@@ -9,5 +9,5 @@ fancy_echo() {
 
 fancy_echo "Symlinking dotfiles"
 
-ln -s ~/Code/github-projects/Dotfiles/vim/vimrc.local ~/.vimrc.bundles.local
-ln -s ~/Code/github-projects/Dotfiles/vim/vimrc.local.bundles ~/.vimrc.bundles.local.bundles
+ln -s ~/Code/github-projects/Dotfiles/vim/vimrc.local ~/.vimrc.local
+ln -s ~/Code/github-projects/Dotfiles/vim/vimrc.local.bundles ~/.vimrc.local.bundles
