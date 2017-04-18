@@ -13,6 +13,6 @@ ln -s $DOTFILES/vim/vimrc.local ~/.vimrc.local
 ln -s $DOTFILES/vim/vimrc.local.bundles ~/.vimrc.local.bundles
 
 ln -s $DOTFILES/tmux/tmux.conf ~/.tmux.conf
-ln -s $DOTFILES/tmux/tmux.powerline ~/.tmux.powerline
+ln -s $DOTFILES/tmux/tmux.theme ~/.tmux.theme
 
 ln -s $DOTFILES/bin/tm  /usr/local/bin/tm
