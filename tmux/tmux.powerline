@@ -4,7 +4,7 @@
 tm_icon="🍺"
 tm_right_icon="🕥"
 tm_color_feature=colour13
-tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
+tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon  #S"
 
 set -g status-justify "left"
 set -g status "on"
