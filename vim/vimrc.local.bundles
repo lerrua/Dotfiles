@@ -1,5 +1,4 @@
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'alfredodeza/pytest.vim'
 
 Plug 'reedes/vim-colors-pencil'
 Plug 'altercation/vim-colors-solarized'
