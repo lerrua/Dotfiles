@@ -19,3 +19,5 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/seoul256.vim'
 
 Plug 'chiel92/vim-autoformat'
+
+Plug 'janko-m/vim-test'

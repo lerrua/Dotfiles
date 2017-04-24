@@ -148,6 +148,10 @@ let g:jedi#smart_auto_mappings = 0
 let g:neocomplete#force_omni_input_patterns.python =
 			\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'"
 
+" pytest
+let g:test#python#pytest#file_pattern = '^test_.*\.py$'
+let g:test#python#runner = 'pytest'
+
 " FZF
 nnoremap <silent> <leader>e :FZF -m<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
