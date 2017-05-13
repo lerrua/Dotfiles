@@ -9,6 +9,9 @@ fancy_echo() {
 
 fancy_echo "Symlinking dotfiles"
 
+# bash
+ln -s $DOTFILES/bash/bash_profile ~/.bash_profile
+
 # vimfiles
 ln -s $DOTFILES/vim/vimrc ~/.vimrc
 ln -s $DOTFILES/vim/vimrc.local ~/.vimrc.local

@@ -1,0 +1,124 @@
+export TERM='xterm-256color'
+
+# Tell ls to be colourful
+export CLICOLOR=1
+
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+
+PATH=/usr/local/share/python:$PATH
+PATH="$HOME/.node/bin:$PATH"
+PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH # OSX Lion bin path
+
+# java
+export JAVA_HOME=/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
+
+# aliases
+alias grep="grep --color"
+alias egrep="egrep --color"
+alias less="less -Xr"
+
+alias la="ls -a"
+alias ll="ls -lah"
+alias ls="ls -G"
+
+alias clean_pyc='find . -name "*.pyc" -exec rm -rf {} \;'
+
+alias brake='bundle exec rake'
+alias brails='bundle exec rails'
+alias be='bundle exec'
+
+# destroy all branchs except master
+alias gitclean='git branch | grep -v "master" | xargs git branch -D'
+
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'
+
+# fix osx terminal encoding
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# GO PATH
+export GOPATH=$HOME/.go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# ruby rvm
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
+export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/:$PATH"
+CPLUS_INCLUDE_PATH=/usr/local/opt/openssl/include
+
+export DOTFILES='/Users/leroy/Code/github-projects/Dotfiles'
+export BLOG='/Users/leroy/Dropbox/Blog/lerrua.github.com'
+
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# pyenv
+eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+pyenv virtualenvwrapper_lazy
+
+# fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [ -f ~/.bash_projects ]; then
+   source ~/.bash_projects
+fi
+
+# Path to the bash it configuration
+export BASH_IT="/Users/leroy/.bash_it"
+
+# Lock and Load a custom theme file
+# location /.bash_it/themes/
+export BASH_IT_THEME='Coffee'
+
+# (Advanced): Change this to the name of your remote repo if you
+# cloned bash-it with a remote other than origin such as `bash-it`.
+# export BASH_IT_REMOTE='bash-it'
+
+# Your place for hosting Git repos. I use this for private repos.
+export GIT_HOSTING='git@git.domain.com'
+
+# Don't check mail when opening terminal.
+unset MAILCHECK
+
+# Change this to your console based IRC client of choice.
+export IRC_CLIENT='irssi'
+
+# Set this to the command you use for todo.txt-cli
+export TODO="t"
+
+# Set this to false to turn off version control status checking within the prompt for all themes
+export SCM_CHECK=true
+
+# Set Xterm/screen/Tmux title with only a short hostname.
+# Uncomment this (or set SHORT_HOSTNAME to something else),
+# Will otherwise fall back on $HOSTNAME.
+#export SHORT_HOSTNAME=$(hostname -s)
+
+# Set vcprompt executable path for scm advance info in prompt (demula theme)
+# https://github.com/djl/vcprompt
+#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
+
+# (Advanced): Uncomment this to make Bash-it reload itself automatically
+# after enabling or disabling aliases, plugins, and completions.
+# export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
+
+# Load Bash It
+source $BASH_IT/bash_it.sh
