@@ -30,7 +30,9 @@ nnoremap <silent> <leader>f :Grep<CR>
 
 let g:airline#extensions#ale#error_symbol = '⨉ '
 let g:airline#extensions#ale#warning_symbol = '⚠ '
-" ale
+" ALE
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 let g:ale_sign_error = '💩'
 let g:ale_sign_warning = '⚠️'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
