@@ -1,6 +1,15 @@
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
 " vim-devicons
 let g:airline_powerline_fonts = 1
 " let g:airline_skip_empty_sections = 1
+
+" Close NERDTree automatically after opening a file with it.
+let g:NERDTreeQuitOnOpen = 1
 
 " enable mouse use
 set mouse=a
@@ -28,17 +37,26 @@ nnoremap <silent> <leader>f :Grep<CR>
 
 " let g:airline_skip_empty_sections = 1
 
+" ALE
 let g:airline#extensions#ale#error_symbol = '⨉ '
 let g:airline#extensions#ale#warning_symbol = '⚠ '
 " ALE
+
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+
 let g:ale_sign_error = '💩'
 let g:ale_sign_warning = '⚠️'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
+
+let g:ale_linters = {
+\   'html': [],
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\}
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
