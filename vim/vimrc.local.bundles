@@ -1,23 +1,17 @@
-Plug 'jmcantrell/vim-virtualenv'
-
+" custom themes
 Plug 'reedes/vim-colors-pencil'
-Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim'
 
+" icons
+Plug 'ryanoasis/vim-devicons'
+
+" ALE instead of syntastic
 Plug 'w0rp/ale'
 
-Plug 'Shougo/neocomplete'
-
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-
+" fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'ryanoasis/vim-devicons'
-
-Plug 'junegunn/seoul256.vim'
-
+" python plugins
 Plug 'chiel92/vim-autoformat'
-
-Plug 'janko-m/vim-test'
+Plug 'jmcantrell/vim-virtualenv'
