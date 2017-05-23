@@ -68,7 +68,7 @@ tmux_conf_theme_pane_active_border='#000000'            # black
 tmux_conf_theme_pane_indicator='#00afff'                # light blue
 tmux_conf_theme_pane_active_indicator='#00afff'         # light blue
 
-# status line style
+# status line style (alert)
 tmux_conf_theme_message_bg='#000000'                    # black
 tmux_conf_theme_message_fg='#ffff00'                    # yellow
 tmux_conf_theme_message_attr='bold'
@@ -83,9 +83,9 @@ tmux_conf_theme_mode_fg='#000000'                       # black
 tmux_conf_theme_mode_bg='#ffff00'                       # yellow
 tmux_conf_theme_mode_attr='bold'
 
-# status line style
+# status line style (bar)
 tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
-tmux_conf_theme_status_bg='#080808'                     # dark gray
+tmux_conf_theme_status_bg='#000000'                     # black
 tmux_conf_theme_status_attr='none'
 
 # window status style
@@ -102,7 +102,7 @@ tmux_conf_theme_window_status_format='#I #W'
 #   - built-in variables are:
 #     - #{circled_window_index}
 tmux_conf_theme_window_status_current_fg='#080808'      # dark gray
-tmux_conf_theme_window_status_current_bg='#9B59B6'      # white blue
+tmux_conf_theme_window_status_current_bg='#9B59B6'      # pink
 tmux_conf_theme_window_status_current_attr='bold'
 #tmux_conf_theme_window_status_current_format='[#I] #W'
 tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
@@ -124,11 +124,11 @@ tmux_conf_theme_window_status_last_bg='default'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
-tmux_conf_theme_left_separator_main=''
+#tmux_conf_theme_left_separator_main=''
 #tmux_conf_theme_left_separator_main=''
 #tmux_conf_theme_right_separator_main=''
 #tmux_conf_theme_right_separator_sub='|'
-#tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
+tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
 tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
 tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
 tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
