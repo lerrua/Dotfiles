@@ -1,3 +1,5 @@
+set noeb vb t_vb=
+
 " augroup CursorLine
 " 	au!
 " 	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
@@ -30,7 +32,7 @@ let g:ale_sign_warning = '⚠️'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 'never'
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -94,7 +96,13 @@ autocmd VimResized * :wincmd =
 let g:formatter_yapf_style = 'pep8'
 noremap <F8> :Autoformat<CR>
 
+" custom theme
+" let g:airline_theme = 'lucius'
+" colorscheme apprentice
+" set background=dark
 
-let g:airline_theme = 'pencil'
-colorscheme pencil
-set background=dark
+
+" white theme
+let g:airline_theme = 'one'
+colorscheme one
+set background=light
