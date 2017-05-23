@@ -102,7 +102,7 @@ tmux_conf_theme_window_status_format='#I #W'
 #   - built-in variables are:
 #     - #{circled_window_index}
 tmux_conf_theme_window_status_current_fg='#080808'      # dark gray
-tmux_conf_theme_window_status_current_bg='#9B59B6'      # white blue
+tmux_conf_theme_window_status_current_bg='#00afff'      # white blue
 tmux_conf_theme_window_status_current_attr='bold'
 #tmux_conf_theme_window_status_current_format='[#I] #W'
 tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
@@ -124,8 +124,8 @@ tmux_conf_theme_window_status_last_bg='default'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
-tmux_conf_theme_left_separator_main=''
-#tmux_conf_theme_left_separator_main=''
+#tmux_conf_theme_left_separator_main=''
+tmux_conf_theme_left_separator_main=''
 #tmux_conf_theme_right_separator_main=''
 #tmux_conf_theme_right_separator_sub='|'
 #tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
@@ -155,11 +155,11 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' #S'
+tmux_conf_theme_status_left='  #S'
 tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b'
 
 # status left style
-tmux_conf_theme_status_left_fg='#99A3A4,#e4e4e4,#e4e4e4'  # medium gray, white , white
+tmux_conf_theme_status_left_fg='#9370db,#e4e4e4,#e4e4e4'  # medium purple, white , white
 tmux_conf_theme_status_left_bg='#000000,#ff00af,#00afff'  # black, pink, white blue
 tmux_conf_theme_status_left_attr='bold,none,none'
 
