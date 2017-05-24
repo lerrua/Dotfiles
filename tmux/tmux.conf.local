@@ -102,7 +102,7 @@ tmux_conf_theme_window_status_format='#I #W'
 #   - built-in variables are:
 #     - #{circled_window_index}
 tmux_conf_theme_window_status_current_fg='#080808'      # dark gray
-tmux_conf_theme_window_status_current_bg='#9B59B6'      # pink
+tmux_conf_theme_window_status_current_bg='#B59DBE'      # light pink on gray
 tmux_conf_theme_window_status_current_attr='bold'
 #tmux_conf_theme_window_status_current_format='[#I] #W'
 tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
@@ -155,8 +155,8 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' #S'
-tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b'
+tmux_conf_theme_status_left='  '
+tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b , #S '
 
 # status left style
 tmux_conf_theme_status_left_fg='#99A3A4,#e4e4e4,#e4e4e4'  # medium gray, white , white
