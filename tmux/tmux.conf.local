@@ -195,7 +195,7 @@ tmux_conf_battery_bar_symbol_empty='·'
 # battery bar length (in number of symbols), possible values are:
 #   - auto
 #   - a number, e.g. 5
-tmux_conf_battery_bar_length='5'
+tmux_conf_battery_bar_length='6'
 
 # battery bar palette, possible values are:
 #   - gradient (default)
