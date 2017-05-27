@@ -20,8 +20,8 @@ set ttymouse=xterm2
 let g:jedi#use_tabs_not_buffers=1
 
 " ALE
-let g:airline#extensions#ale#error_symbol = '⨉ '
-let g:airline#extensions#ale#warning_symbol = '⚠ '
+let g:airline#extensions#ale#error_symbol = ' '
+let g:airline#extensions#ale#warning_symbol = ''
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
@@ -98,13 +98,23 @@ autocmd VimResized * :wincmd =
 let g:formatter_yapf_style = 'pep8'
 noremap <F8> :Autoformat<CR>
 
-" custom theme
-" let g:airline_theme = 'lucius'
-" colorscheme apprentice
-" set background=dark
-
-
-" white theme
+" white theme as default
 let g:airline_theme = 'one'
 colorscheme one
 set background=light
+
+" function to toggle light/dark themes
+function ChangeDefaultTheme(color)
+	if a:color == "light"
+		let g:airline_theme = "one"
+		colorscheme one
+		set background=light
+	else
+		let g:airline_theme = 'lucius'
+		colorscheme apprentice
+		set background=dark
+	endif
+endfunction
+
+map <F9> :call ChangeDefaultTheme("dark")<CR>
+map <F10> :call ChangeDefaultTheme("light")<CR>
