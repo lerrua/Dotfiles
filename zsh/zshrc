@@ -69,6 +69,7 @@ export LANG=en_US.UTF-8
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -104,4 +105,3 @@ pyenv virtualenvwrapper_lazy
 export GOPATH=~/.gocode
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-
