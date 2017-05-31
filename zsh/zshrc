@@ -56,6 +56,9 @@ plugins=(git docker brew python pyenv tmux)
 
 source $ZSH/oh-my-zsh.sh
 
+# alias
+alias vim='nvim'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
