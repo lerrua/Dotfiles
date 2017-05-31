@@ -118,22 +118,45 @@ let g:formatter_yapf_style = 'pep8'
 noremap <F8> :Autoformat<CR>
 
 " white theme as default
-let g:airline_theme = 'one'
-colorscheme one
-set background=light
+" let g:airline_theme = 'one'
+" colorscheme one
+" set background=light
+
+colorscheme apprentice
+let g:airline_theme = 'lucius'
+set background=dark
 
 " function to toggle light/dark themes
-function ChangeDefaultTheme(color)
+function! ChangeDefaultTheme(color)
 	if a:color == "light"
-		let g:airline_theme = "one"
 		colorscheme one
+		let g:airline_theme = "one"
 		set background=light
 	else
-		let g:airline_theme = 'lucius'
 		colorscheme apprentice
+		let g:airline_theme = 'lucius'
 		set background=dark
 	endif
+	redraw!
 endfunction
 
 map <F9> :call ChangeDefaultTheme("dark")<CR>
 map <F10> :call ChangeDefaultTheme("light")<CR>
+
+
+" Vimux
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vo :VimuxTogglePane<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
+
+" Function to make tmux zoom its runner pane.
+function! VimuxZoomRunner()
+	call VimuxInspectRunner()
+	call system("tmux resize-pane -Z")
+endfunction
+
+" Zoom the runner pane (use <bind-key> z to restore runner pane)
+map <Leader>vz :call VimuxZoomRunner()<CR>
