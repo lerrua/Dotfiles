@@ -102,3 +102,6 @@ eval "$(pyenv virtualenv-init -)"
 export GOPATH=~/.gocode
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# Rust cargo
+export PATH="$HOME/.cargo/bin:$PATH"
