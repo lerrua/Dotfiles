@@ -94,15 +94,9 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Python pyenv
-export PATH=/usr/local/bin:$PATH
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_VERSION='3.5.1'
-export PYENV_SHELL=zsh
-export PYENV_VIRTUALENV_INIT=1
-
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-pyenv virtualenvwrapper_lazy
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # GoLang
 export GOPATH=~/.gocode
