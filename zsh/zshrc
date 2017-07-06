@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/leroy/.oh-my-zsh
+export DOTFILES=$HOME/Code/github-projects/Dotfiles
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -94,6 +95,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Python pyenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
