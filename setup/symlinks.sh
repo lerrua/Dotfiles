@@ -10,14 +10,14 @@ fancy_echo() {
 fancy_echo "Symlinking dotfiles"
 
 # zsh
-ln -s $DOTFILES/zsh/zshrc ~/.zshrc
+ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 
 # vimfiles
-ln -s $DOTFILES/vim/vimrc ~/.vimrc
-ln -s $DOTFILES/vim/vimrc.local ~/.vimrc.local
+ln -s $DOTFILES/vim/vimrc $HOME/.vimrc
+ln -s $DOTFILES/vim/vimrc.local $HOME/.vimrc.local
 ln -s $DOTFILES/vim/vimrc.local.bundles ~/.vimrc.local.bundles
 
 # tmux
-ln -s $DOTFILES/tmux/tmux.conf ~/.tmux.conf
-ln -s $DOTFILES/tmux/tmux.conf.local ~/.tmux.conf.local
+ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+ln -s $DOTFILES/tmux/tmux.conf.local $HOME/.tmux.conf.local
 ln -s $DOTFILES/bin/tm  /usr/local/bin/tm
