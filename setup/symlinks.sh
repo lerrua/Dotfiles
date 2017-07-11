@@ -17,6 +17,11 @@ ln -s $DOTFILES/vim/vimrc $HOME/.vimrc
 ln -s $DOTFILES/vim/vimrc.local $HOME/.vimrc.local
 ln -s $DOTFILES/vim/vimrc.local.bundles ~/.vimrc.local.bundles
 
+# neovim
+ln -s $DOTFILES/neovim/init.vim $HOME/.config/nvim/init.vim
+ln -s $DOTFILES/neovim/local_init.vim $HOME/.config/nvim/local_init.vim
+ln -s $DOTFILES/neovim/local_bundles.vim $HOME/.config/nvim/local_bundles.vim
+
 # tmux
 ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES/tmux/tmux.conf.local $HOME/.tmux.conf.local
