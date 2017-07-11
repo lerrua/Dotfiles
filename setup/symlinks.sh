@@ -15,7 +15,7 @@ ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 # vimfiles
 ln -s $DOTFILES/vim/vimrc $HOME/.vimrc
 ln -s $DOTFILES/vim/vimrc.local $HOME/.vimrc.local
-ln -s $DOTFILES/vim/vimrc.local.bundles ~/.vimrc.local.bundles
+ln -s $DOTFILES/vim/vimrc.local.bundles $HOME/.vimrc.local.bundles
 
 # neovim
 ln -s $DOTFILES/neovim/init.vim $HOME/.config/nvim/init.vim
