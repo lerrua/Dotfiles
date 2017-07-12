@@ -3,21 +3,12 @@ set noeb vb t_vb=
 " This stops Vim from redrawing the screen during complex operations and
 " results
 " " in much smoother looking plugins.
-set lazyredraw
-
-" Fix Cursor in TMUX
-" if exists('$TMUX')
-" 	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-" 	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-" else
-" 	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-" 	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" endif
+" set lazyredraw
 
 " reload files when they change on disk (e.g., git checkout)
 set autoread
 
-set cursorline
+" set cursorline
 
 " augroup CursorLine
 " 	au!
@@ -31,8 +22,8 @@ let g:airline_powerline_fonts = 1
 " Close NERDTree automatically after opening a file with it.
 let g:NERDTreeQuitOnOpen = 1
 
-" enable mouse use
-set mouse=a
+" " enable mouse use
+" set mouse=a
 
 if !has('nvim')
     set ttymouse=xterm2
@@ -42,15 +33,13 @@ endif
 let g:jedi#use_tabs_not_buffers=1
 
 " ALE
+let g:ale_linters = {'go': ['gometalinter']}
 let g:airline#extensions#ale#error_symbol = ' '
 let g:airline#extensions#ale#warning_symbol = ''
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
-" let g:ale_sign_error = '💩'
-" let g:ale_sign_error = '❌'
-" let g:ale_sign_warning = '⚠️'
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
@@ -74,7 +63,8 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 " let g:airline_left_sep = ''
-let g:airline_left_sep = ''
+" let g:airline_left_sep = ''
+let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 "let g:airline_right_sep = ''
 let g:airline_right_sep = ''
@@ -163,3 +153,13 @@ endfunction
 
 " Zoom the runner pane (use <bind-key> z to restore runner pane)
 map <Leader>vz :call VimuxZoomRunner()<CR>
+
+
+" deoplete
+if has('nvim')
+    " Enable deoplete on startup
+    let g:deoplete#enable_at_startup = 1
+endif
+
+" Enable completing of go pointers
+let g:deoplete#sources#go#pointer = 1
