@@ -483,6 +483,8 @@ let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:go_auto_type_info = 1
 " let g:syntastic_go_checkers = ['golint', 'govet']
+let g:go_metalinter_command = ""
+let g:go_metalinter_deadline = "5s"
 let g:go_metalinter_enabled = [
     \ 'deadcode',
     \ 'errcheck',
@@ -510,6 +512,8 @@ let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
 
+" Fix for location list when vim-go is used together with Syntastic
+let g:go_list_type = "quickfix"
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 augroup completion_preview_close
