@@ -481,7 +481,6 @@ endfunction
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
-let g:go_auto_type_info = 1
 " let g:syntastic_go_checkers = ['golint', 'govet']
 let g:go_metalinter_command = ""
 let g:go_metalinter_deadline = "5s"
