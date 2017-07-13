@@ -34,6 +34,7 @@ Plug 'gregsexton/gitv', {'on': ['Gitv']}
 " golang
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'sebdah/vim-delve'
 
 " funny things
 Plug 'koron/nyancat-vim'

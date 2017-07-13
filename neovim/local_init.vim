@@ -163,3 +163,7 @@ endif
 
 " Enable completing of go pointers
 let g:deoplete#sources#go#pointer = 1
+let g:deoplete#max_menu_width = 0
+
+" Set the Delve backend.
+let g:delve_backend = "native"
