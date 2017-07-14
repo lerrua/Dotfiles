@@ -1,5 +1,9 @@
 set noeb vb t_vb=
 
+" set clipboard
+set clipboard=unnamed,unnamedplus
+
+
 " This stops Vim from redrawing the screen during complex operations and
 " results
 " " in much smoother looking plugins.
