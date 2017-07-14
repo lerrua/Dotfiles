@@ -156,7 +156,7 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left='  '
-tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b , #S  '
+tmux_conf_theme_status_right='#{prefix}#{pairing} , %R , %d %b , #S  '
 
 # status left style
 tmux_conf_theme_status_left_fg='#99A3A4,#e4e4e4,#e4e4e4'  # medium gray, white , white
@@ -195,7 +195,7 @@ tmux_conf_battery_bar_symbol_empty='·'
 # battery bar length (in number of symbols), possible values are:
 #   - auto
 #   - a number, e.g. 5
-tmux_conf_battery_bar_length='6'
+tmux_conf_battery_bar_length='0'
 
 # battery bar palette, possible values are:
 #   - gradient (default)
