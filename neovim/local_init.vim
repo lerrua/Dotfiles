@@ -31,7 +31,7 @@ let g:NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden = 1
 
 " " enable mouse use
-" set mouse=a
+set mouse=a
 
 if !has('nvim')
     set ttymouse=xterm2
