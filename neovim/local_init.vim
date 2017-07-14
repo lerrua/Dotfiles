@@ -12,7 +12,8 @@ set clipboard=unnamed,unnamedplus
 " reload files when they change on disk (e.g., git checkout)
 set autoread
 
-" set cursorline
+" Highlight current line
+set cursorline
 
 " augroup CursorLine
 " 	au!
