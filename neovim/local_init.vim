@@ -36,7 +36,8 @@ endif
 let g:jedi#use_tabs_not_buffers=1
 
 " ALE
-let g:ale_linters = {'go': ['gometalinter']}
+" let g:ale_linters = {'go': ['gometalinter']}
+let g:ale_linters = {'go': ['go build', 'go vet', 'golint']}
 let g:airline#extensions#ale#error_symbol = ' '
 let g:airline#extensions#ale#warning_symbol = ''
 
