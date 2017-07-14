@@ -22,6 +22,9 @@ let g:airline_powerline_fonts = 1
 " Close NERDTree automatically after opening a file with it.
 let g:NERDTreeQuitOnOpen = 1
 
+" Show hidden files by default.
+let NERDTreeShowHidden = 1
+
 " " enable mouse use
 " set mouse=a
 
