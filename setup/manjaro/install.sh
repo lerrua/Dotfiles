@@ -1,8 +1,10 @@
 # install pacaur
-sudo pacman -Syu --noconfirm pacaur git
+sudo pacman -Syu --noconfirm pacaur git vim
+
+export EDITOR="vim"
 
 # neovim dependencies
-easy install pip
+sudo easy_install pip
 sudo pip install neovim
 
 # install base packages
