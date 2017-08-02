@@ -1,4 +1,11 @@
 #!/bin/sh
+# generic font installer
 
-brew tap caskroom/fonts
-brew cask install font-hack-nerd-font font-droidsansmono-nerd-font font-firacode-nerd-font font-fantasquesansmono-nerd-font
+echo "Installing fonts..."
+
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
+
+curl -fLo "Knack Regular Nerd Font Complete Mono.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/complete/Knack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+
+fc-cache -v
