@@ -69,7 +69,8 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
 " set ttyfast
 " syntax sync minlines=256"
 
-let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 " let g:airline_left_sep = ''
 " let g:airline_left_sep = ''
