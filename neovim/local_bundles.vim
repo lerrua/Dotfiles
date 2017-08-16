@@ -1,10 +1,10 @@
 " custom themes
 Plug 'reedes/vim-colors-pencil'
 Plug 'nickburlett/vim-colors-stylus'
-Plug 'dracula/vim'
 Plug 'joshdick/onedark.vim'
-Plug 'rakr/vim-one'
 Plug 'romainl/Apprentice'
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'morhetz/gruvbox'
 
 " neovim auto-complete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

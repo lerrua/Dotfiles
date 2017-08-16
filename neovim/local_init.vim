@@ -42,7 +42,7 @@ let g:jedi#use_tabs_not_buffers=1
 
 " ALE
 " let g:ale_linters = {'go': ['gometalinter']}
-let g:ale_linters = {'go': ['go build', 'go vet', 'golint']}
+let g:ale_linters = {'go': ['go build', 'go vet', 'golint'], 'rust': ['rustc', 'rls']}
 let g:airline#extensions#ale#error_symbol = ' '
 let g:airline#extensions#ale#warning_symbol = ''
 
@@ -70,7 +70,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
 " syntax sync minlines=256"
 
 " let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 " let g:airline_left_sep = ''
 " let g:airline_left_sep = ''
@@ -120,13 +120,8 @@ autocmd VimResized * :wincmd =
 let g:formatter_yapf_style = 'pep8'
 noremap <F8> :Autoformat<CR>
 
-" white theme as default
-" let g:airline_theme = 'one'
-" colorscheme one
-" set background=light
-
-colorscheme apprentice
-let g:airline_theme = 'lucius'
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
 set background=dark
 
 " function to toggle light/dark themes
@@ -177,3 +172,7 @@ let g:deoplete#max_menu_width = 0
 
 " Set the Delve backend.
 let g:delve_backend = "native"
+
+" vim-racer
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
