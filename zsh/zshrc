@@ -96,6 +96,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='nvim'
+alias mux="tmuxinator"
 alias sqltabs='/home/leroy/Downloads/sqltabs-linux-x64/sqltabs'
 
 # golang
@@ -103,5 +104,8 @@ export GOPATH=$HOME/Code/go
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-# Rust cargo
+# ruby
+export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
+
+# Rust and cargo
 export PATH="$HOME/.cargo/bin:$PATH"
