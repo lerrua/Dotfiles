@@ -109,3 +109,4 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
 
 # Rust and cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
