@@ -13,7 +13,7 @@ sudo easy_install pip
 sudo pip install neovim
 
 # install base packages
-pacaur -S --noconfirm --noedit ctags ncurses curl unzip vim python-neovim neovim google-chrome firefox go dropbox slack-desktop docker docker-compose tmux zsh htop fzf spotify steam-native steam xsel skypeforlinux-bin insomnia silver-searcher-git tree franz-bin
+pacaur -S --noconfirm --noedit ctags ncurses curl unzip vim python-neovim neovim google-chrome firefox go dropbox slack-desktop docker docker-compose tmux zsh htop fzf spotify steam-native steam xsel skypeforlinux-bin insomnia silver-searcher-git tree franz-bin pacaur ttf-vista-fonts
 
 # install useful gnome terminal themes
 wget https://raw.githubusercontent.com/romainl/apprentice-colorschemes/master/apprentice_gnome_terminal.sh
