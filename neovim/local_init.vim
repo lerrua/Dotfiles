@@ -30,6 +30,9 @@ let g:NERDTreeQuitOnOpen = 1
 " Show hidden files by default.
 let NERDTreeShowHidden = 1
 
+" Hidden bookmarks by default.
+let NERDTreeShowBookmarks=0
+
 " " enable mouse use
 set mouse=a
 
