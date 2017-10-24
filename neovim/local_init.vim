@@ -40,12 +40,10 @@ if !has('nvim')
     set ttymouse=xterm2
 endif
 
-" jedi-vim setings tabs over buffers
 let g:jedi#use_tabs_not_buffers=1
 
 " ALE
-" let g:ale_linters = {'go': ['gometalinter']}
-let g:ale_linters = {'go': ['go build', 'go vet', 'golint'], 'rust': ['rustc', 'rls']}
+let g:ale_linters = {'go': ['go build', 'go vet', 'golint'], 'rust': ['rustc', 'rls'], 'python': ['flake8']}
 let g:airline#extensions#ale#error_symbol = ' '
 let g:airline#extensions#ale#warning_symbol = ''
 
