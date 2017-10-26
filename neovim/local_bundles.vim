@@ -2,6 +2,7 @@
 Plug 'reedes/vim-colors-pencil'
 Plug 'nickburlett/vim-colors-stylus'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'romainl/Apprentice'
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'morhetz/gruvbox'
