@@ -32,7 +32,7 @@ let NERDTreeShowHidden = 1
 
 " Hidden bookmarks by default.
 let NERDTreeShowBookmarks=0
-nmap <silent> <F5> :NERDTreeShowBookmarks<CR>
+nmap <F5> :NERDTreeFromBookmark<space>
 
 " " enable mouse use
 set mouse=a
