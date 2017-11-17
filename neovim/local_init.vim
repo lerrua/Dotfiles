@@ -32,7 +32,11 @@ let NERDTreeShowHidden = 1
 
 " Hidden bookmarks by default.
 let NERDTreeShowBookmarks=0
-nmap <F5> :NERDTreeFromBookmark<space>
+nmap <F10> :NERDTreeFromBookmark<space>
+
+" Open Terminal on custom buffers
+nmap <F9> :Term<CR>
+nmap <F8> :VTerm<CR>
 
 " " enable mouse use
 set mouse=a
@@ -126,24 +130,6 @@ colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
 set background=dark
 
-" function to toggle light/dark themes
-function! ChangeDefaultTheme(color)
-	if a:color == "light"
-		colorscheme one
-		let g:airline_theme = "one"
-		set background=light
-	else
-		colorscheme apprentice
-		let g:airline_theme = 'lucius'
-		set background=dark
-	endif
-	redraw!
-endfunction
-
-map <F9> :call ChangeDefaultTheme("dark")<CR>
-map <F10> :call ChangeDefaultTheme("light")<CR>
-
-
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
@@ -168,9 +154,13 @@ if has('nvim')
     let g:deoplete#enable_at_startup = 1
 endif
 
+" Golang
 " Enable completing of go pointers
 let g:deoplete#sources#go#pointer = 1
 let g:deoplete#max_menu_width = 0
+
+nmap <silent> <F5> :DlvDebug<CR>
+nmap <silent> <F6> :DlvToggleBreakpoint<CR>
 
 " Set the Delve backend.
 let g:delve_backend = "native"
@@ -178,6 +168,10 @@ let g:delve_backend = "native"
 " vim-racer
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
+
+" ranger
+let g:ranger_map_keys = 0
+map <leader>rr :Ranger<CR>
 
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor

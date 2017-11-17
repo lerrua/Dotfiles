@@ -113,5 +113,7 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 # tmuxp
 export DISABLE_AUTO_TITLE='true'
 
-# manjaro update
+# manjaro alias
 alias manjaro-update='pacaur -Syyu'
+alias manjaro-cleanop='acaur -Rs $(pacman -Qqdt)'
+alias manjaro-pdelete="pacaur -Rsn"

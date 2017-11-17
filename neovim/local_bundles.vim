@@ -37,5 +37,12 @@ Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' 
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'sebdah/vim-delve'
 
+" terminal utilities
+Plug 'mklabs/split-term.vim'
+
+" ranger
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 " funny things
 Plug 'koron/nyancat-vim'
