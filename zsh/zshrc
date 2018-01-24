@@ -5,6 +5,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Default paths
+export CODE=$HOME/Code
 export DOTFILES=$HOME/Code/github/Dotfiles
 export NUVEO=$HOME/Code/go/src/github.com/nuveo
 
@@ -115,7 +116,9 @@ alias ls='exa'
 # tmuxp
 export DISABLE_AUTO_TITLE='true'
 
-# manjaro alias
+# Arch distro alias
 alias archupdate='pacaur -Syyu'
 alias archcleanop='pacaur -Rs $(pacman -Qqdt)'
 alias archpdelete="pacaur -Rsn"
+
+alias code='cd $CODE'
