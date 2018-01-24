@@ -96,24 +96,26 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='nvim'
-alias sqltabs='/home/leroy/Downloads/sqltabs-linux-x64/sqltabs'
 
 # golang
 export GOPATH=$HOME/Code/go
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-# ruby
-export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
-
 # Rust and cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# npm
+export NPM_CONFIG_PREFIX=~/.npm-global
+
+# ls replace
+alias ls='exa'
 
 # tmuxp
 export DISABLE_AUTO_TITLE='true'
 
 # manjaro alias
-alias manjaro-update='pacaur -Syyu'
-alias manjaro-cleanop='acaur -Rs $(pacman -Qqdt)'
-alias manjaro-pdelete="pacaur -Rsn"
+alias archupdate='pacaur -Syyu'
+alias archcleanop='pacaur -Rs $(pacman -Qqdt)'
+alias archpdelete="pacaur -Rsn"
