@@ -1,6 +1,8 @@
 #!/bin/sh
-# default Arch installer
 
-source ~/Code/github/Dotfiles/setup/arch/install.sh
-source ~/Code/github/Dotfiles/setup/fonts.sh
-source ~/Code/github/Dotfiles/setup/symlinks.sh
+source $DOTFILES/setup/base.sh
+source $DOTFILES/setup/devel.sh
+source $DOTFILES/setup/apps.sh
+source $DOTFILES/setup/fonts.sh
+source $DOTFILES/setup/symlinks.sh
+source $DOTFILES/setup/terminal.sh
