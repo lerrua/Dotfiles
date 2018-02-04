@@ -1,7 +1,6 @@
 " custom themes
 Plug 'reedes/vim-colors-pencil'
 Plug 'nickburlett/vim-colors-stylus'
-Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 Plug 'romainl/Apprentice'
 Plug 'owickstrom/vim-colors-paramount'
@@ -40,9 +39,10 @@ Plug 'sebdah/vim-delve'
 " terminal utilities
 Plug 'mklabs/split-term.vim'
 
-" ranger
+" ranger file manager
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'vifm/vifm.vim'
 
 " funny things
 Plug 'koron/nyancat-vim'

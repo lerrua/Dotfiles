@@ -62,11 +62,34 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 
+let g:ale_rust_cargo_check_all_targets = 1
+let g:rustfmt_autosave = 1
+
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" Required for operations modifying multiple buffers like rename.
+" set hidden
+
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+"     \ }
+
+" nnoremap <silent> rK :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> rgd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> rR :call LanguageClient_textDocument_rename()<CR>
+
 " defaul gui font
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
+
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
 
 " perfomance issues
 " set nocursorcolumn
@@ -126,9 +149,14 @@ autocmd VimResized * :wincmd =
 let g:formatter_yapf_style = 'pep8'
 noremap <F8> :Autoformat<CR>
 
-colorscheme gruvbox
-let g:airline_theme = 'gruvbox'
-set background=dark
+" create if/toggle before commit
+"
+" colorscheme gruvbox
+" let g:airline_theme = 'gruvbox'
+" set background=dark
+colorscheme one
+let g:airline_theme = 'one'
+set background=light
 
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
@@ -165,8 +193,10 @@ nmap <silent> <F6> :DlvToggleBreakpoint<CR>
 " Set the Delve backend.
 let g:delve_backend = "native"
 
-" vim-racer
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
+" vim-racer for cargo completation
+set hidden
+" let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_cmd = "/home/leroy/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
 " ranger

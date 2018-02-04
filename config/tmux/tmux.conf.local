@@ -85,14 +85,14 @@ tmux_conf_theme_mode_attr='bold'
 
 # status line style (bar)
 tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
-tmux_conf_theme_status_bg='#000000'                     # black
+tmux_conf_theme_status_bg='#55552b'                     # black
 tmux_conf_theme_status_attr='none'
 
 # window status style (inactive)
 #   - built-in variables are:
 #     - #{circled_window_index}
 tmux_conf_theme_window_status_fg='#8a8a8a'              # light gray
-tmux_conf_theme_window_status_bg='#080808'              # dark gray
+tmux_conf_theme_window_status_bg='#55552b'              # dark gray
 tmux_conf_theme_window_status_attr='none'
 # tmux_conf_theme_window_status_format='#I #W'
 tmux_conf_theme_window_status_format='#{circled_window_index} #W'
@@ -101,7 +101,7 @@ tmux_conf_theme_window_status_format='#{circled_window_index} #W'
 # window current status style (active)
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_current_bg='#080808'      # dark gray
+tmux_conf_theme_window_status_current_bg='#000000'      # dark gray
 tmux_conf_theme_window_status_current_fg='#6495ED'      # (second color)
 tmux_conf_theme_window_status_current_attr='bold'
 #tmux_conf_theme_window_status_current_format='[#I] #W'
@@ -125,7 +125,7 @@ tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
 tmux_conf_theme_left_separator_main=''
-# tmux_conf_theme_left_separator_main=''
+tmux_conf_theme_left_separator_main=''
 #tmux_conf_theme_right_separator_main=''
 #tmux_conf_theme_right_separator_sub='|'
 # tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
@@ -161,7 +161,7 @@ tmux_conf_theme_status_right='#{prefix}#{pairing} , %R , %d %b , #S  '
 
 # status left style
 tmux_conf_theme_status_left_fg='#6495ED,#e4e4e4,#e4e4e4'  # (second), white , white
-tmux_conf_theme_status_left_bg='#000000,#ff00af,#00afff'  # black, pink, white blue
+tmux_conf_theme_status_left_bg='#55552b,#ff00af,#00afff'  # black, pink, white blue
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
