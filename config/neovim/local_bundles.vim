@@ -32,7 +32,7 @@ Plug 'benmills/vimux'
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
 
 " golang
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'sebdah/vim-delve'
 
