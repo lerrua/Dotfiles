@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 fancy_echo "Symlinking dotfiles"
 
