@@ -1,5 +1,8 @@
 set noeb vb t_vb=
 
+" simple todo list
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+
 " set clipboard
 set clipboard=unnamed,unnamedplus
 
