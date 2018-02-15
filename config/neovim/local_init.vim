@@ -3,23 +3,11 @@ set noeb vb t_vb=
 " set clipboard
 set clipboard=unnamed,unnamedplus
 
-
-" This stops Vim from redrawing the screen during complex operations and
-" results
-" " in much smoother looking plugins.
-" set lazyredraw
-
 " reload files when they change on disk (e.g., git checkout)
 set autoread
 
 " Highlight current line
 set cursorline
-
-" augroup CursorLine
-" 	au!
-" 	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-" 	au WinLeave * setlocal nocursorline
-" augroup END
 
 " vim-devicons
 let g:airline_powerline_fonts = 1
@@ -40,10 +28,6 @@ nmap <F8> :VTerm<CR>
 
 " " enable mouse use
 set mouse=a
-
-if !has('nvim')
-    set ttymouse=xterm2
-endif
 
 let g:jedi#use_tabs_not_buffers=1
 
@@ -67,36 +51,6 @@ let g:rustfmt_autosave = 1
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" Required for operations modifying multiple buffers like rename.
-" set hidden
-
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-"     \ }
-
-" nnoremap <silent> rK :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> rgd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> rR :call LanguageClient_textDocument_rename()<CR>
-
-" defaul gui font
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-
-" perfomance issues
-" set nocursorcolumn
-" set nocursorline
-" set norelativenumber
-" set ttyfast
-" syntax sync minlines=256"
 
 " let g:airline#extensions#tabline#left_sep = ''
 " let g:airline#extensions#tabline#left_sep = ''
@@ -175,12 +129,7 @@ endfunction
 " Zoom the runner pane (use <bind-key> z to restore runner pane)
 map <Leader>vz :call VimuxZoomRunner()<CR>
 
-
 " deoplete
-if has('nvim')
-    " Enable deoplete on startup
-    let g:deoplete#enable_at_startup = 1
-endif
 
 " Golang
 " Enable completing of go pointers
