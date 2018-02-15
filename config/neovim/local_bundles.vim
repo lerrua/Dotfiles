@@ -36,6 +36,9 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'sebdah/vim-delve'
 
+" rust
+Plug 'sebastianmarkow/deoplete-rust'
+
 " terminal utilities
 Plug 'mklabs/split-term.vim'
 
