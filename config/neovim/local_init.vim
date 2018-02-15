@@ -49,7 +49,7 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 
-let g:ale_rust_cargo_check_all_targets = 1
+let g:ale_rust_cargo_check_all_targets = 0
 let g:rustfmt_autosave = 1
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -133,23 +133,28 @@ endfunction
 map <Leader>vz :call VimuxZoomRunner()<CR>
 
 " deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Golang
-" Enable completing of go pointers
 let g:deoplete#sources#go#pointer = 1
-let g:deoplete#max_menu_width = 0
-
+" Set the Delve backend.
+let g:delve_backend = "native"
 nmap <silent> <F5> :DlvDebug<CR>
 nmap <silent> <F6> :DlvToggleBreakpoint<CR>
 
-" Set the Delve backend.
-let g:delve_backend = "native"
+" Rust
+" https://github.com/sebastianmarkow/deoplete-rust
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+" let g:deoplete#sources#rust#racer_binary="$HOME/.cargo/bin/racer"
+let g:deoplete#sources#rust#racer_binary='/home/leroy/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+let g:deoplete#sources#rust#documentation_max_height=20
 
-" vim-racer for cargo completation
-set hidden
-" let g:racer_cmd = "$HOME/.cargo/bin/racer"
-let g:racer_cmd = "/home/leroy/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
+augroup rust-mapping
+    autocmd!
+    autocmd filetype rust nmap <buffer> gd <Plug>DeopleteRustGoToDefinitionTab
+    autocmd filetype rust nmap <buffer> K <plug>DeopleteRustShowDocumentation
+augroup end
 
 " ranger
 let g:ranger_map_keys = 0
