@@ -1,5 +1,4 @@
 #!/bin/sh
-set -e
 
 source $DOTFILES/setup/base.sh
 source $DOTFILES/setup/devel.sh

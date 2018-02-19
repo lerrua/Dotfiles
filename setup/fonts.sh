@@ -1,6 +1,6 @@
 #!/bin/sh
 
-fancy_echo "Installing fonts"
+echo "Installing fonts"
 
 pacaur -S noto-fonts --noconfirm --needed
 pacaur -S ttf-ubuntu-font-family --noconfirm --needed

@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-fancy_echo "Symlinking dotfiles"
+echo "Symlinking dotfiles"
 
 # zsh
 # install oh-my-zsh and overwrite zsh file
