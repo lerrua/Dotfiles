@@ -259,3 +259,8 @@ setw -g mouse on
 
 # move status line to top
 set -g status-position top
+
+set -g prefix C-a
+
+unbind-key C-b
+bind-key C-a send-prefix
