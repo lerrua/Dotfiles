@@ -107,8 +107,10 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-# npm
-export NPM_CONFIG_PREFIX=~/.npm-global
+# node nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ls replace
 alias ls='exa'
@@ -122,3 +124,4 @@ alias archcleanop='pacaur -Rs $(pacman -Qqdt)'
 alias archpdelete="pacaur -Rsn"
 
 alias code='cd $CODE'
+
