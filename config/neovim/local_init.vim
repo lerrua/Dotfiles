@@ -1,5 +1,7 @@
 set noeb vb t_vb=
 
+set termguicolors
+
 " simple todo list
 command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
 
@@ -24,7 +26,6 @@ let NERDTreeShowHidden = 1
 " Hidden bookmarks by default.
 let NERDTreeShowBookmarks=0
 nmap <F10> :NERDTreeFromBookmark<space>
-
 " Open Terminal on custom buffers
 nmap <F9> :Term<CR>
 nmap <F8> :VTerm<CR>
