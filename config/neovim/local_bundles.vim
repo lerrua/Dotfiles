@@ -5,6 +5,7 @@ Plug 'rakr/vim-one'
 Plug 'romainl/Apprentice'
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 " neovim auto-complete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -45,7 +46,6 @@ Plug 'mklabs/split-term.vim'
 " ranger file manager
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'vifm/vifm.vim'
 
 " funny things
 Plug 'koron/nyancat-vim'

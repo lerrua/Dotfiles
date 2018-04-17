@@ -109,12 +109,12 @@ noremap <F8> :Autoformat<CR>
 
 " create if/toggle before commit
 "
-" colorscheme gruvbox
-" let g:airline_theme = 'gruvbox'
-" set background=dark
-colorscheme one
-let g:airline_theme = 'one'
-set background=light
+" colorscheme one
+" let g:airline_theme = 'one'
+" set background=light
+let g:nord_comment_brightness = 20
+colorscheme nord
+let g:airline_theme = 'nord'
 
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
