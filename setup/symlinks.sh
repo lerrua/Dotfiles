@@ -16,3 +16,4 @@ ln -s $DOTFILES/config/neovim/local_bundles.vim $HOME/.config/nvim/local_bundles
 # tmux
 ln -s $DOTFILES/config/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES/config/tmux/tmux.conf.local $HOME/.tmux.conf.local
+# ln -s $DOTFILES/config/tmux/tmux.conf.local.server $HOME/.tmux.conf.local
