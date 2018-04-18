@@ -115,6 +115,12 @@ noremap <F8> :Autoformat<CR>
 let g:nord_comment_brightness = 20
 colorscheme nord
 let g:airline_theme = 'nord'
+" colorscheme gruvbox
+" let g:airline_theme = 'gruvbox'
+" set background=dark
+" colorscheme one
+" let g:airline_theme = 'one'
+" set background=light
 
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
