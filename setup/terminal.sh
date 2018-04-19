@@ -8,6 +8,7 @@ pacaur -S --noconfirm --noedit gnome-terminal
 # http://mayccoll.github.io/Gogh/
 wget -O xt https://git.io/v7eBS && chmod +x xt && ./xt && rm xt
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo chsh -s /usr/bin/zsh
 
 echo "----------- ZSH -----------"
