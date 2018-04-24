@@ -95,17 +95,19 @@ tmux_conf_theme_window_status_fg='#8a8a8a'              # light gray
 tmux_conf_theme_window_status_bg='#55552b'              # dark gray
 tmux_conf_theme_window_status_attr='none'
 # tmux_conf_theme_window_status_format='#I #W'
-tmux_conf_theme_window_status_format='#{circled_window_index}'
+# tmux_conf_theme_window_status_format='#{circled_window_index} '
+tmux_conf_theme_window_status_format='#{circled_window_index} '
 #tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}'
 
 # window current status style (active)
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_current_bg='#81a1c1'      # dark gray
-tmux_conf_theme_window_status_current_fg='#2e3440'      # (second color)
+tmux_conf_theme_window_status_current_bg='#55552b'      # dark gray
+tmux_conf_theme_window_status_current_fg='#bfc9ca'      # (second color)
 tmux_conf_theme_window_status_current_attr='none'
 #tmux_conf_theme_window_status_current_format='[#I] #W'
-tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
+tmux_conf_theme_window_status_current_format='#{circled_window_index} '
+# tmux_conf_theme_window_status_current_format='#{circled_window_index} '
 #tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
 # window activity status style
@@ -124,12 +126,12 @@ tmux_conf_theme_window_status_last_bg='default'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
-tmux_conf_theme_left_separator_main=''
+# tmux_conf_theme_left_separator_main=''
 # tmux_conf_theme_left_separator_main=''
 # tmux_conf_theme_left_separator_main=''
 #tmux_conf_theme_right_separator_main=''
 #tmux_conf_theme_right_separator_sub='|'
-# tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
+tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
 tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
 tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
 # tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
@@ -160,16 +162,16 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left='  '
-tmux_conf_theme_status_right='#{prefix}#{pairing} #{battery_status}#{battery_percentage} ,  %R ,  %d %b , #S  '
+tmux_conf_theme_status_right='#{prefix}#{pairing} #{battery_status}#{battery_percentage} ,  %R ,  %d %b , #S  '
 
 # status left style
 tmux_conf_theme_status_left_fg='#2e3440,#e4e4e4,#e4e4e4'  # (second), white , white
-tmux_conf_theme_status_left_bg='#81a1c1,#ff00af,#00afff'  # black, pink, white blue
+tmux_conf_theme_status_left_bg='#BFC9CA,#ff00af,#00afff'  # black, pink, white blue
 tmux_conf_theme_status_left_attr='none,none,none'
 
 # status right style
 tmux_conf_theme_status_right_fg='#2e3440,#e4e4e4,#000000' # light gray, white, black
-tmux_conf_theme_status_right_bg='#88c0d0,#d70000,#e4e4e4' # dark gray, red, white
+tmux_conf_theme_status_right_bg='#BFC9CA,#d70000,#e4e4e4' # dark gray, red, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
