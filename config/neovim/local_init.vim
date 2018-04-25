@@ -56,15 +56,15 @@ let g:rustfmt_autosave = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
 " let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 " let g:airline_left_sep = ''
 " let g:airline_left_sep = ''
-let g:airline_left_sep = ''
+let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-let g:airline_right_sep = ''
+let g:airline_right_sep = ''
+" let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
 let g:webdevicons_enable_airline_statusline = 1
