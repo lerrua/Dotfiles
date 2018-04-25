@@ -95,7 +95,10 @@ tmux_conf_theme_window_status_fg='#8a8a8a'              # light gray
 tmux_conf_theme_window_status_bg='#55552b'              # dark gray
 tmux_conf_theme_window_status_attr='none'
 # tmux_conf_theme_window_status_format='#I #W'
-tmux_conf_theme_window_status_format='#{circled_window_index} '
+tmux_conf_theme_window_status_format='#{circled_window_index} ◇'
+# tmux_conf_theme_window_status_format='#{circled_window_index} ◎'
+# tmux_conf_theme_window_status_format='#{circled_window_index} '
+# tmux_conf_theme_window_status_format='#{circled_window_index} '
 #tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}'
 
 # window current status style (active)
@@ -105,7 +108,10 @@ tmux_conf_theme_window_status_current_bg='#55552b'      # dark gray
 tmux_conf_theme_window_status_current_fg='#bfc9ca'      # (second color)
 tmux_conf_theme_window_status_current_attr='none'
 #tmux_conf_theme_window_status_current_format='[#I] #W'
-tmux_conf_theme_window_status_current_format='#{circled_window_index} '
+tmux_conf_theme_window_status_current_format='#{circled_window_index} ◆'
+# tmux_conf_theme_window_status_current_format='#{circled_window_index} '
+# tmux_conf_theme_window_status_current_format='#{circled_window_index} ●'
+# tmux_conf_theme_window_status_current_format='#{circled_window_index} '
 # tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
 # window activity status style
@@ -159,9 +165,9 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left='  '
+tmux_conf_theme_status_left='  '
 # tmux_conf_theme_status_right='#{prefix}#{pairing} , %R , %d %b , #S  '
-tmux_conf_theme_status_right='#{prefix}#{pairing}  up #{uptime_d}d #{uptime_h}:#{uptime_m} , #S  '
+tmux_conf_theme_status_right='#{prefix}#{pairing}  up #{uptime_d} days #{uptime_h} hours #{uptime_m} minutes , #S  '
 
 # status left style
 tmux_conf_theme_status_left_fg='#080808,#e4e4e4,#e4e4e4'  # (second), white , white
