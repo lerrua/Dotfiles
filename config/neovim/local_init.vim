@@ -105,24 +105,22 @@ nnoremap <silent> <leader><Down> :resize -5<cr>
 " Automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" auto pep8
-let g:formatter_yapf_style = 'pep8'
-noremap <F8> :Autoformat<CR>
+" Themes
 
-" create if/toggle before commit
-"
+" -- One
 " colorscheme one
 " let g:airline_theme = 'one'
 " set background=light
+
+" -- Nord
 let g:nord_comment_brightness = 20
 colorscheme nord
 let g:airline_theme = 'nord'
+
+" -- Gruvbox
 " colorscheme gruvbox
 " let g:airline_theme = 'gruvbox'
 " set background=dark
-" colorscheme one
-" let g:airline_theme = 'one'
-" set background=light
 
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
