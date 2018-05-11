@@ -36,6 +36,7 @@ Plug 'gregsexton/gitv', {'on': ['Gitv']}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'sebdah/vim-delve'
+Plug 'buoto/gotests-vim'
 
 " rust
 Plug 'sebastianmarkow/deoplete-rust'
