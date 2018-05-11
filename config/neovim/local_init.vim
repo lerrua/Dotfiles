@@ -14,6 +14,8 @@ set autoread
 " Highlight current line
 set cursorline
 
+set updatetime=250  " pretty much just so gittgutter will update quickly
+
 " vim-devicons
 let g:airline_powerline_fonts = 1
 
