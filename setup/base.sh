@@ -1,8 +1,7 @@
 #!/bin/sh
 # Antergos base config
 echo "Installing base-dev libs"
-sudo pacman -Syu --noconfirm git vim
-sudo pacman -Syu --noconfirm base-devel
+sudo pacman -Syu --noconfirm base-devel git vim
 
 # in case pure Arch read about how install pacaur: https://www.ostechnix.com/install-pacaur-arch-linux/
 # install pacaur
@@ -16,4 +15,8 @@ sudo pacman -Syu --noconfirm pacaur
 
 # in case antergos minimal, changing login screen to gdm as default
 sudo pacman -S gdm
-udo systemctl -f enable gdm
+sudo systemctl -f enable gdm
+
+# battery save
+pacman -S tlp
+systemctl enable tlp.service
