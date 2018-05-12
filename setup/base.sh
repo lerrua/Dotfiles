@@ -13,3 +13,7 @@ sudo pacman -Syu --noconfirm pacaur
 # https://gist.github.com/Tadly/0e65d30f279a34c33e9b
 # git clone https://aur.archlinux.org/cower.git && cd cower && makepkg -i && cd -
 # git clone https://aur.archlinux.org/pacaur.git && cd pacaur && makepkg -i && cd -
+
+# in case antergos minimal, changing login screen to gdm as default
+sudo pacman -S gdm
+udo systemctl -f enable gdm
