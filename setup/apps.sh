@@ -4,7 +4,8 @@ set -e
 echo "Installing useful Apps"
 
 # install useful desktop apps
-pacaur -S --noconfirm --noedit google-chrome dropbox slack-desktop spotify skypeforlinux-bin insomnia franz-bin wine ttf-vista-fonts wps-office steam-native-runtime inkscape gimp etcher
+pacaur -S --noconfirm --noedit google-chrome dropbox slack-desktop spotify skypeforlinux-bin insomnia franz-bin wine ttf-vista-fonts \
+    wps-office steam-native-runtime inkscape gimp etcher telegram-desktop
 
 # Thanks to : Erik Dubois at http://www.erikdubois.be
 # https://github.com/erikdubois/Antergosi3
