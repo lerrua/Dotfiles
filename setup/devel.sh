@@ -8,7 +8,7 @@ sudo easy_install pip
 sudo pip install neovim
 
 # install base packages
-pacaur -S --noconfirm --noedit ctags ncurses curl unzip neovim go docker docker-compose tmux zsh htop fzf xsel silver-searcher-git tree exa dconf ranger mosh
+pacaur -S --noconfirm --noedit ctags ncurses curl unzip neovim go docker docker-compose tmux zsh htop fzf xsel silver-searcher-git tree exa dconf ranger mosh tig
 
 echo "Setting Rust dev environment"
 
