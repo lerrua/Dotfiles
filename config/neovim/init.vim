@@ -1,8 +1,8 @@
 " Vim-Plug auto install
 if empty(glob(('~/.config/nvim/autoload/plug.vim')))
-	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Plugins
@@ -16,35 +16,42 @@ call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'junegunn/fzf', {
     \	'dir': '~/.fzf', 'do': './install --all'
-    \}
+    \ }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
     Plug 'w0rp/ale'
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+    Plug 'Shougo/deoplete.nvim', {
+    \   'do': ':UpdateRemotePlugins'
+    \ }
+    Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'sebdah/vim-delve'
+    Plug 'buoto/gotests-vim' 
 call plug#end()
 
 " base16 colors
 if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256  					                " Access colors present in 256 colorspace
+    let base16colorspace=256                                    " Access colors present in 256 colorspace
     source ~/.vimrc_background
 endif
 
-let mapleader = ","						                        " set leader shortcut to a comma
+let mapleader = ","                                             " set leader shortcut to a comma
 
 set t_Co=256                                                    " display 256 colors
 set number                                                      " show line numbers on the sidebar
-set title 							                            " set the window’s title, reflecting the file currently being edited
+set title                                                       " set the window’s title, reflecting the file currently being edited
 set hidden                                                      " allow buffer switching without saving
-set updatetime=250  						                    " pretty much just so gittgutter will update quickly
-set clipboard=unnamed,unnamedplus 				                " set clipboard
-set cursorline 							                        " highlight current line
-set mouse=a 							                        " enable mouse use
-set expandtab 							                        " convert tabs to spaces
-set tabstop=4 							                        " indent using four spaces
-set shiftwidth=4 						                        " when shifting, indent using four spaces
-set lazyredraw 							                        " don’t update screen during macro and script execution
+set updatetime=250                                              " pretty much just so gittgutter will update quickly
+set clipboard=unnamed,unnamedplus                               " set clipboard
+set cursorline                                                  " highlight current line
+set mouse=a                                                     " enable mouse use
+set expandtab                                                   " convert tabs to spaces
+set tabstop=4                                                   " indent using four spaces
+set shiftwidth=4                                                " when shifting, indent using four spaces
+set lazyredraw                                                  " don’t update screen during macro and script execution
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
 set backupdir=~/.cache/nvim                                     " directory to store backup files
@@ -109,6 +116,17 @@ set statusline+=\ %{LinterStatus()}
 " confortable-motion {
     noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
     noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+" }
+
+" deoplete.nvim {
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#sources#go#pointer = 1                       " Go autocomplete
+" } 
+
+" vim-delve {
+    let g:delve_backend = "native"                              " Go debugger
+    nmap <silent> <F5> :DlvDebug<CR>
+    nmap <silent> <F6> :DlvToggleBreakpoint<CR>
 " }
 
 function! LinterStatus() abort
