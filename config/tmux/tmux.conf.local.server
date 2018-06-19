@@ -167,7 +167,7 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{username_ssh}
 tmux_conf_theme_status_left='  '
 # tmux_conf_theme_status_right='#{prefix}#{pairing} , %R , %d %b , #S  '
-tmux_conf_theme_status_right='#{prefix}#{pairing}  up #{uptime_d} days #{uptime_h} hours #{uptime_m} minutes , #S  '
+tmux_conf_theme_status_right='#{prefix}#{pairing} #S  '
 
 # status left style
 tmux_conf_theme_status_left_fg='#080808,#e4e4e4,#e4e4e4'  # (second), white , white
