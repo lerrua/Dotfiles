@@ -8,6 +8,8 @@ endif
 " Plugins
 call plug#begin('~/.vim/plugged')
     Plug 'chriskempson/base16-vim'
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'tpope/vim-sensible'
@@ -58,6 +60,7 @@ set lazyredraw                                                  " don’t update
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
 
+set shortmess+=A                                                " avoid locking popup messages
 set backup
 set backupdir=~/.cache/nvim                                     " directory to store backup files
 set directory=~/.cache/nvim                                     " directory to store swap files
@@ -95,17 +98,6 @@ highlight Comment cterm=italic
     vmap > >gv
 " }
 
-" netrw {
-    nnoremap <silent> <F3> :Lexplore<CR>
-    let g:netrw_banner = 0
-    let g:netrw_liststyle = 3
-    let g:netrw_browse_split = 2
-    let g:netrw_altv = 1
-    let g:netrw_winsize = 25
-    let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
-    autocmd FileType netrw set nolist
-" }
-
 " ALE {
     let g:ale_linters = {
     \	'go': ['go build', 'go vet', 'golint'],
@@ -135,6 +127,11 @@ highlight Comment cterm=italic
     noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " }
 
+" vim-go {
+    let g:go_fmt_command = "goimports"
+    let g:go_fmt_fail_silently = 1
+" }
+
 " deoplete.nvim {
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#sources#go#pointer = 1                       " Go autocomplete
@@ -144,6 +141,11 @@ highlight Comment cterm=italic
     let g:delve_backend = "native"                              " Go debugger
     nmap <silent> <F5> :DlvDebug<CR>
     nmap <silent> <F6> :DlvToggleBreakpoint<CR>
+" }
+
+" ranger.vim {
+    let g:ranger_replace_netrw = 1                              " open ranger when vim open a directory
+    nnoremap <silent> <F3> :Ranger<CR>
 " }
 
 function! LinterStatus() abort
