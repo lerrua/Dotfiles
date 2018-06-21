@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'buoto/gotests-vim' 
 call plug#end()
 
-" base16 colors
+" base16 colorscheme
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256                                    " Access colors present in 256 colorspace
     source ~/.vimrc_background
@@ -41,8 +41,10 @@ endif
 let mapleader = ","                                             " set leader shortcut to a comma
 
 set t_Co=256                                                    " display 256 colors
+set fileformats=unix,dos,mac
 set number                                                      " show line numbers on the sidebar
 set title                                                       " set the window’s title, reflecting the file currently being edited
+set showbreak=↪                                                 " show arrow at breaking
 set hidden                                                      " allow buffer switching without saving
 set updatetime=250                                              " pretty much just so gittgutter will update quickly
 set clipboard=unnamed,unnamedplus                               " set clipboard
@@ -52,18 +54,30 @@ set expandtab                                                   " convert tabs t
 set tabstop=4                                                   " indent using four spaces
 set shiftwidth=4                                                " when shifting, indent using four spaces
 set lazyredraw                                                  " don’t update screen during macro and script execution
+
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
+
+set backup
 set backupdir=~/.cache/nvim                                     " directory to store backup files
+set directory=~/.cache/nvim                                     " directory to store swap files
+set undofile                                                    " persistent undo
+set undolevels=1000                                             " maximum number of changes that can be undone
+set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
 
 set statusline=\ %{WebDevIconsGetFileTypeSymbol()}
 set statusline+=\ %f
 set statusline+=\ %h%w%m%r
+set statusline+=\»
 set statusline+=\ 
 set statusline+=\ %{fugitive#head()}
 set statusline+=\ %=
+set statusline+=\ 
 set statusline+=\ %(%l,%c%V\ %Y\ %=\ %P%)
+set statusline+=\ «
 set statusline+=\ %{LinterStatus()}
+
+highlight Comment cterm=italic
 
 " Key maps {
     " set working directory
@@ -72,11 +86,11 @@ set statusline+=\ %{LinterStatus()}
     nnoremap <Tab> gt
     nnoremap <S-Tab> gT
     nnoremap <silent> <S-t> :tabnew<CR>
-    "" Copy/Paste/Cut
+    " Copy/Paste/Cut
     noremap YY "+y<CR>
     noremap <leader>p "+gP<CR>
     noremap XX "+x<CR>
-    "" Vmap for maintain Visual Mode after shifting > and <
+    " Vmap for maintain Visual Mode after shifting > and <
     vmap < <gv
     vmap > >gv
 " }
@@ -88,6 +102,8 @@ set statusline+=\ %{LinterStatus()}
     let g:netrw_browse_split = 2
     let g:netrw_altv = 1
     let g:netrw_winsize = 25
+    let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
+    autocmd FileType netrw set nolist
 " }
 
 " ALE {
@@ -97,10 +113,11 @@ set statusline+=\ %{LinterStatus()}
     \}
     highlight clear ALEErrorSign
     highlight clear ALEWarningSign
-    let g:ale_sign_error = ''
+    let g:ale_sign_error = '✖'
     let g:ale_sign_warning = ''
     let g:ale_lint_on_save = 1
     let g:ale_lint_on_text_changed = 'never'
+    " jump to prev/next quickfix results
     nmap <silent> <C-k> <Plug>(ale_previous_wrap)
     nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " }
@@ -131,10 +148,8 @@ set statusline+=\ %{LinterStatus()}
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
-
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-
     return l:counts.total == 0 ? ' ' : printf(
     \   '%d  %d  ',
     \   all_non_errors,
