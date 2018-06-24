@@ -77,6 +77,7 @@ set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format ic
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
 set statusline+=\ %1*                                           " switch to User1 highlight
 set statusline+=\ %{LinterStatusline()}                         " linter status
+set statusline+=\%*                                             " switch back to statusline highlight
 
 hi Comment cterm=italic
 hi User1 cterm=none ctermbg=8
