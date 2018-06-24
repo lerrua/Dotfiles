@@ -5,7 +5,6 @@ if empty(glob(('~/.config/nvim/autoload/plug.vim')))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugins
 call plug#begin('~/.vim/plugged')
     Plug 'chriskempson/base16-vim'
     Plug 'francoiscabrol/ranger.vim'
@@ -16,32 +15,26 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'sheerun/vim-polyglot'
-    Plug 'junegunn/fzf', {
-    \	'dir': '~/.fzf', 'do': './install --all'
-    \ }
+    Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
     Plug 'w0rp/ale'
-    Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-    Plug 'Shougo/deoplete.nvim', {
-    \   'do': ':UpdateRemotePlugins'
-    \ }
-    Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-    Plug 'zchee/deoplete-go', { 'do': 'make'}
-    Plug 'sebdah/vim-delve'
-    Plug 'buoto/gotests-vim' 
+    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
+    Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh', 'for': 'go'}
+    Plug 'zchee/deoplete-go', {'do': 'make', 'for': 'go'}
+    Plug 'sebdah/vim-delve', {'for': 'go'}
+    Plug 'buoto/gotests-vim', {'for': 'go'}
 call plug#end()
 
-" base16 colorscheme
 if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256                                    " Access colors present in 256 colorspace
-    source ~/.vimrc_background
+    let base16colorspace=256                                    " access colors present in 256 colorspace
+    source ~/.vimrc_background                                  " activate base16 colorscheme
 endif
 
 let mapleader = ","                                             " set leader shortcut to a comma
-
 set t_Co=256                                                    " display 256 colors
 set fileformats=unix,dos,mac
 set number                                                      " show line numbers on the sidebar
@@ -90,6 +83,7 @@ highlight Comment cterm=italic
     nnoremap <S-Tab> gT
     nnoremap <silent> <S-t> :tabnew<CR>
     " Copy/Paste/Cut
+    set pastetoggle=<F2>                                        " pasting text unmodified from other applications
     noremap YY "+y<CR>
     noremap <leader>p "+gP<CR>
     noremap XX "+x<CR>
