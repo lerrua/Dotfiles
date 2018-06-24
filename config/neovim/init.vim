@@ -49,10 +49,8 @@ set expandtab                                                   " convert tabs t
 set tabstop=4                                                   " indent using four spaces
 set shiftwidth=4                                                " when shifting, indent using four spaces
 set lazyredraw                                                  " don’t update screen during macro and script execution
-
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
-
 set shortmess+=A                                                " avoid locking popup messages
 set backup
 set backupdir=~/.cache/nvim                                     " directory to store backup files
@@ -60,20 +58,28 @@ set directory=~/.cache/nvim                                     " directory to s
 set undofile                                                    " persistent undo
 set undolevels=1000                                             " maximum number of changes that can be undone
 set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
+set statusline=
+set statusline+=%1*                                             " switch to User1 highlight
+set statusline+=\ %F                                            " filename with absolute path directory
+set statusline+=\ %*                                            " switch back to statusline highlight
+set statusline+=\%{GitBranchStatusline()}                       " display git branch label
+set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
+set statusline+=\%{ModifiedStatusline()}                        " display modified file icon
+set statusline+=\%{PasteStatusline()}                           " display paste mode icon
+set statusline+=\%{VimModeStatusline()}                         " display actual vim mode 
+set statusline+=\ %=                                            " split point for left and right groups
+set statusline+=%l                                              " row number
+set statusline+=\                                              " colon separator
+set statusline+=%v                                              " column number
+set statusline+=\                                              " line number icon
+set statusline+=\ %{WebDevIconsGetFileTypeSymbol()}             " filetype icon
+set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
+set statusline+=\ %1*                                           " switch to User1 highlight
+set statusline+=\ %{LinterStatusline()}                         " linter status
 
-set statusline=\ %{WebDevIconsGetFileTypeSymbol()}
-set statusline+=\ %f
-set statusline+=\ %h%w%m%r
-set statusline+=\»
-set statusline+=\ 
-set statusline+=\ %{fugitive#head()}
-set statusline+=\ %=
-set statusline+=\ 
-set statusline+=\ %(%l,%c%V\ %Y\ %=\ %P%)
-set statusline+=\ «
-set statusline+=\ %{LinterStatus()}
-
-highlight Comment cterm=italic
+hi Comment cterm=italic
+hi User1 cterm=none ctermbg=8
 
 " Key maps {
     " set working directory
@@ -142,13 +148,45 @@ highlight Comment cterm=italic
     nnoremap <silent> <F3> :Ranger<CR>
 " }
 
-function! LinterStatus() abort
+function! LinterStatusline() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? ' ' : printf(
-    \   '%d  %d  ',
-    \   all_non_errors,
-    \   all_errors
-    \)
+    return printf('✖ %d  %d ', all_errors, all_non_errors)
+endfunction
+
+function! ModifiedStatusline()
+    if &modified == 1
+        return '  '
+    endif
+    return ''
+endfunction
+
+function! ReadOnlyStatusline()
+    if &readonly == 1
+        return '  '
+    endif
+    return ''
+endfunction
+
+function! PasteStatusline()
+    if &paste == 1
+        return '  '
+    endif
+    return ''
+endfunction
+
+function! VimModeStatusline()
+    if mode() == 'i'
+        return '  '
+    endif
+    return ''
+endfunction
+
+function! GitBranchStatusline()
+    let l:branch_name = fugitive#head()
+    if l:branch_name != ""
+        return printf('  %s ', branch_name)
+    endif
+    return ''
 endfunction
