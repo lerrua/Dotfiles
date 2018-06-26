@@ -60,10 +60,14 @@ set undofile                                                    " persistent und
 set undolevels=1000                                             " maximum number of changes that can be undone
 set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
 set statusline=
-set statusline+=%1*                                             " switch to User1 highlight
-set statusline+=\ %F                                            " filename with absolute path directory
+set statusline+=%#StatusLineNC#                                 " switch to StatusLineNC highlight
+set statusline+=\ 
+set statusline+=\ %{expand('%:p:h')}                            " display path directory
 set statusline+=\ %*                                            " switch back to statusline highlight
-set statusline+=\%{GitBranchStatusline()}                       " display git branch label
+set statusline+=\ %{WebDevIconsGetFileTypeSymbol()}             " filetype icon
+set statusline+=\ %{expand('%:t')}                              " display filename
+set statusline+=\                                              " left separator 
+set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
 set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
 set statusline+=\%{ModifiedStatusline()}                        " display modified file icon
 set statusline+=\%{PasteStatusline()}                           " display paste mode icon
@@ -73,18 +77,16 @@ set statusline+=%l                                              " row number
 set statusline+=\                                              " colon separator
 set statusline+=%v                                              " column number
 set statusline+=\                                              " line number icon
-set statusline+=\ %{WebDevIconsGetFileTypeSymbol()}             " filetype icon
 set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
-set statusline+=\ %1*                                           " switch to User1 highlight
+set statusline+=\ %#StatusLineNC#                               " switch to StatusLineNC highlight
 set statusline+=\ %{LinterStatusline()}                         " linter status
 set statusline+=\%*                                             " switch back to statusline highlight
 
 hi Comment cterm=italic
-hi User1 cterm=none ctermbg=8
 
 " Key maps {
-    " set working directory
+    " Set working directory
     nnoremap <leader>. :cd %:p:h<CR>:pwd<CR>
     " Tabs
     nnoremap <Tab> gt
@@ -190,7 +192,7 @@ endfunction
 function! GitBranchStatusline()
     let l:branch_name = fugitive#head()
     if l:branch_name != ""
-        return printf('  %s ', branch_name)
+        return printf(' %s ', branch_name)
     endif
     return ''
 endfunction
