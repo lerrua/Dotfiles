@@ -44,6 +44,7 @@ set hidden                                                      " allow buffer s
 set updatetime=250                                              " pretty much just so gittgutter will update quickly
 set clipboard=unnamed,unnamedplus                               " set clipboard
 set cursorline                                                  " highlight current line
+set cursorcolumn                                                " highlight current column
 set mouse=a                                                     " enable mouse use
 set expandtab                                                   " convert tabs to spaces
 set tabstop=4                                                   " indent using four spaces
