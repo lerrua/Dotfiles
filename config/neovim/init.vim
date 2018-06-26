@@ -98,6 +98,8 @@ hi User1 cterm=none ctermbg=8
     " Vmap for maintain Visual Mode after shifting > and <
     vmap < <gv
     vmap > >gv
+    " Clean search highlight
+    nnoremap <silent> <leader><space> :noh<CR>
 " }
 
 " ALE {
