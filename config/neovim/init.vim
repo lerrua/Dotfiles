@@ -33,6 +33,7 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 let mapleader = ","                                             " set leader shortcut to a comma
+
 set t_Co=256                                                    " display 256 colors
 set fileformats=unix,dos,mac
 set number                                                      " show line numbers on the sidebar
@@ -51,13 +52,16 @@ set lazyredraw                                                  " don’t update
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
 set shortmess+=A                                                " avoid locking popup messages
+
 set backup
 set backupdir=~/.cache/nvim                                     " directory to store backup files
 set directory=~/.cache/nvim                                     " directory to store swap files
 set undofile                                                    " persistent undo
 set undolevels=1000                                             " maximum number of changes that can be undone
 set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
+
 set statusline=
+set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
 set statusline+=%#StatusLineNC#                                 " switch to StatusLineNC highlight
 set statusline+=\ 
 set statusline+=\ %{expand('%:p:h')}                            " display path directory
@@ -69,7 +73,6 @@ set statusline+=\ %{GitBranchStatusline()}                      " display git br
 set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
 set statusline+=\%{ModifiedStatusline()}                        " display modified file icon
 set statusline+=\%{PasteStatusline()}                           " display paste mode icon
-set statusline+=\%{VimModeStatusline()}                         " display actual vim mode 
 set statusline+=\ %=                                            " split point for left and right groups
 set statusline+=%l                                              " row number
 set statusline+=\                                              " colon separator
@@ -135,7 +138,7 @@ hi Comment cterm=italic
     let g:go_fmt_command = "goimports"
     let g:go_fmt_fail_silently = 1
 " }
-"
+
 " completor.vim {
     let g:completor_gocode_binary = $GOPATH.'/bin/gocode'       " Go autocomplete
     let g:completor_python_binary = '/usr/bin/python'           " Python autocomplete
@@ -151,6 +154,36 @@ hi Comment cterm=italic
     let g:ranger_replace_netrw = 1                              " open ranger when vim open a directory
     nnoremap <silent> <F3> :Ranger<CR>
 " }
+
+let s:mode_map = {
+      \ 'n':      '  NORMAL ',
+      \ 'no':     '  NO     ',
+      \ 'v':      '  V-CHAR ',
+      \ 'V':      '  V-LINE ',
+      \ "\<C-v>": '  V-B    ',
+      \ 's':      '  S-CHAR ',
+      \ 'S':      '  S-LINE ',
+      \ "\<C-s>": '  S-B    ',
+      \ 'i':      '  INSERT ',
+      \ 'ic':     '  I-COMP ',
+      \ 'ix':     '  I-COMP ',
+      \ 'R':      '  R      ',
+      \ 'Rc':     '  R-COMP ',
+      \ 'Rv':     '  R-VIRT ',
+      \ 'Rx':     '  R-COMP ',
+      \ 'c':      '  C-LINE ',
+      \ 'cv':     '  EX     ',
+      \ 'ce':     '  EX     ',
+      \ 'r':      '  ENTER  ',
+      \ 'rm':     '  MORE   ',
+      \ 'r?':     '  ?      ',
+      \ '!':      '  SHELL  ',
+\ }
+
+function! VimModeStatusline()
+    let l:mode = mode()
+    return has_key(s:mode_map, l:mode) ? s:mode_map[l:mode] : ''
+endfunction
 
 function! LinterStatusline() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -180,12 +213,12 @@ function! PasteStatusline()
     return ''
 endfunction
 
-function! VimModeStatusline()
-    if mode() == 'i'
-        return '  '
-    endif
-    return ''
-endfunction
+" function! VimModeStatusline()
+"     if mode() == 'i'
+"         return '  '
+"     endif
+"     return ''
+" endfunction
 
 function! GitBranchStatusline()
     let l:branch_name = fugitive#head()
