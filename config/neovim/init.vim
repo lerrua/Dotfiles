@@ -21,10 +21,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
     Plug 'w0rp/ale'
-    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'maralla/completor.vim'
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
-    Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh', 'for': 'go'}
-    Plug 'zchee/deoplete-go', {'do': 'make', 'for': 'go'}
     Plug 'sebdah/vim-delve', {'for': 'go'}
     Plug 'buoto/gotests-vim', {'for': 'go'}
 call plug#end()
@@ -137,10 +135,9 @@ hi Comment cterm=italic
     let g:go_fmt_command = "goimports"
     let g:go_fmt_fail_silently = 1
 " }
-
-" deoplete.nvim {
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#sources#go#pointer = 1                       " Go autocomplete
+"
+" completor.vim {
+    let g:completor_gocode_binary = $GOPATH.'/bin/gocode'       " Go autocomplete
 " } 
 
 " vim-delve {
