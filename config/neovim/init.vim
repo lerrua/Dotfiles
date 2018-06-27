@@ -138,6 +138,7 @@ hi Comment cterm=italic
 "
 " completor.vim {
     let g:completor_gocode_binary = $GOPATH.'/bin/gocode'       " Go autocomplete
+    let g:completor_python_binary = '/usr/bin/python'           " Python autocomplete
 " } 
 
 " vim-delve {
