@@ -49,6 +49,7 @@ set expandtab                                                   " convert tabs t
 set tabstop=4                                                   " indent using four spaces
 set shiftwidth=4                                                " when shifting, indent using four spaces
 set lazyredraw                                                  " don’t update screen during macro and script execution
+set noshowmode
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
 set shortmess+=A                                                " avoid locking popup messages
@@ -160,7 +161,7 @@ let s:mode_map = {
       \ 'no':     '  NO     ',
       \ 'v':      '  V-CHAR ',
       \ 'V':      '  V-LINE ',
-      \ "\<C-v>": '  V-B    ',
+      \ "\<C-v>": '  V-BLCK ',
       \ 's':      '  S-CHAR ',
       \ 'S':      '  S-LINE ',
       \ "\<C-s>": '  S-B    ',
@@ -189,7 +190,7 @@ function! LinterStatusline() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return printf('✖ %d  %d ', all_errors, all_non_errors)
+    return printf('%s %d %s %d ', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
 endfunction
 
 function! ModifiedStatusline()
@@ -212,13 +213,6 @@ function! PasteStatusline()
     endif
     return ''
 endfunction
-
-" function! VimModeStatusline()
-"     if mode() == 'i'
-"         return '  '
-"     endif
-"     return ''
-" endfunction
 
 function! GitBranchStatusline()
     let l:branch_name = fugitive#head()
