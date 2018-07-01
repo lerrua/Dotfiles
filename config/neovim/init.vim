@@ -143,6 +143,27 @@ hi Comment cterm=italic
 " vim-go {
     let g:go_fmt_command = "goimports"
     let g:go_fmt_fail_silently = 1
+    let g:go_highlight_types = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_build_constraints = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_generate_tags = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_function_arguments = 1
+    let g:go_highlight_function_calls = 1
+    let g:go_highlight_variable_declarations = 1
+    let g:go_highlight_variable_assignments = 1
+    augroup VimGo
+        au!
+        au FileType go nmap <leader>t  <Plug>(go-test)
+        au FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
+        au FileType go nmap <leader>i <Plug>(go-info)
+        au FileType go nmap <buffer> <leader>d :GoDecls<CR>
+        au FileType go nmap <buffer> <leader>dr :GoDeclsDir<CR>
+    augroup END
 " }
 
 " completor.vim {
