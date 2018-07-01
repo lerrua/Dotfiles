@@ -152,8 +152,8 @@ hi Comment cterm=italic
 
 " vim-delve {
     let g:delve_backend = "native"                              " Go debugger
-    nmap <silent> <F5> :DlvDebug<CR>
-    nmap <silent> <F6> :DlvToggleBreakpoint<CR>
+    au FileType go nmap <buffer> <silent> <F5> :DlvDebug<CR>
+    au FileType go nmap <buffer> <silent> <F6> :DlvToggleBreakpoint<CR>
 " }
 
 " ranger.vim {
