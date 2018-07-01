@@ -102,6 +102,11 @@ hi Comment cterm=italic
     " Vmap for maintain Visual Mode after shifting > and <
     vmap < <gv
     vmap > >gv
+    " Keep cursor centered into screen
+    nnoremap j jzz
+    nnoremap k kzz
+    nnoremap <Down> jzz
+    nnoremap <Up> kzz
     " Clean search highlight
     nnoremap <silent> <leader><space> :noh<CR>
 " }
