@@ -62,7 +62,6 @@ set undolevels=1000                                             " maximum number
 set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
 
 set statusline=
-set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
 set statusline+=%#StatusLineNC#                                 " switch to StatusLineNC highlight
 set statusline+=\ 
 set statusline+=\ %{expand('%:p:h')}                            " display path directory
@@ -81,7 +80,8 @@ set statusline+=%v                                              " column number
 set statusline+=\                                              " line number icon
 set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
-set statusline+=\ %#StatusLineNC#                               " switch to StatusLineNC highlight
+set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
+set statusline+=\%#StatusLineNC#                               " switch to StatusLineNC highlight
 set statusline+=\ %{LinterStatusline()}                         " linter status
 set statusline+=\%*                                             " switch back to statusline highlight
 
