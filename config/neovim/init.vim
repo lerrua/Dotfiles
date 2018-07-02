@@ -80,10 +80,10 @@ set statusline+=%v                                              " column number
 set statusline+=\                                              " line number icon
 set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
-set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
-set statusline+=\%#StatusLineNC#                               " switch to StatusLineNC highlight
+set statusline+=\ %#StatusLineNC#                               " switch to StatusLineNC highlight
 set statusline+=\ %{LinterStatusline()}                         " linter status
 set statusline+=\%*                                             " switch back to statusline highlight
+set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
 
 hi Comment cterm=italic
 
