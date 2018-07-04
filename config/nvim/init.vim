@@ -105,8 +105,6 @@ hi Comment cterm=italic
     " Keep cursor centered into screen
     nnoremap j jzz
     nnoremap k kzz
-    nnoremap <Down> jzz
-    nnoremap <Up> kzz
     " Clean search highlight
     nnoremap <silent> <leader><space> :noh<CR>
 " }
