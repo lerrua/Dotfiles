@@ -64,10 +64,8 @@ set undolevels=1000                                             " maximum number
 set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
 
 set statusline=
-set statusline+=%#StatusLineNC#                                 " switch to StatusLineNC highlight
 set statusline+=\ 
 set statusline+=\ %{expand('%:p:h')}                            " display path directory
-set statusline+=\ %*                                            " switch back to statusline highlight
 set statusline+=\ %{WebDevIconsGetFileTypeSymbol()}             " filetype icon
 set statusline+=\ %{expand('%:t')}                              " display filename
 set statusline+=\                                              " left separator 
@@ -82,9 +80,7 @@ set statusline+=%v                                              " column number
 set statusline+=\                                              " line number icon
 set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
-set statusline+=\ %#StatusLineNC#                               " switch to StatusLineNC highlight
 set statusline+=\ %{LinterStatusline()}                         " linter status
-set statusline+=\%*                                             " switch back to statusline highlight
 set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
 
 hi Comment cterm=italic
@@ -118,8 +114,8 @@ hi Comment cterm=italic
     \}
     highlight clear ALEErrorSign
     highlight clear ALEWarningSign
-    let g:ale_sign_error = '✖'
-    let g:ale_sign_warning = ''
+    let g:ale_sign_error = ''
+    let g:ale_sign_warning = ''
     let g:ale_lint_on_save = 1
     let g:ale_lint_on_text_changed = 'never'
     " jump to prev/next quickfix results
@@ -218,7 +214,7 @@ function! LinterStatusline() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return printf('%s %d %s %d ', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
+    return printf(' %s %d %s %d ', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
 endfunction
 
 function! ModifiedStatusline()
