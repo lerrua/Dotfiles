@@ -18,10 +18,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
-    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-fugitive'
     Plug 'w0rp/ale'
     Plug 'maralla/completor.vim'
+    Plug 'terryma/vim-multiple-cursors'
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
     Plug 'sebdah/vim-delve', {'for': 'go'}
     Plug 'buoto/gotests-vim', {'for': 'go'}
