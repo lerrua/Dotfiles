@@ -66,9 +66,8 @@ set undoreload=10000                                            " maximum number
 set statusline=
 set statusline+=\ 
 set statusline+=\ %{expand('%:p:h')}                            " display path directory
-set statusline+=\ %{WebDevIconsGetFileTypeSymbol()}             " filetype icon
-set statusline+=\ %{expand('%:t')}                              " display filename
-set statusline+=\                                              " left separator 
+set statusline+=\                                               " white space
+set statusline+=%1*\%{FilenameStatusline()}%*                   " display git branch label
 set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
 set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
 set statusline+=\%{ModifiedStatusline()}                        " display modified file icon
@@ -84,6 +83,15 @@ set statusline+=\ %{LinterStatusline()}                         " linter status
 set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
 
 hi Comment cterm=italic
+hi User1 cterm=reverse 
+
+" augroup DimInactiveWindows
+"   au!
+"   au FileType,BufEnter * execute 'hi User1 cterm=reverse' 
+"   au FileType,WinEnter * execute 'hi User1 cterm=reverse' 
+"   au FileType,BufLeave * execute 'hi User1 cterm=none' 
+"   au FileType,WinLeave * execute 'hi User1 cterm=none' 
+" augroup END
 
 " Key maps {
     " Set working directory
@@ -244,4 +252,10 @@ function! GitBranchStatusline()
         return printf(' %s ', branch_name)
     endif
     return ''
+endfunction
+
+function! FilenameStatusline()
+    let l:filetype_symbol = WebDevIconsGetFileTypeSymbol()
+    let l:filetype_name = expand('%:t')
+    return printf(' %s %s ', filetype_symbol, filetype_name)
 endfunction
