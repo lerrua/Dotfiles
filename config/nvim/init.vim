@@ -85,14 +85,6 @@ set statusline+=\%{VimModeStatusline()}                         " display actual
 hi Comment cterm=italic
 hi User1 cterm=reverse 
 
-" augroup DimInactiveWindows
-"   au!
-"   au FileType,BufEnter * execute 'hi User1 cterm=reverse' 
-"   au FileType,WinEnter * execute 'hi User1 cterm=reverse' 
-"   au FileType,BufLeave * execute 'hi User1 cterm=none' 
-"   au FileType,WinLeave * execute 'hi User1 cterm=none' 
-" augroup END
-
 " Key maps {
     " Set working directory
     nnoremap <leader>. :cd %:p:h<CR>:pwd<CR>
@@ -222,7 +214,7 @@ function! LinterStatusline() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return printf(' %s %d %s %d ', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
+    return printf('%s: %d %s: %d', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
 endfunction
 
 function! ModifiedStatusline()
