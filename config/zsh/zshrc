@@ -116,8 +116,11 @@ export NVM_DIR="$HOME/.nvm"
 # ruby
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 
-# ls replace
+# cli tools
 alias ls='exa'
+alias du="ncdu -rr -x --exclude .git --exclude node_modules"
+alias ping='prettyping --nolegend'
+alias cat='bat'
 
 # tmuxp
 export DISABLE_AUTO_TITLE='true'
@@ -143,3 +146,6 @@ fi
 
 # added by travis gem
 [ -f /home/leroy/.travis/travis.sh ] && source /home/leroy/.travis/travis.sh
+
+# jump
+eval "$(jump shell)"
