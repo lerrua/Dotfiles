@@ -119,6 +119,7 @@ hi User1 cterm=reverse
     highlight clear ALEWarningSign
     let g:ale_sign_error = ''
     let g:ale_sign_warning = ''
+    let g:ale_sign_ok = 'ﲏ'
     let g:ale_lint_on_save = 1
     let g:ale_lint_on_text_changed = 'never'
     " jump to prev/next quickfix results
@@ -157,9 +158,9 @@ hi User1 cterm=reverse
     let g:go_highlight_variable_assignments = 1
     augroup VimGo
         au!
+        au FileType go nmap <leader>i <Plug>(go-info)
         au FileType go nmap <leader>t  <Plug>(go-test)
         au FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
-        au FileType go nmap <leader>i <Plug>(go-info)
         au FileType go nmap <buffer> <leader>d :GoDecls<CR>
         au FileType go nmap <buffer> <leader>dr :GoDeclsDir<CR>
     augroup END
@@ -214,9 +215,12 @@ endfunction
 
 function! LinterStatusline() abort
     let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_errors = l:counts.error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return printf('%s: %d %s: %d', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
+    if l:counts.total > 0
+        return printf('%s: %d %s: %d', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
+    endif
+    return printf('%s', g:ale_sign_ok)
 endfunction
 
 function! ModifiedStatusline()
