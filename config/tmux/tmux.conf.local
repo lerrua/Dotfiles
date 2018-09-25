@@ -251,7 +251,7 @@ tmux_conf_copy_to_os_clipboard=true
 set -g default-terminal "xterm-256color-italic"
 
 # increase history size
-set -g history-limit 10000
+set -g history-limit 1000000
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
