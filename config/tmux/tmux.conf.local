@@ -85,14 +85,14 @@ tmux_conf_theme_mode_attr='bold'
 
 # status line style (bar)
 tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
-tmux_conf_theme_status_bg='#55552b'                     # black
+tmux_conf_theme_status_bg='#eae8e1'                     # black
 tmux_conf_theme_status_attr='none'
 
 # window status style (inactive)
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_fg='#8a8a8a'              # light gray
-tmux_conf_theme_window_status_bg='#55552b'              # dark gray
+tmux_conf_theme_window_status_fg='#8a8a8a'      # (second color)
+tmux_conf_theme_window_status_bg='#eae8e1'              # dark gray
 tmux_conf_theme_window_status_attr='none'
 # tmux_conf_theme_window_status_format='#I #W'
 # tmux_conf_theme_window_status_format='#{circled_window_index} '
@@ -102,8 +102,8 @@ tmux_conf_theme_window_status_format=' #{circled_window_index}'
 # window current status style (active)
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_current_bg='#55552b'      # dark gray
-tmux_conf_theme_window_status_current_fg='#bfc9ca'      # (second color)
+tmux_conf_theme_window_status_current_fg='#000000'              # light gray
+tmux_conf_theme_window_status_current_bg='#eae8e1'      # dark gray
 tmux_conf_theme_window_status_current_attr='none'
 #tmux_conf_theme_window_status_current_format='[#I] #W'
 tmux_conf_theme_window_status_current_format=' #{circled_window_index}'
@@ -181,7 +181,7 @@ tmux_conf_theme_pairing_bg='none'
 tmux_conf_theme_pairing_attr='none'
 
 # prefix indicator
-tmux_conf_theme_prefix='⌨'            # U+2328
+tmux_conf_theme_prefix='⌨ '            # U+2329
 tmux_conf_theme_prefix_fg='none'
 tmux_conf_theme_prefix_bg='none'
 tmux_conf_theme_prefix_attr='none'
