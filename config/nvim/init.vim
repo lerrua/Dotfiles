@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'sheerun/vim-polyglot'
+    Plug 'mhinz/vim-startify'
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
     Plug 'sebdah/vim-delve', {'for': 'go'}
     Plug 'buoto/gotests-vim', {'for': 'go'}
+    Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 if filereadable(expand("~/.vimrc_background"))
