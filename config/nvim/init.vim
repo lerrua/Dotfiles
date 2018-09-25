@@ -67,20 +67,23 @@ set statusline=
 set statusline+=\ 
 set statusline+=\ %{expand('%:p:h')}                            " display path directory
 set statusline+=\                                               " white space
-set statusline+=%1*\%{FilenameStatusline()}%*                   " display git branch label
-set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
+set statusline+=%1*\%{FilenameStatusline()}                     " display git branch label
 set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
 set statusline+=\%{ModifiedStatusline()}                        " display modified file icon
-set statusline+=\%{PasteStatusline()}                           " display paste mode icon
+set statusline+=\%{PasteStatusline()}%*                         " display paste mode icon
+set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
 set statusline+=\ %=                                            " split point for left and right groups
-set statusline+=%l                                              " row number
+set statusline+=\                                              " section separator
+set statusline+=\ %l                                            " row number
 set statusline+=\                                              " colon separator
 set statusline+=%v                                              " column number
 set statusline+=\                                              " line number icon
+set statusline+=\                                              " section separator
 set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
+set statusline+=\                                              " section separator
 set statusline+=\ %{LinterStatusline()}                         " linter status
-set statusline+=\%{VimModeStatusline()}                         " display actual vim mode
+set statusline+=\ %{VimModeStatusline()}                        " display actual vim mode
 
 hi Comment cterm=italic
 hi User1 cterm=reverse 
@@ -174,35 +177,34 @@ hi User1 cterm=reverse
 " }
 
 " ranger.vim {
-    let g:ranger_replace_netrw = 1                              " open ranger when vim open a directory
     let g:ranger_map_keys = 0
     let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
     nnoremap <silent> <F3> :Ranger<CR>
 " }
 
 let s:mode_map = {
-      \ 'n':      '  NORMAL ',
-      \ 'no':     '  NO     ',
-      \ 'v':      '  V-CHAR ',
-      \ 'V':      '  V-LINE ',
-      \ "\<C-v>": '  V-BLCK ',
-      \ 's':      '  S-CHAR ',
-      \ 'S':      '  S-LINE ',
-      \ "\<C-s>": '  S-B    ',
-      \ 'i':      '  INSERT ',
-      \ 'ic':     '  I-COMP ',
-      \ 'ix':     '  I-COMP ',
-      \ 'R':      '  R      ',
-      \ 'Rc':     '  R-COMP ',
-      \ 'Rv':     '  R-VIRT ',
-      \ 'Rx':     '  R-COMP ',
-      \ 'c':      '  C-LINE ',
-      \ 'cv':     '  EX     ',
-      \ 'ce':     '  EX     ',
-      \ 'r':      '  ENTER  ',
-      \ 'rm':     '  MORE   ',
-      \ 'r?':     '  ?      ',
-      \ '!':      '  SHELL  ',
+      \ 'n':      ' NORMAL ',
+      \ 'no':     ' NO     ',
+      \ 'v':      ' V-CHAR ',
+      \ 'V':      ' V-LINE ',
+      \ "\<C-v>": ' V-BLCK ',
+      \ 's':      ' S-CHAR ',
+      \ 'S':      ' S-LINE ',
+      \ "\<C-s>": ' S-B    ',
+      \ 'i':      ' INSERT ',
+      \ 'ic':     ' I-COMP ',
+      \ 'ix':     ' I-COMP ',
+      \ 'R':      ' R      ',
+      \ 'Rc':     ' R-COMP ',
+      \ 'Rv':     ' R-VIRT ',
+      \ 'Rx':     ' R-COMP ',
+      \ 'c':      ' C-LINE ',
+      \ 'cv':     ' EX     ',
+      \ 'ce':     ' EX     ',
+      \ 'r':      ' ENTER  ',
+      \ 'rm':     ' MORE   ',
+      \ 'r?':     ' ?      ',
+      \ '!':      ' SHELL  ',
 \ }
 
 function! VimModeStatusline()
