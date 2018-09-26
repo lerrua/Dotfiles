@@ -93,6 +93,7 @@ hi User1 cterm=reverse
     " Set working directory
     nnoremap <leader>. :cd %:p:h<CR>:pwd<CR>
     " Tabs
+    nnoremap <silent> t% :call OpenCurrentAsNewTab()<CR>
     nnoremap <Tab> gt
     nnoremap <S-Tab> gT
     nnoremap <silent> <S-t> :tabnew<CR>
@@ -187,77 +188,85 @@ hi User1 cterm=reverse
     nnoremap <silent> <F3> :Ranger<CR>
 " }
 
-let s:mode_map = {
-      \ 'n':      ' NORMAL ',
-      \ 'no':     ' NO     ',
-      \ 'v':      ' V-CHAR ',
-      \ 'V':      ' V-LINE ',
-      \ "\<C-v>": ' V-BLCK ',
-      \ 's':      ' S-CHAR ',
-      \ 'S':      ' S-LINE ',
-      \ "\<C-s>": ' S-B    ',
-      \ 'i':      ' INSERT ',
-      \ 'ic':     ' I-COMP ',
-      \ 'ix':     ' I-COMP ',
-      \ 'R':      ' R      ',
-      \ 'Rc':     ' R-COMP ',
-      \ 'Rv':     ' R-VIRT ',
-      \ 'Rx':     ' R-COMP ',
-      \ 'c':      ' C-LINE ',
-      \ 'cv':     ' EX     ',
-      \ 'ce':     ' EX     ',
-      \ 'r':      ' ENTER  ',
-      \ 'rm':     ' MORE   ',
-      \ 'r?':     ' ?      ',
-      \ '!':      ' SHELL  ',
-\ }
-
-function! VimModeStatusline()
-    let l:mode = mode()
-    return has_key(s:mode_map, l:mode) ? s:mode_map[l:mode] : ''
+function! OpenCurrentAsNewTab()
+    let l:currentPos = getcurpos()
+    tabedit %
+    call setpos(".", l:currentPos)
 endfunction
 
-function! LinterStatusline() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    if l:counts.total > 0
-        return printf('%s: %d %s: %d', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
-    endif
-    return printf('%s', g:ale_sign_ok)
-endfunction
+" statusline functions {
+    let s:mode_map = {
+          \ 'n':      ' NORMAL ',
+          \ 'no':     ' NO     ',
+          \ 'v':      ' V-CHAR ',
+          \ 'V':      ' V-LINE ',
+          \ "\<C-v>": ' V-BLCK ',
+          \ 's':      ' S-CHAR ',
+          \ 'S':      ' S-LINE ',
+          \ "\<C-s>": ' S-B    ',
+          \ 'i':      ' INSERT ',
+          \ 'ic':     ' I-COMP ',
+          \ 'ix':     ' I-COMP ',
+          \ 'R':      ' R      ',
+          \ 'Rc':     ' R-COMP ',
+          \ 'Rv':     ' R-VIRT ',
+          \ 'Rx':     ' R-COMP ',
+          \ 'c':      ' C-LINE ',
+          \ 'cv':     ' EX     ',
+          \ 'ce':     ' EX     ',
+          \ 'r':      ' ENTER  ',
+          \ 'rm':     ' MORE   ',
+          \ 'r?':     ' ?      ',
+          \ '!':      ' SHELL  ',
+    \ }
 
-function! ModifiedStatusline()
-    if &modified == 1
-        return '  '
-    endif
-    return ''
-endfunction
+    function! VimModeStatusline()
+        let l:mode = mode()
+        return has_key(s:mode_map, l:mode) ? s:mode_map[l:mode] : ''
+    endfunction
 
-function! ReadOnlyStatusline()
-    if &readonly == 1
-        return '  '
-    endif
-    return ''
-endfunction
+    function! LinterStatusline() abort
+        let l:counts = ale#statusline#Count(bufnr(''))
+        let l:all_errors = l:counts.error
+        let l:all_non_errors = l:counts.total - l:all_errors
+        if l:counts.total > 0
+            return printf('%s: %d %s: %d', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
+        endif
+        return printf('%s', g:ale_sign_ok)
+    endfunction
 
-function! PasteStatusline()
-    if &paste == 1
-        return '  '
-    endif
-    return ''
-endfunction
+    function! ModifiedStatusline()
+        if &modified == 1
+            return '  '
+        endif
+        return ''
+    endfunction
 
-function! GitBranchStatusline()
-    let l:branch_name = fugitive#head()
-    if l:branch_name != ""
-        return printf(' %s ', branch_name)
-    endif
-    return ''
-endfunction
+    function! ReadOnlyStatusline()
+        if &readonly == 1
+            return '  '
+        endif
+        return ''
+    endfunction
 
-function! FilenameStatusline()
-    let l:filetype_symbol = WebDevIconsGetFileTypeSymbol()
-    let l:filetype_name = expand('%:t')
-    return printf(' %s %s ', filetype_symbol, filetype_name)
-endfunction
+    function! PasteStatusline()
+        if &paste == 1
+            return '  '
+        endif
+        return ''
+    endfunction
+
+    function! GitBranchStatusline()
+        let l:branch_name = fugitive#head()
+        if l:branch_name != ""
+            return printf(' %s ', branch_name)
+        endif
+        return ''
+    endfunction
+
+    function! FilenameStatusline()
+        let l:filetype_symbol = WebDevIconsGetFileTypeSymbol()
+        let l:filetype_name = expand('%:t')
+        return printf(' %s %s ', filetype_symbol, filetype_name)
+    endfunction
+" }
