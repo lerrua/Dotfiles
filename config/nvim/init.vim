@@ -157,11 +157,14 @@ hi User1 cterm=reverse
     let g:go_highlight_function_calls = 1
     let g:go_highlight_variable_declarations = 1
     let g:go_highlight_variable_assignments = 1
+    let g:go_auto_type_info = 1
+    let g:go_auto_sameids = 1
     augroup VimGo
         au!
-        au FileType go nmap <leader>i <Plug>(go-info)
-        au FileType go nmap <leader>t  <Plug>(go-test)
-        au FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
+        au FileType go nmap <buffer> <leader>i <Plug>(go-info)
+        au FileType go nmap <buffer> <leader>gd <Plug>(go-def)
+        au FileType go nmap <buffer> <leader>t  <Plug>(go-test)
+        au FileType go nmap <buffer> <leader>gt <Plug>(go-coverage-toggle)
         au FileType go nmap <buffer> <leader>d :GoDecls<CR>
         au FileType go nmap <buffer> <leader>dr :GoDeclsDir<CR>
     augroup END
