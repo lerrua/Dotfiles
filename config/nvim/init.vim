@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
+    Plug 'junegunn/goyo.vim'
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
@@ -24,6 +25,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
     Plug 'maralla/completor.vim'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'wincent/terminus'
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
     Plug 'sebdah/vim-delve', {'for': 'go'}
     Plug 'buoto/gotests-vim', {'for': 'go'}
