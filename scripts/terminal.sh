@@ -1,8 +1,9 @@
 #!/bin/sh
+set -e
 
 echo "Installing gnome-terminal"
 
-pacaur -S --noconfirm --noedit gnome-terminal
+yay -S --noconfirm --needed gnome-terminal
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo chsh -s /usr/bin/zsh

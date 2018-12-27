@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 echo "Installing tools for developers"
 
@@ -8,7 +9,9 @@ sudo easy_install pip
 sudo pip install neovim
 
 # install base packages
-pacaur -S --noconfirm --noedit ctags ncurses curl unzip neovim go docker docker-compose tmux zsh htop fzf xsel silver-searcher-git tree exa dconf ranger mosh tig
+yay -S --noconfirm --needed ctags ncurses curl unzip neovim go docker docker-compose tmux
+yay -S --noconfirm --needed zsh fzf xsel silver-searcher-git tree exa dconf ranger mosh
+yay -S --noconfirm --needed tig bat prettyping ncdu
 
 echo "Setting Rust dev environment"
 

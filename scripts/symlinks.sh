@@ -5,10 +5,10 @@ echo "Symlinking dotfiles"
 
 # zsh
 # install oh-my-zsh and overwrite zsh file
+[ -d ~/.config ] && echo "Directory 'config' exists" || mkdir -p ~/.config
 ln -s $DOTFILES/config/zsh/zshrc $HOME/.zshrc
 
 # neovim
-# create .config folder and nvim folder
 ln -s $DOTFILES/config/nvim/init.vim $HOME/.config/nvim/init.vim
 
 # tmux

@@ -4,31 +4,29 @@ set -e
 echo "Installing useful Apps"
 
 # install useful desktop apps
-pacaur -S --noconfirm --noedit google-chrome dropbox slack-desktop spotify skypeforlinux-bin insomnia franz-bin wine ttf-vista-fonts \
-    wps-office steam-native-runtime inkscape gimp etcher telegram-desktop
-
-# Thanks to : Erik Dubois at http://www.erikdubois.be
-# https://github.com/erikdubois/Antergosi3
+yay -S --noconfirm --needed google-chrome dropbox slack-desktop spotify skypeforlinux-bin
+yay -S --noconfirm --needed insomnia franz-bin wine ttf-vista-fonts wps-office steam-native-runtime
+yay -S --noconfirm --noneed inkscape gimp etcher telegram-desktop
 
 # software from 'normal' repositories
-pacaur -S --noconfirm --needed archey3 baobab bleachbit catfish clementine conky curl
-pacaur -S --noconfirm --needed darktable dconf-editor
-pacaur -S --noconfirm --needed dmidecode
-pacaur -S --noconfirm --needed evince evolution filezilla firefox
-pacaur -S --noconfirm --needed galculator geary gimp git gksu glances gnome-disk-utility
-pacaur -S --noconfirm --needed gnome-font-viewer gnome-screenshot gnome-system-monitor gnome-terminal gnome-tweak-tool
-pacaur -S --noconfirm --needed gparted gpick grsync
-pacaur -S --noconfirm --needed hardinfo hddtemp hexchat htop
-pacaur -S --noconfirm --needed inkscape inxi lm_sensors lsb-release meld mlocate mpv
-pacaur -S --noconfirm --needed nemo net-tools notify-osd numlockx openshot pinta plank polkit-gnome
-pacaur -S --noconfirm --needed redshift ristretto sane screenfetch scrot shotwell
-pacaur -S --noconfirm --needed simple-scan simplescreenrecorder smplayer sysstat
-pacaur -S --noconfirm --needed terminator thunar transmission-cli transmission-gtk tumbler
-pacaur -S --noconfirm --needed variety vlc vnstat wget unclutter
-
-sudo systemctl enable vnstat
-sudo systemctl start vnstat
+yay -S --noconfirm --needed archey3 baobab bleachbit catfish clementine conky curl
+yay -S --noconfirm --needed darktable dconf-editor
+yay -S --noconfirm --needed dmidecode
+yay -S --noconfirm --needed evince evolution filezilla firefox
+yay -S --noconfirm --needed galculator geary gimp git gksu glances gnome-disk-utility
+yay -S --noconfirm --needed gnome-font-viewer gnome-screenshot gnome-system-monitor gnome-terminal gnome-tweak-tool
+yay -S --noconfirm --needed gparted gpick grsync
+yay -S --noconfirm --needed hardinfo hddtemp hexchat htop
+yay -S --noconfirm --needed inkscape inxi lm_sensors lsb-release meld mlocate mpv
+yay -S --noconfirm --needed nemo net-tools notify-osd numlockx openshot pinta plank polkit-gnome
+yay -S --noconfirm --needed redshift ristretto sane screenfetch scrot shotwell
+yay -S --noconfirm --needed simple-scan simplescreenrecorder smplayer sysstat
+yay -S --noconfirm --needed thunar transmission-cli transmission-gtk tumbler
+yay -S --noconfirm --needed variety vlc vnstat wget unclutter tlp
 
 # installation of zippers and unzippers
-pacaur -S --noconfirm --needed unace unrar zip unzip sharutils  uudeview  arj cabextract file-roller
+yay -S --noconfirm --needed unace unrar zip unzip sharutils  uudeview  arj cabextract file-roller
 
+sudo systemctl enable tlp.service
+sudo systemctl enable vnstat
+sudo systemctl start vnstat
