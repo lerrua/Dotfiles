@@ -1,8 +1,8 @@
 #!/bin/sh
 
-source $DOTFILES/setup/base.sh
-source $DOTFILES/setup/devel.sh
-source $DOTFILES/setup/apps.sh
-source $DOTFILES/setup/fonts.sh
-source $DOTFILES/setup/symlinks.sh
-source $DOTFILES/setup/terminal.sh
+source $DOTFILES/scripts/base.sh
+source $DOTFILES/scripts/devel.sh
+source $DOTFILES/scripts/apps.sh
+source $DOTFILES/scripts/fonts.sh
+source $DOTFILES/scripts/symlinks.sh
+source $DOTFILES/scripts/terminal.sh
