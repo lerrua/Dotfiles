@@ -11,7 +11,7 @@ sudo pip install neovim
 # install base packages
 yay -S --noconfirm --needed ctags ncurses curl unzip neovim go docker docker-compose tmux
 yay -S --noconfirm --needed zsh fzf xsel silver-searcher-git tree exa dconf ranger mosh
-yay -S --noconfirm --needed tig bat prettyping ncdu
+yay -S --noconfirm --needed tig bat prettyping ncdu wget
 
 echo "Setting Rust dev environment"
 
