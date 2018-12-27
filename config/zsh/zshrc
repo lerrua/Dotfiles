@@ -120,7 +120,6 @@ export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 alias ls='exa'
 alias du="ncdu -rr -x --exclude .git --exclude node_modules"
 alias ping='prettyping --nolegend'
-alias cat='bat'
 
 # tmuxp
 export DISABLE_AUTO_TITLE='true'

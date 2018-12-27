@@ -9,6 +9,7 @@ echo "Symlinking dotfiles"
 ln -s $DOTFILES/config/zsh/zshrc $HOME/.zshrc
 
 # neovim
+[ -d ~/.config/nvim ] && echo "Directory 'config' exists" || mkdir -p ~/.config/nvim
 ln -s $DOTFILES/config/nvim/init.vim $HOME/.config/nvim/init.vim
 
 # tmux
