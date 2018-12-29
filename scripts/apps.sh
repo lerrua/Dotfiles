@@ -22,3 +22,4 @@ yay -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextr
 sudo systemctl enable tlp.service
 sudo systemctl enable vnstat
 sudo systemctl start vnstat
+sudo systemctl enable docker
