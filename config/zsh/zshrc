@@ -7,8 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Default paths
 export CODE=$HOME/Code
 export DOTFILES=$HOME/Code/github/Dotfiles
-export NUVEO=$HOME/Code/go/src/github.com/nuveo
-export LEVPAY=$HOME/Code/go/src/github.com/levpay
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -128,8 +126,6 @@ export DISABLE_AUTO_TITLE='true'
 alias archupdate='pacaur -Syyu'
 alias archcleanop='pacaur -Rs $(pacman -Qqdt)'
 alias archpdelete="pacaur -Rsn"
-
-alias code='cd $CODE'
 
 # base16 colors
 BASE16_SHELL=$HOME/.config/base16-shell/
