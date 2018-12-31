@@ -13,6 +13,7 @@ sudo pacman -Syu --noconfirm pacaur yay
 
 # change login screen to gdm as default
 sudo pacman -S gdm
+sudo systemctl disable lightdm
 sudo systemctl -f enable gdm
 
 # yay config
