@@ -2,8 +2,7 @@
 set -e
 
 echo "Installing gnome-terminal"
-
-yay -S --noconfirm --needed gnome-terminal
+_install gnome-terminal
 
 echo "Installing Vim-Plug"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

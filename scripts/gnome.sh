@@ -1,5 +1,7 @@
 #!/bin/sh
-yay -S --noconfirm gtk-engine-murrine gtk-engines
+set -e
+
+_installMany gtk-engine-murrine gtk-engines
 
 # gnome base theme
 [ -d ~/.themes ] && echo "Directory 'themes' already exists" || mkdir -p ~/.themes

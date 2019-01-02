@@ -1,18 +1,21 @@
 #!/bin/sh
-# antergos base config
+
+echo "Do you want upgrade the OS before continue?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) sudo pacman -Syu; break;;
+        No ) break;;
+    esac
+done
+
 echo "Installing base-dev libs"
-sudo pacman -Syu --noconfirm base-devel git vim
+sudo pacman -S --noconfirm base-devel
+sudo pacman -S --noconfirm git vim gdm
 
-echo "Installing Arch package manager alternatives"
-sudo pacman -Syu --noconfirm pacaur yay
+echo "Installing Arch package manager alternative"
+sudo pacman -S --noconfirm yay
 
-# in case pure Arch read about how install pacaur: https://www.ostechnix.com/install-pacaur-arch-linux/
-# https://gist.github.com/Tadly/0e65d30f279a34c33e9b
-# git clone https://aur.archlinux.org/cower.git && cd cower && makepkg -i && cd -
-# git clone https://aur.archlinux.org/pacaur.git && cd pacaur && makepkg -i && cd -
-
-# change login screen to gdm as default
-sudo pacman -S gdm
+echo "Changing lightdm to gdm"
 sudo systemctl disable lightdm
 sudo systemctl -f enable gdm
 
