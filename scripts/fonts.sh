@@ -4,7 +4,7 @@ echo "Installing fonts"
 _installMany noto-fonts ttf-ubuntu-font-family ttf-droid
 
 echo "export custom xterm font"
-tic xterm-256color-italic
+tic $DOTFILES/config/tmux/xterm-256color-italic
 
 echo "Get nerdfonts at https://github.com/ryanoasis/nerd-fonts"
 [ -d ~/.local/share/fonts ] && echo "Directory '.local/share/fonts' exists" || mkdir -p ~/.local/share/fonts
