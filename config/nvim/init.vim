@@ -134,9 +134,9 @@ hi User1 cterm=reverse
 " }
 
 " fzf.vim {
-    nnoremap <silent> <leader>b :Buffers<CR>
-    nnoremap <silent> <leader>e :FZF -m<CR>
-    nnoremap <silent> <leader>f :Ag<CR>
+    nnoremap <silent> <space>b :Buffers<CR>
+    nnoremap <silent> <space>e :FZF -m<CR>
+    nnoremap <silent> <space>f :Ag<CR>
     set grepprg=ag\ --nogroup\ --nocolor
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 " }
