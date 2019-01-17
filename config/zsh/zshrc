@@ -74,6 +74,9 @@ export LANG=en_US.UTF-8
 # fi
 export EDITOR='vim'
 
+# poetry environment
+source $HOME/.poetry/env
+
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
@@ -84,7 +87,8 @@ export ARCHFLAGS="-arch x86_64"
 export PATH="/usr/local/sbin:$PATH"
 
 # FZF
-export FZF_DEFAULT_COMMAND='ag -g ""'
+# export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -111,21 +115,24 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# ruby
-export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
+# yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# python pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # cli tools
 alias ls='exa'
 alias du="ncdu -rr -x --exclude .git --exclude node_modules"
 alias ping='prettyping --nolegend'
 
+# jump
+eval "$(jump shell)"
+
 # tmuxp
 export DISABLE_AUTO_TITLE='true'
-
-# Arch distro alias
-alias archupdate='pacaur -Syyu'
-alias archcleanop='pacaur -Rs $(pacman -Qqdt)'
-alias archpdelete="pacaur -Rsn"
 
 # base16 colors
 BASE16_SHELL=$HOME/.config/base16-shell/
@@ -138,9 +145,3 @@ export TERM=xterm-256color-italic
 if which tmux >/dev/null 2>&1; then
     test -z "$TMUX" && (tmux attach || tmux new-session)
 fi
-
-# added by travis gem
-[ -f /home/leroy/.travis/travis.sh ] && source /home/leroy/.travis/travis.sh
-
-# jump
-eval "$(jump shell)"
