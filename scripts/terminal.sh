@@ -8,6 +8,9 @@ echo "Installing Vim-Plug"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+vim +PlugInstall +qall
+vim +CocInstall coc-pyls coc-highlight coc-emmet +qall
+
 echo "Installing base16-shell"
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
