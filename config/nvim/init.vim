@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
+    Plug 'lerrua/tabline.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
