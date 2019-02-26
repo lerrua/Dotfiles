@@ -44,6 +44,7 @@ set t_Co=256                                                    " display 256 co
 set fileformats=unix,dos,mac
 set number                                                      " show line numbers on the sidebar
 set title                                                       " set the window’s title, reflecting the file currently being edited
+set showtabline=2
 set showbreak=↪                                                 " show arrow at breaking
 set hidden                                                      " allow buffer switching without saving
 set updatetime=250                                              " pretty much just so gittgutter will update quickly
