@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'rbgrouleff/bclose.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'yuttie/comfortable-motion.vim'
-    Plug 'tpope/vim-sensible'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'mhinz/vim-startify'
@@ -23,6 +22,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-surround'
     Plug 'w0rp/ale'
     Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     Plug 'terryma/vim-multiple-cursors'
