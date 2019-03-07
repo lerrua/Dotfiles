@@ -40,6 +40,7 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 let mapleader = ","                                             " set leader shortcut to a comma
+let g:separatorline = '' 
 
 set t_Co=256                                                    " display 256 colors
 set fileformats=unix,dos,mac
@@ -73,27 +74,27 @@ set shortmess+=c                                                " don't give |in
 
 set statusline=
 set statusline+=\ 
+set statusline+=\                                              " section separator
+set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
 " set statusline+=\ 
 " set statusline+=\ %{expand('%:p:h')}                            " display path directory
 " set statusline+=\                                               " white space
 " set statusline+=%1*\%{FilenameStatusline()}                     " display git branch label
-" set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
-" set statusline+=\%{ModifiedStatusline()}                        " display modified file icon
-" set statusline+=\%{PasteStatusline()}%*                         " display paste mode icon
-" set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
+set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
+set statusline+=\%{PasteStatusline()}%*                         " display paste mode icon
 set statusline+=\ %=                                            " split point for left and right groups
-set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
-" set statusline+=\                                              " section separator
+set statusline+=\                                              " section separator
 set statusline+=\ %l                                            " row number
 set statusline+=\                                              " colon separator
 set statusline+=%v                                              " column number
 set statusline+=\                                              " line number icon
-" set statusline+=\                                              " section separator
+set statusline+=\                                              " section separator
 set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
-" set statusline+=\                                              " section separator
+set statusline+=\                                              " section separator
 set statusline+=\ %{LinterStatusline()}                         " linter status
-set statusline+=\ %{VimModeStatusline()}                        " display actual vim mode
+set statusline+=\                                              " section separator
+set statusline+=\%{VimModeStatusline()}                        " display actual vim mode
 
 hi Comment cterm=italic
 hi User1 cterm=reverse 
@@ -348,7 +349,7 @@ endfunction
     function! GitBranchStatusline()
         let l:branch_name = fugitive#head()
         if l:branch_name != ""
-            return printf(' %s ', branch_name)
+            return printf(' %s %s', branch_name, g:separatorline)
         endif
         return ''
     endfunction
