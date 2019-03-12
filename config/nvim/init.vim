@@ -83,7 +83,6 @@ set statusline+=\ %{GitBranchStatusline()}                      " display git br
 set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
 set statusline+=\%{PasteStatusline()}%*                         " display paste mode icon
 set statusline+=\ %=                                            " split point for left and right groups
-set statusline+=\                                              " section separator
 set statusline+=\ %l                                            " row number
 set statusline+=\                                              " colon separator
 set statusline+=%v                                              " column number
@@ -349,7 +348,7 @@ endfunction
     function! GitBranchStatusline()
         let l:branch_name = fugitive#head()
         if l:branch_name != ""
-            return printf(' %s %s', branch_name, g:separatorline)
+            return printf(' %s', branch_name)
         endif
         return ''
     endfunction
