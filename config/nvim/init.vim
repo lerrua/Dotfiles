@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'lerrua/tabline.vim'
     Plug 'junegunn/goyo.vim'
+    Plug 'benmills/vimux'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
@@ -276,6 +277,11 @@ hi TabLineSel cterm=reverse
     let g:ranger_map_keys = 0
     let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
     nnoremap <silent> <F3> :Ranger<CR>
+" }
+
+" vimux {
+    " Prompt for a command to run
+    map <Leader>vp :VimuxPromptCommand<CR>
 " }
 
 function! OpenCurrentAsNewTab()
