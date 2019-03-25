@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'lerrua/tabline.vim'
     Plug 'junegunn/goyo.vim'
+    Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
