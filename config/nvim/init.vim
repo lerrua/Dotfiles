@@ -101,6 +101,12 @@ hi Comment cterm=italic
 hi User1 cterm=reverse 
 hi TabLineSel cterm=reverse 
 
+"" Remember cursor position
+augroup vimrc-remember-cursor-position
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
 " Key maps {
     " Set working directory
     nnoremap <leader>. :cd %:p:h<CR>:pwd<CR>
