@@ -1,9 +1,10 @@
 #!/bin/sh
 set -e
 
-echo "Symlinking dotfiles"
+echo "----------- Symlinking -----------"
 
 # zsh
+# TODO: Add message after installed to install oh-my-zsh
 # install oh-my-zsh and overwrite zsh file
 [ -d ~/.config ] && echo "Directory 'config' exists" || mkdir -p ~/.config
 ln -s $DOTFILES/config/zsh/zshrc $HOME/.zshrc

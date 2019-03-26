@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Installing fonts"
+echo "----------- Custom Fonts -----------"
 _installMany noto-fonts ttf-ubuntu-font-family ttf-droid
 
 echo "export custom xterm font"

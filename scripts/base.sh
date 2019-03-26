@@ -8,6 +8,7 @@ select yn in "Yes" "No"; do
     esac
 done
 
+# TODO: ask question to check base-dev, yay and about lightdm to gdm
 echo "Installing base-dev libs"
 sudo pacman -S --noconfirm base-devel
 sudo pacman -S --noconfirm git vim gdm
