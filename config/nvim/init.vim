@@ -150,9 +150,10 @@ augroup END
 " fzf.vim {
     nnoremap <silent> <space>b :Buffers<CR>
     nnoremap <silent> <space>e :FZF -m<CR>
-    nnoremap <silent> <space>f :Ag<CR>
-    set grepprg=ag\ --nogroup\ --nocolor
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+    nnoremap <silent> <space>f :Rg<CR>
+    nnoremap <silent> <space>h :History<CR>
+    " set grepprg=ag\ --nogroup\ --nocolor
+    " set grepformat=%f:%l:%c:%m,%f:%l:%m
 
     " Customize fzf colors to match color scheme
     let g:fzf_colors =
@@ -169,6 +170,23 @@ augroup END
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'] }
+
+    " ripgrep
+    if executable('rg')
+      let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+      set grepprg=rg\ --vimgrep
+
+      command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
+      " Likewise, Files command with preview window
+      command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+    endif
 
     " Hide fzf statusline
     autocmd! FileType fzf
@@ -249,7 +267,7 @@ augroup END
     vmap <leader>f  <Plug>(coc-format-selected)
     nmap <leader>f  <Plug>(coc-format-selected)
 
-    augroup mygroup
+    augroup coc-vimrc-group
       autocmd!
       " Setup formatexpr specified filetype(s).
       autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
