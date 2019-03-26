@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "Installing useful Apps"
+echo "----------- APPS -----------"
 
 # install useful apps
 _installMany google-chrome dropbox slack-desktop spotify 
