@@ -101,6 +101,13 @@ hi Comment cterm=italic
 hi User1 cterm=reverse 
 hi TabLineSel cterm=reverse 
 
+let s:hidden_all = 0
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
+
+let s:toggle_insert = 0
+au InsertEnter * silent call ToggleInsertMode()
+au InsertLeave * silent call ToggleInsertMode()
+
 "" Remember cursor position
 augroup vimrc-remember-cursor-position
   autocmd!
@@ -388,5 +395,52 @@ endfunction
         let l:filetype_symbol = WebDevIconsGetFileTypeSymbol()
         let l:filetype_name = expand('%:t')
         return printf(' %s %s ', filetype_symbol, filetype_name)
+    endfunction
+
+    function! StatusDiagnostic() abort
+        let info = get(b:, 'coc_diagnostic_info', {})
+        if empty(info) | return '' | endif
+        let msgs = []
+        if get(info, 'error', 0)
+            call add(msgs, 'E' . info['error'])
+        endif
+        if get(info, 'warning', 0)
+            call add(msgs, 'W' . info['warning'])
+        endif
+        return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
+    endfunction
+
+    function! ToggleInsertMode()
+        if s:toggle_insert  == 0
+            let s:toggle_insert = 1
+            set nocursorcolumn
+            set nocursorline
+        else
+            let s:toggle_insert = 0
+            set cursorcolumn
+            set cursorline
+        endif
+    endfunction
+
+    function! ToggleHiddenAll()
+        if s:hidden_all  == 0
+            let s:hidden_all = 1
+            set noshowmode
+            set nonumber
+            set nocursorcolumn
+            set nocursorline
+            set noruler
+            set laststatus=0
+            set noshowcmd
+        else
+            let s:hidden_all = 0
+            set showmode
+            set number
+            set cursorcolumn
+            set cursorline
+            set ruler
+            set laststatus=2
+            set showcmd
+        endif
     endfunction
 " }
