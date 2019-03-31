@@ -100,9 +100,11 @@ hi Comment cterm=italic
 hi User1 cterm=reverse 
 hi TabLineSel cterm=reverse 
 
+" Hidden screen distractions to improve coding
 let s:hidden_all = 0
-nnoremap <S-h> :call ToggleHiddenAll()<CR>
+nnoremap <silent> <S-h> :call ToggleHiddenAll()<CR>
 
+" Toggle cursors line and column on insert mode
 let s:toggle_insert = 0
 au InsertEnter * silent call ToggleInsertMode()
 au InsertLeave * silent call ToggleInsertMode()
