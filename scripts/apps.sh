@@ -5,7 +5,7 @@ echo "----------- APPS -----------"
 
 # install useful apps
 _installMany google-chrome dropbox slack-desktop spotify wps-office steam-native-runtime
-_installMany inkscape gimp etcher telegram-desktop dconf-editor filezilla firefox glances 
+_installMany inkscape gimp etcher telegram-desktop dconf-editor filezilla firefox glances chrome-gnome-shell 
 _installMany gparted gpick grsync hexchat inkscape redshift pgweb-bin simplescreenrecrder transmission-cli transmission-gtk
 _installMany vlc vnstat unclutter tlp nordvpn-bin unace unrar zip unzip sharutils uudeview arj cabextract file-roller
 
