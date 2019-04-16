@@ -18,7 +18,7 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 
 # install base packages
 _installMany ctags ncurses curl unzip neovim go docker docker-compose tmux
-_installMany zsh git fzf xsel silver-searcher-git tree exa dconf ranger mosh
+_installMany zsh git fzf xsel silver-searcher-git tree exa dconf ranger mosh yarn
 _installMany tig bat prettyping ncdu wget nodejs htop screenfetch jump bleachbit
 
 echo "Setting Rust environment"
