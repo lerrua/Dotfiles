@@ -11,7 +11,7 @@ export DOTFILES=$HOME/Code/github/Dotfiles
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="gnzh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -74,8 +74,10 @@ export LANG=en_US.UTF-8
 # fi
 export EDITOR='vim'
 
+# export TERM=screen-256color
+
 # poetry environment
-source $HOME/.poetry/env
+# source $HOME/.poetry/env
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -84,10 +86,10 @@ export ARCHFLAGS="-arch x86_64"
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # homebrew
-export PATH="/usr/local/sbin:$PATH"
+# export PATH="/usr/local/sbin:$PATH"
 
 # FZF
-# export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -102,13 +104,13 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 alias vim='nvim'
 
 # golang
-export GOPATH=$HOME/Code/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Rust and cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# export PATH="$HOME/.cargo/bin:$PATH"
+# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # node nvm
 export NVM_DIR="$HOME/.nvm"
@@ -119,9 +121,9 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # python pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # cli tools
 alias ls='exa'
@@ -131,17 +133,17 @@ alias ping='prettyping --nolegend'
 # jump
 eval "$(jump shell)"
 
-# tmuxp
-export DISABLE_AUTO_TITLE='true'
-
 # base16 colors
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# italic support for tmux
-export TERM=xterm-256color-italic
-
 # tmux
-if which tmux >/dev/null 2>&1; then
-    test -z "$TMUX" && (tmux attach || tmux new-session)
-fi
+#if which tmux >/dev/null 2>&1; then
+#    test -z "$TMUX" && (tmux attach || tmux new-session)
+#fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/leroy/google-cloud-sdk/path.zsh.inc' ]; then . '/home/leroy/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/leroy/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/leroy/google-cloud-sdk/completion.zsh.inc'; fi
