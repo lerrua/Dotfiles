@@ -13,10 +13,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'mhinz/vim-startify'
-    Plug 'lerrua/tabline.vim'
-    Plug 'benmills/vimux'
-    Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
@@ -41,7 +37,6 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 let mapleader = ","                                             " set leader shortcut to a comma
-let g:separatorline = '' 
 
 set t_Co=256                                                    " display 256 colors
 set fileformats=unix,dos,mac
@@ -119,7 +114,6 @@ augroup END
     " Set working directory
     nnoremap <leader>. :cd %:p:h<CR>:pwd<CR>
     " Tabs
-    nnoremap <silent> t% :call OpenCurrentAsNewTab()<CR>
     nnoremap <Tab> gt
     nnoremap <S-Tab> gT
     nnoremap <silent> <S-t> :tabnew<CR>
@@ -311,17 +305,6 @@ augroup END
     nnoremap <silent> <F3> :Ranger<CR>
 " }
 
-" vimux {
-    " Prompt for a command to run
-    map <Leader>vp :VimuxPromptCommand<CR>
-" }
-
-function! OpenCurrentAsNewTab()
-    let l:currentPos = getcurpos()
-    tabedit %
-    call setpos(".", l:currentPos)
-endfunction
-
 " statusline functions {
     let s:mode_map = {
           \ 'n':      ' NORMAL ',
@@ -396,19 +379,6 @@ endfunction
         let l:filetype_symbol = WebDevIconsGetFileTypeSymbol()
         let l:filetype_name = expand('%:t')
         return printf(' %s %s ', filetype_symbol, filetype_name)
-    endfunction
-
-    function! StatusDiagnostic() abort
-        let info = get(b:, 'coc_diagnostic_info', {})
-        if empty(info) | return '' | endif
-        let msgs = []
-        if get(info, 'error', 0)
-            call add(msgs, 'E' . info['error'])
-        endif
-        if get(info, 'warning', 0)
-            call add(msgs, 'W' . info['warning'])
-        endif
-        return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
     endfunction
 
     function! ToggleInsertMode()
