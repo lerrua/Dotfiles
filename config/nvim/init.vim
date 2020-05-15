@@ -26,9 +26,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'terryma/vim-multiple-cursors'
     Plug 'wincent/terminus'
-    Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
-    Plug 'sebdah/vim-delve', {'for': 'go'}
-    Plug 'buoto/gotests-vim', {'for': 'go'}
     Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -194,35 +191,6 @@ augroup END
     noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " }
 
-" vim-go {
-    let g:go_fmt_command = "goimports"
-    let g:go_fmt_fail_silently = 1
-    let g:go_highlight_types = 1
-    let g:go_highlight_fields = 1
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_build_constraints = 1
-    let g:go_highlight_structs = 1
-    let g:go_highlight_generate_tags = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_function_arguments = 1
-    let g:go_highlight_function_calls = 1
-    let g:go_highlight_variable_declarations = 1
-    let g:go_highlight_variable_assignments = 1
-    let g:go_auto_type_info = 1
-    let g:go_auto_sameids = 1
-    augroup VimGo
-        au!
-        au FileType go nmap <buffer> <leader>i <Plug>(go-info)
-        au FileType go nmap <buffer> <leader>gd <Plug>(go-def)
-        au FileType go nmap <buffer> <leader>t  <Plug>(go-test)
-        au FileType go nmap <buffer> <leader>gt <Plug>(go-coverage-toggle)
-        au FileType go nmap <buffer> <leader>d :GoDecls<CR>
-        au FileType go nmap <buffer> <leader>dr :GoDeclsDir<CR>
-    augroup END
-" }
-
 " coc.nvim {
     let g:coc_global_extensions = [
         \ 'coc-snippets',
@@ -308,12 +276,6 @@ augroup END
     " Use `:Fold` for fold current buffer
     command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " } 
-
-" vim-delve {
-    let g:delve_backend = "native"                              " Go debugger
-    au FileType go nmap <buffer> <silent> <F5> :DlvDebug<CR>
-    au FileType go nmap <buffer> <silent> <F6> :DlvToggleBreakpoint<CR>
-" }
 
 " ranger.vim {
     let g:ranger_replace_netrw = 1
@@ -445,10 +407,6 @@ function! StatusLine()
     let s .= '  '
     let s .= ''                                             " section separator
     let s .= ' %{GitBranchStatusline()} '                      " display git branch label
-    " let s .=\ 
-    " let s .=\ %{expand('%:p:h')}                            " display path directory
-    " let s .=\                                               " white space
-    " let s .=%1*\%{FilenameStatusline()}                     " display git branch label
     let s .= ' %{ReadOnlyStatusline()} '                        " display read only icon
     let s .= ' %{PasteStatusline()}%* '                         " display paste mode icon
     let s .= '%='                                            " split point for left and right groups
@@ -467,7 +425,7 @@ function! StatusLine()
     return s
 endfunction
 
-" tabline 
+" tabline
 function! Tabline()
   let s = ''
   for i in range(tabpagenr('$'))
