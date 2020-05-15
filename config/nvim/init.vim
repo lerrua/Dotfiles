@@ -418,8 +418,11 @@ augroup END
             set nocursorcolumn
             set nocursorline
             set noruler
-            set laststatus=0
             set noshowcmd
+            set laststatus=0
+            set showtabline=0
+            set signcolumn=no
+            execute 'GitGutterSignsToggle'
         else
             let s:hidden_all = 0
             set showmode
@@ -427,8 +430,11 @@ augroup END
             set cursorcolumn
             set cursorline
             set ruler
-            set laststatus=2
             set showcmd
+            set laststatus=2
+            set showtabline=2
+            set signcolumn=yes:1
+            execute 'GitGutterSignsToggle'
         endif
     endfunction
 " }
