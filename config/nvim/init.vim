@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
+    Plug 'ap/vim-css-color'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
@@ -57,7 +58,9 @@ set lazyredraw                                                  " don’t update
 set noshowmode
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
+set wildignore+=node_modules,DS_Store,vendor
 set shortmess+=A                                                " avoid locking popup messages
+set cmdheight=1
 
 set backup
 set backupdir=~/.cache/nvim                                     " directory to store backup files
@@ -65,7 +68,8 @@ set directory=~/.cache/nvim                                     " directory to s
 set undofile                                                    " persistent undo
 set undolevels=1000                                             " maximum number of changes that can be undone
 set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
-set signcolumn=yes                                              " always show signcolumns
+set numberwidth=1
+set signcolumn=yes:1                                              " always show signcolumns
 set shortmess+=c                                                " don't give |ins-completion-menu| messages
 
 set statusline=
@@ -92,12 +96,11 @@ set statusline+=\                                              " section sepa
 set statusline+=\%{VimModeStatusline()}                        " display actual vim mode
 
 hi Comment cterm=italic
-hi User1 cterm=reverse 
-hi TabLineSel cterm=reverse 
+hi TabLineSel cterm=italic
 
 " Hidden screen distractions to improve coding
 let s:hidden_all = 0
-nnoremap <silent> <S-h> :call ToggleHiddenAll()<CR>
+nnoremap <silent> <ENTER> :call ToggleHiddenAll()<CR>
 
 " Toggle cursors line and column on insert mode
 let s:toggle_insert = 0
@@ -139,14 +142,24 @@ augroup END
     \}
     highlight clear ALEErrorSign
     highlight clear ALEWarningSign
+    let g:ale_set_highlights = 0
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
     let g:ale_sign_error = ''
-    let g:ale_sign_warning = ''
+    let g:ale_sign_warning = ''
     let g:ale_sign_ok = 'ﲏ'
     let g:ale_lint_on_save = 1
     let g:ale_lint_on_text_changed = 'never'
     " jump to prev/next quickfix results
     nmap <silent> <C-k> <Plug>(ale_previous_wrap)
     nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" }
+
+" gitgutter {
+    let g:gitgutter_sign_added = ''
+    let g:gitgutter_sign_modified = ''
+    let g:gitgutter_sign_removed = ''
+    let g:gitgutter_sign_removed_first_line = ''
+    let g:gitgutter_sign_modified_removed = ''
 " }
 
 " fzf.vim {
@@ -300,6 +313,7 @@ augroup END
 " }
 
 " ranger.vim {
+    let g:ranger_replace_netrw = 1
     let g:ranger_map_keys = 0
     let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
     nnoremap <silent> <F3> :Ranger<CR>
