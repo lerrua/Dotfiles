@@ -72,28 +72,8 @@ set numberwidth=1
 set signcolumn=yes:1                                              " always show signcolumns
 set shortmess+=c                                                " don't give |ins-completion-menu| messages
 
-set statusline=
-set statusline+=\ 
-set statusline+=\                                              " section separator
-set statusline+=\ %{GitBranchStatusline()}                      " display git branch label
-" set statusline+=\ 
-" set statusline+=\ %{expand('%:p:h')}                            " display path directory
-" set statusline+=\                                               " white space
-" set statusline+=%1*\%{FilenameStatusline()}                     " display git branch label
-set statusline+=\%{ReadOnlyStatusline()}                        " display read only icon
-set statusline+=\%{PasteStatusline()}%*                         " display paste mode icon
-set statusline+=\ %=                                            " split point for left and right groups
-set statusline+=\ %l                                            " row number
-set statusline+=\                                              " colon separator
-set statusline+=%v                                              " column number
-set statusline+=\                                              " line number icon
-set statusline+=\                                              " section separator
-set statusline+=\ %{WebDevIconsGetFileFormatSymbol()}           " file format icon
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}      " current file encoding
-set statusline+=\                                              " section separator
-set statusline+=\ %{LinterStatusline()}                         " linter status
-set statusline+=\                                              " section separator
-set statusline+=\%{VimModeStatusline()}                        " display actual vim mode
+set tabline=%!Tabline()
+set statusline=%!StatusLine()
 
 hi Comment cterm=italic
 hi TabLineSel cterm=italic
@@ -452,3 +432,57 @@ augroup END
         endif
     endfunction
 " }
+
+" statusline
+function! StatusLine()
+    let s = ''
+    let s .= '  '
+    let s .= ''                                             " section separator
+    let s .= ' %{GitBranchStatusline()} '                      " display git branch label
+    " let s .=\ 
+    " let s .=\ %{expand('%:p:h')}                            " display path directory
+    " let s .=\                                               " white space
+    " let s .=%1*\%{FilenameStatusline()}                     " display git branch label
+    let s .= ' %{ReadOnlyStatusline()} '                        " display read only icon
+    let s .= ' %{PasteStatusline()}%* '                         " display paste mode icon
+    let s .= '%='                                            " split point for left and right groups
+    let s .= '%l'                                            " row number
+    let s .= ''                                              " colon separator
+    let s .= '%v'                                              " column number
+    let s .= ' '                                              " line number icon
+    let s .= ''                                             " section separator
+    let s .= ' %{WebDevIconsGetFileFormatSymbol()} '           " file format icon
+    let s .= '%{&fileencoding?&fileencoding:&encoding}'       " current file encoding
+    let s .= '  '                                             " section separator
+    let s .= ' %{LinterStatusline()} '                         " linter status
+    let s .= ' '                                              " section separator
+    let s .= '%#TermCursor#'
+    let s .= '%{VimModeStatusline()}'                        " display actual vim mode
+    return s
+endfunction
+
+" tabline 
+function! Tabline()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    let tab = i + 1
+    let winnr = tabpagewinnr(tab)
+    let buflist = tabpagebuflist(tab)
+    let bufnr = buflist[winnr - 1]
+    let bufname = bufname(bufnr)
+    let bufmodified = getbufvar(bufnr, "&mod")
+
+    let s .= '%' . tab . 'T'
+    let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+    let s .= ' ' . tab .':'
+    let s .= (bufname != '' ? ''. fnamemodify(bufname, ':t') . ' ' : 'No Name ')
+    let s .= (tab == tabpagenr() ? '%{WebDevIconsGetFileTypeSymbol()} ' : '')
+
+    if bufmodified
+      let s .= '[+] '
+    endif
+  endfor
+
+  let s .= '%#TabLineFill#'
+  return s
+endfunction
