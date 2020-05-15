@@ -23,7 +23,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
     Plug 'w0rp/ale'
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'terryma/vim-multiple-cursors'
     Plug 'wincent/terminus'
     Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
@@ -244,6 +244,29 @@ augroup END
 " }
 
 " coc.nvim {
+    let g:coc_global_extensions = [
+        \ 'coc-snippets',
+        \ 'coc-pairs',
+        \ 'coc-diagnostic',
+        \ 'coc-tsserver',
+        \ 'coc-json',
+        \ 'coc-html',
+        \ 'coc-tag',
+        \ 'coc-emmet',
+        \ 'coc-angular',
+        \ 'coc-rls',
+        \ 'coc-python',
+        \ 'coc-pyls',
+        \ 'coc-lua',
+        \]
+
+    if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+        let g:coc_global_extensions += ['coc-prettier']
+    endif
+
+    if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+        let g:coc_global_extensions += ['coc-eslint']
+    endif
     " Use <c-space> for trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
 
