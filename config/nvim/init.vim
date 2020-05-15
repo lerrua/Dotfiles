@@ -149,8 +149,8 @@ augroup END
     " set grepformat=%f:%l:%c:%m,%f:%l:%m
 
     " Customize fzf colors to match color scheme
-    let g:fzf_colors =
-    \ { 'fg':      ['fg', 'Normal'],
+    let g:fzf_colors = {
+      \ 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
       \ 'hl':      ['fg', 'Comment'],
       \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
