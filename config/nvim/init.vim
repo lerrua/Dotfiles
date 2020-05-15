@@ -141,6 +141,7 @@ augroup END
 
 " fzf.vim {
     nnoremap <silent> <space>b :Buffers<CR>
+    nnoremap <silent> <space>ge :GFiles<CR>
     nnoremap <silent> <space>e :FZF -m<CR>
     nnoremap <silent> <space>f :Rg<CR>
     nnoremap <silent> <space>h :History<CR>
