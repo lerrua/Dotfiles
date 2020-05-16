@@ -70,7 +70,7 @@ set signcolumn=yes:1                                              " always show 
 set shortmess+=c                                                " don't give |ins-completion-menu| messages
 
 set tabline=%!Tabline()
-set statusline=%!StatusLine()
+set statusline=%!StatusLineFormat('active')
 
 hi Comment cterm=italic
 hi TabLineSel cterm=italic
@@ -83,6 +83,10 @@ nnoremap <silent> <ENTER> :call ToggleHiddenAll()<CR>
 let s:toggle_insert = 0
 au InsertEnter * silent call ToggleInsertMode()
 au InsertLeave * silent call ToggleInsertMode()
+
+" Toggle statusline on active and inactive windows
+au WinEnter * setl statusline=%!StatusLineFormat('active')
+au WinLeave * setl statusline=%!StatusLineFormat('inactive')
 
 "" Remember cursor position
 augroup vimrc-remember-cursor-position
@@ -355,13 +359,7 @@ augroup END
         return ''
     endfunction
 
-    function! FilenameStatusline()
-        let l:filetype_symbol = WebDevIconsGetFileTypeSymbol()
-        let l:filetype_name = expand('%:t')
-        return printf(' %s %s ', filetype_symbol, filetype_name)
-    endfunction
-
-    function! ToggleInsertMode()
+    function! ToggleInsertMode() abort
         if s:toggle_insert  == 0
             let s:toggle_insert = 1
             set nocursorcolumn
@@ -403,27 +401,37 @@ augroup END
 " }
 
 " statusline
-function! StatusLine()
-    let s = ''
-    let s .= '  '
-    let s .= ''                                             " section separator
-    let s .= ' %{GitBranchStatusline()} '                      " display git branch label
-    let s .= ' %{ReadOnlyStatusline()} '                        " display read only icon
-    let s .= ' %{PasteStatusline()}%* '                         " display paste mode icon
-    let s .= '%='                                            " split point for left and right groups
-    let s .= '%l'                                            " row number
-    let s .= ''                                              " colon separator
-    let s .= '%v'                                              " column number
-    let s .= ' '                                              " line number icon
-    let s .= ''                                             " section separator
-    let s .= ' %{WebDevIconsGetFileFormatSymbol()} '           " file format icon
-    let s .= '%{&fileencoding?&fileencoding:&encoding}'       " current file encoding
-    let s .= '  '                                             " section separator
-    let s .= ' %{LinterStatusline()} '                         " linter status
-    let s .= ' '                                              " section separator
-    let s .= '%#TermCursor#'
-    let s .= '%{VimModeStatusline()}'                        " display actual vim mode
-    return s
+function! StatusLineFormat(mode) abort
+    let l:line=''
+
+    if a:mode ==# 'active'
+        let l:line .= '  '
+        let l:line .= ''
+        let l:line .= ' %{GitBranchStatusline()} '
+        let l:line .= ' %{ReadOnlyStatusline()} '
+        let l:line .= ' %{PasteStatusline()}%* '
+        let l:line .= '%='
+        let l:line .= '%l'
+        let l:line .= ''
+        let l:line .= '%v'
+        let l:line .= ' '
+        let l:line .= ''
+        let l:line .= ' %{WebDevIconsGetFileFormatSymbol()} '
+        let l:line .= '%{&fileencoding?&fileencoding:&encoding}'
+        let l:line .= '  '
+        let l:line .= LinterStatusline()
+        let l:line .= ' '
+        let l:line .= '%#TermCursor#'
+        let l:line .= VimModeStatusline()
+        return l:line
+    endif
+
+    let l:line .= '%='
+    let l:line .='%#StatusLineNC#'
+    let l:line .='%t'
+    let l:line .= ' %{WebDevIconsGetFileTypeSymbol()}'
+    let l:line .='%*'
+    return l:line
 endfunction
 
 " tabline
