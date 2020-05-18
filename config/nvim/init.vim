@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
-    Plug 'ap/vim-css-color'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
@@ -39,7 +38,6 @@ let mapleader = ","                                             " set leader sho
 set t_Co=256                                                    " display 256 colors
 set fileformats=unix,dos,mac
 set number                                                      " show line numbers on the sidebar
-set title                                                       " set the window’s title, reflecting the file currently being edited
 set showtabline=2
 set showbreak=↪                                                 " show arrow at breaking
 set hidden                                                      " allow buffer switching without saving
@@ -209,7 +207,6 @@ augroup END
         \ 'coc-angular',
         \ 'coc-rls',
         \ 'coc-python',
-        \ 'coc-pyls',
         \ 'coc-lua',
         \]
 
@@ -217,9 +214,6 @@ augroup END
         let g:coc_global_extensions += ['coc-prettier']
     endif
 
-    if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-        let g:coc_global_extensions += ['coc-eslint']
-    endif
     " Use <c-space> for trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -374,7 +368,6 @@ augroup END
     function! ToggleHiddenAll()
         if s:hidden_all  == 0
             let s:hidden_all = 1
-            set noshowmode
             set nonumber
             set nocursorcolumn
             set nocursorline
@@ -386,7 +379,6 @@ augroup END
             execute 'GitGutterSignsToggle'
         else
             let s:hidden_all = 0
-            set showmode
             set number
             set cursorcolumn
             set cursorline
