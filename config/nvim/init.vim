@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-sleuth'
     Plug 'w0rp/ale'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'terryma/vim-multiple-cursors'
