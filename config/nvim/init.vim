@@ -7,6 +7,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
     Plug 'chriskempson/base16-vim'
+    Plug 'mhartington/oceanic-next'
+    Plug 'wadackel/vim-dogrun'
     Plug 'francoiscabrol/ranger.vim'
     Plug 'rbgrouleff/bclose.vim'
     Plug 'ryanoasis/vim-devicons'
@@ -26,13 +28,21 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'terryma/vim-multiple-cursors'
     Plug 'wincent/terminus'
+    Plug 'psf/black', { 'branch': 'stable' }
     Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256                                    " access colors present in 256 colorspace
     source ~/.vimrc_background                                  " activate base16 colorscheme
 endif
+
+" colorscheme base16-ocean                                        " set default base16 colorscheme
+colorscheme dogrun
 
 let mapleader = ","                                             " set leader shortcut to a comma
 
@@ -72,7 +82,10 @@ set tabline=%!Tabline()
 set statusline=%!StatusLineFormat('active')
 
 hi Comment cterm=italic
-hi TabLineSel cterm=italic
+" hi Comment cterm=italic guifg=#5C6370 ctermfg=59
+hi TabLineSel cterm=reverse gui=reverse
+" hi LineNr     ctermbg=NONE guibg=NONE
+" hi SignColumn ctermbg=NONE guibg=NONE
 
 " Hidden screen distractions to improve coding
 let s:hidden_all = 0
@@ -84,8 +97,11 @@ au InsertEnter * silent call ToggleInsertMode()
 au InsertLeave * silent call ToggleInsertMode()
 
 " Toggle statusline on active and inactive windows
-au WinEnter * setl statusline=%!StatusLineFormat('active')
-au WinLeave * setl statusline=%!StatusLineFormat('inactive')
+augroup vimrc-statusline
+  autocmd!
+  au WinEnter * setl statusline=%!StatusLineFormat('active')
+  au WinLeave * setl statusline=%!StatusLineFormat('inactive')
+augroup end
 
 "" Remember cursor position
 augroup vimrc-remember-cursor-position
@@ -148,8 +164,6 @@ augroup END
     nnoremap <silent> <space>e :FZF -m<CR>
     nnoremap <silent> <space>f :Rg<CR>
     nnoremap <silent> <space>h :History<CR>
-    " set grepprg=ag\ --nogroup\ --nocolor
-    " set grepformat=%f:%l:%c:%m,%f:%l:%m
 
     " Customize fzf colors to match color scheme
     let g:fzf_colors = {
@@ -209,6 +223,7 @@ augroup END
         \ 'coc-rls',
         \ 'coc-python',
         \ 'coc-lua',
+        \ 'coc-elixir',
         \]
 
     if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
@@ -231,6 +246,7 @@ augroup END
     nmap <silent> <leader>gy <Plug>(coc-type-definition)
     nmap <silent> <leader>gi <Plug>(coc-implementation)
     nmap <silent> <leader>gr <Plug>(coc-references)
+    nmap <silent> <leader>rr <Plug>(coc-refactor)
 
     " Use K for show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -274,14 +290,12 @@ augroup END
     command! -nargs=0 Format :call CocAction('format')
 
     " Use `:Fold` for fold current buffer
-    command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+    command! -nargs=? Fold :call CocAction('fold', <f-args>)
 " } 
 
 " ranger.vim {
-    let g:ranger_replace_netrw = 1
-    let g:ranger_map_keys = 0
     let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
-    nnoremap <silent> <F3> :Ranger<CR>
+    nnoremap <silent> <F3> :RangerCurrentDirectory<CR>
 " }
 
 " statusline functions {
@@ -323,13 +337,6 @@ augroup END
             return printf('%s: %d %s: %d', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
         endif
         return printf('%s', g:ale_sign_ok)
-    endfunction
-
-    function! ModifiedStatusline()
-        if &modified == 1
-            return '  '
-        endif
-        return ''
     endfunction
 
     function! ReadOnlyStatusline()
@@ -440,12 +447,11 @@ function! Tabline()
 
     let s .= '%' . tab . 'T'
     let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-    let s .= ' ' . tab .':'
-    let s .= (bufname != '' ? ''. fnamemodify(bufname, ':t') . ' ' : 'No Name ')
-    let s .= (tab == tabpagenr() ? '%{WebDevIconsGetFileTypeSymbol()} ' : '')
+    let s .= (tab == tabpagenr() ? ' %{WebDevIconsGetFileTypeSymbol()}' : '')
+    let s .= (bufname != '' ? ' '. fnamemodify(bufname, ':t') . ' ' : ' No Name ')
 
     if bufmodified
-      let s .= '[+] '
+      let s .= ' '
     endif
   endfor
 
