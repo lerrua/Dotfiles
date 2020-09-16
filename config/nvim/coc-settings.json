@@ -1,6 +1,12 @@
 {
     "coc.preferences.formatOnType": true,
     "diagnostic.displayByAle": true,
+    "python.formatting.provider": "black",
+    "codeLens.enable": true,
+    "diagnostic-languageserver.filetypes": {
+        "elixir": ["mix_credo", "mix_credo_compile"],
+        "eelixir": ["mix_credo", "mix_credo_compile"]
+    },
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",
         "variable": "\ue79b",

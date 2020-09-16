@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-
 echo "----------- Symlinking -----------"
 
 # zsh
@@ -16,5 +15,7 @@ ln -s $DOTFILES/config/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.js
 
 # tmux
 ln -s $DOTFILES/config/tmux/tmux.conf $HOME/.tmux.conf
-# ln -s $DOTFILES/config/tmux/tmux.conf.local $HOME/.tmux.conf.local
-# ln -s $DOTFILES/config/tmux/tmux.conf.local.server $HOME/.tmux.conf.local
+
+# alacritty
+[ -d ~/.config/nvim ] && echo "Directory 'alacritty' exists" || mkdir -p ~/.config/alacritty
+ln -s $DOTFILES/config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
