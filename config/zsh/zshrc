@@ -11,7 +11,7 @@ export DOTFILES=$HOME/Code/github/Dotfiles
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gnzh"
+ZSH_THEME="steeef"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,7 +55,7 @@ ZSH_THEME="gnzh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker go zsh-autosuggestions)
+plugins=(git docker golang zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,8 +109,8 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Rust and cargo
-# export PATH="$HOME/.cargo/bin:$PATH"
-# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # node nvm
 export NVM_DIR="$HOME/.nvm"
@@ -121,9 +121,12 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # python pyenv
-# export PATH="$HOME/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+. $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.sh
 
 # cli tools
 alias ls='exa'
