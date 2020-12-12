@@ -26,9 +26,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sleuth'
     Plug 'w0rp/ale'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
     Plug 'terryma/vim-multiple-cursors'
     Plug 'wincent/terminus'
-    Plug 'psf/black', { 'branch': 'stable' }
     Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -43,6 +43,7 @@ endif
 
 " colorscheme base16-ocean                                        " set default base16 colorscheme
 colorscheme dogrun
+set background=dark
 
 let mapleader = ","                                             " set leader shortcut to a comma
 
@@ -62,6 +63,7 @@ set tabstop=4                                                   " indent using f
 set shiftwidth=4                                                " when shifting, indent using four spaces
 set lazyredraw                                                  " don’t update screen during macro and script execution
 set noshowmode
+set pumblend=15                                                 " Use cool floating wildmenu options
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__          " ignore files matching these patterns when opening files based on a glob pattern
 set wildignore+=node_modules,DS_Store,vendor
@@ -71,11 +73,12 @@ set cmdheight=1
 set backup
 set backupdir=~/.cache/nvim                                     " directory to store backup files
 set directory=~/.cache/nvim                                     " directory to store swap files
+set updatetime=1000                                             " make updates happen faster
 set undofile                                                    " persistent undo
 set undolevels=1000                                             " maximum number of changes that can be undone
 set undoreload=10000                                            " maximum number lines to save for undo on a buffer reload
 set numberwidth=1
-set signcolumn=yes:1                                              " always show signcolumns
+set signcolumn=yes:1                                            " always show signcolumns
 set shortmess+=c                                                " don't give |ins-completion-menu| messages
 
 set tabline=%!Tabline()
@@ -108,6 +111,9 @@ augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
+
+""" postcss extension
+au! BufNewFile,BufRead *.pcss setf css
 
 " Key maps {
     " Set working directory
@@ -146,7 +152,7 @@ augroup END
     let g:ale_lint_on_save = 1
     let g:ale_lint_on_text_changed = 'never'
     " jump to prev/next quickfix results
-    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    " nmap <silent> <C-k> <Plug>(ale_previous_wrap)
     nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " }
 
@@ -161,36 +167,17 @@ augroup END
 " fzf.vim {
     nnoremap <silent> <space>b :Buffers<CR>
     nnoremap <silent> <space>ge :GFiles<CR>
-    nnoremap <silent> <space>e :FZF -m<CR>
+    nnoremap <silent> <space>e :Files<CR>
     nnoremap <silent> <space>f :Rg<CR>
     nnoremap <silent> <space>h :History<CR>
 
-    " Customize fzf colors to match color scheme
-    let g:fzf_colors = {
-      \ 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
-
     " ripgrep
     if executable('rg')
-      let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-      set grepprg=rg\ --vimgrep
-
+      let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden --follow --glob "!.git/*"'
+      set grepprg=rg\ --vimgrep\ --smart-case\ --follow
       command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'},
       \   <bang>0)
 
       " Likewise, Files command with preview window
@@ -222,6 +209,7 @@ augroup END
         \ 'coc-angular',
         \ 'coc-rls',
         \ 'coc-python',
+        \ 'coc-solargraph',
         \ 'coc-lua',
         \ 'coc-elixir',
         \]
@@ -298,140 +286,42 @@ augroup END
     nnoremap <silent> <F3> :RangerCurrentDirectory<CR>
 " }
 
-" statusline functions {
-    let s:mode_map = {
-          \ 'n':      ' NORMAL ',
-          \ 'no':     ' NO     ',
-          \ 'v':      ' V-CHAR ',
-          \ 'V':      ' V-LINE ',
-          \ "\<C-v>": ' V-BLCK ',
-          \ 's':      ' S-CHAR ',
-          \ 'S':      ' S-LINE ',
-          \ "\<C-s>": ' S-B    ',
-          \ 'i':      ' INSERT ',
-          \ 'ic':     ' I-COMP ',
-          \ 'ix':     ' I-COMP ',
-          \ 'R':      ' R      ',
-          \ 'Rc':     ' R-COMP ',
-          \ 'Rv':     ' R-VIRT ',
-          \ 'Rx':     ' R-COMP ',
-          \ 'c':      ' C-LINE ',
-          \ 'cv':     ' EX     ',
-          \ 'ce':     ' EX     ',
-          \ 'r':      ' ENTER  ',
-          \ 'rm':     ' MORE   ',
-          \ 'r?':     ' ?      ',
-          \ '!':      ' SHELL  ',
-    \ }
-
-    function! VimModeStatusline()
-        let l:mode = mode()
-        return has_key(s:mode_map, l:mode) ? s:mode_map[l:mode] : ''
-    endfunction
-
-    function! LinterStatusline() abort
-        let l:counts = ale#statusline#Count(bufnr(''))
-        let l:all_errors = l:counts.error
-        let l:all_non_errors = l:counts.total - l:all_errors
-        if l:counts.total > 0
-            return printf('%s: %d %s: %d', g:ale_sign_error, all_errors, g:ale_sign_warning, all_non_errors)
-        endif
-        return printf('%s', g:ale_sign_ok)
-    endfunction
-
-    function! ReadOnlyStatusline()
-        if &readonly == 1
-            return '  '
-        endif
-        return ''
-    endfunction
-
-    function! PasteStatusline()
-        if &paste == 1
-            return '  '
-        endif
-        return ''
-    endfunction
-
-    function! GitBranchStatusline()
-        let l:branch_name = fugitive#head()
-        if l:branch_name != ""
-            return printf(' %s', branch_name)
-        endif
-        return ''
-    endfunction
-
-    function! ToggleInsertMode() abort
-        if s:toggle_insert  == 0
-            let s:toggle_insert = 1
-            set nocursorcolumn
-            set nocursorline
-        else
-            let s:toggle_insert = 0
-            set cursorcolumn
-            set cursorline
-        endif
-    endfunction
-
-    function! ToggleHiddenAll()
-        if s:hidden_all  == 0
-            let s:hidden_all = 1
-            set nonumber
-            set nocursorcolumn
-            set nocursorline
-            set noruler
-            set noshowcmd
-            set laststatus=0
-            set showtabline=0
-            set signcolumn=no
-            execute 'GitGutterSignsToggle'
-        else
-            let s:hidden_all = 0
-            set number
-            set cursorcolumn
-            set cursorline
-            set ruler
-            set showcmd
-            set laststatus=2
-            set showtabline=2
-            set signcolumn=yes:1
-            execute 'GitGutterSignsToggle'
-        endif
-    endfunction
-" }
-
-" statusline
-function! StatusLineFormat(mode) abort
-    let l:line=''
-
-    if a:mode ==# 'active'
-        let l:line .= '  '
-        let l:line .= ''
-        let l:line .= ' %{GitBranchStatusline()} '
-        let l:line .= ' %{ReadOnlyStatusline()} '
-        let l:line .= ' %{PasteStatusline()}%* '
-        let l:line .= '%='
-        let l:line .= '%l'
-        let l:line .= ''
-        let l:line .= '%v'
-        let l:line .= ' '
-        let l:line .= ''
-        let l:line .= ' %{WebDevIconsGetFileFormatSymbol()} '
-        let l:line .= '%{&fileencoding?&fileencoding:&encoding}'
-        let l:line .= '  '
-        let l:line .= LinterStatusline()
-        let l:line .= ' '
-        let l:line .= '%#TermCursor#'
-        let l:line .= VimModeStatusline()
-        return l:line
+function! ToggleInsertMode() abort
+    if s:toggle_insert  == 0
+        let s:toggle_insert = 1
+        set nocursorcolumn
+        set nocursorline
+    else
+        let s:toggle_insert = 0
+        set cursorcolumn
+        set cursorline
     endif
+endfunction
 
-    let l:line .= '%='
-    let l:line .='%#StatusLineNC#'
-    let l:line .='%t'
-    let l:line .= ' %{WebDevIconsGetFileTypeSymbol()}'
-    let l:line .='%*'
-    return l:line
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set nonumber
+        set nocursorcolumn
+        set nocursorline
+        set noruler
+        set noshowcmd
+        set laststatus=0
+        set showtabline=0
+        set signcolumn=no
+        execute 'GitGutterSignsToggle'
+    else
+        let s:hidden_all = 0
+        set number
+        set cursorcolumn
+        set cursorline
+        set ruler
+        set showcmd
+        set laststatus=2
+        set showtabline=2
+        set signcolumn=yes:1
+        execute 'GitGutterSignsToggle'
+    endif
 endfunction
 
 " tabline
@@ -446,15 +336,19 @@ function! Tabline()
     let bufmodified = getbufvar(bufnr, "&mod")
 
     let s .= '%' . tab . 'T'
-    let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+    let s .= (tab == tabpagenr() ? '%#TermCursor#' : '%#TabLine#')
     let s .= (tab == tabpagenr() ? ' %{WebDevIconsGetFileTypeSymbol()}' : '')
     let s .= (bufname != '' ? ' '. fnamemodify(bufname, ':t') . ' ' : ' No Name ')
 
     if bufmodified
-      let s .= ' '
+      let s .= '[] '
     endif
   endfor
 
   let s .= '%#TabLineFill#'
   return s
 endfunction
+
+if filereadable(glob("~/.config/nvim/statusline.vim"))
+    source ~/.config/nvim/statusline.vim
+endif

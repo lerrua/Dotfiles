@@ -1,12 +1,43 @@
 {
     "coc.preferences.formatOnType": true,
-    "diagnostic.displayByAle": true,
-    "python.formatting.provider": "black",
+    "coc.preferences.hoverTarget": "float",
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "python",
+        "go",
+        "elixir",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+
     "codeLens.enable": true,
+
+    "diagnostic.displayByAle": true,
+    "diagnostic.refreshOnInsertMode": true,
+
+    "elixirLS.dialyzerEnabled": false,
+    "elixirLS.mixEnv": "dev",
+
     "diagnostic-languageserver.filetypes": {
+        "python": "flake8",
+        "sh": "shellcheck",
         "elixir": ["mix_credo", "mix_credo_compile"],
         "eelixir": ["mix_credo", "mix_credo_compile"]
     },
+
+    "suggest.timeout": 5000,
+    "suggest.autoTrigger": "always",
+    "suggest.triggerAfterInsertEnter": true,
+
+    "tsserver.formatOnType": true,
+
+    "python.formatting.provider": "black",
+    "python.jediEnabled": false,
+
+    "solargraph.diagnostics": true,
+
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",
         "variable": "\ue79b",
