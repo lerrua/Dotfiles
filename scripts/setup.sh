@@ -2,10 +2,15 @@
 
 source $DOTFILES/scripts/git.sh
 
-sudo dnf install -y neovim python-devel python3-neovim util-linux-user go nodejs nodejs-yarn dnf-plugins-core
+sudo dnf install -y neovim python-devel python3-neovim util-linux-user go nodejs nodejs-yarn dnf-plugins-core libpq-devel ruby-devel
 
 # common utilities
-sudo dnf install -y grubby fzf htop bat tig tree exa the_silver_searcher prettyping ranger ripgrep make zsh
+sudo dnf install -y grubby fzf htop bat tig tree exa the_silver_searcher prettyping ranger ripgrep make zsh inotify-tools
+
+# important packages
+sudo dnf install -y chromium-freeworld
+
+# golang utilities
 go get github.com/gsamokovarov/jump
 go get github.com/sosedoff/pgweb
 

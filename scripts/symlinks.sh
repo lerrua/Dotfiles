@@ -12,6 +12,10 @@ ln -s $DOTFILES/config/zsh/zshrc $HOME/.zshrc
 [ -d ~/.config/nvim ] && echo "Directory 'config' exists" || mkdir -p ~/.config/nvim
 ln -s $DOTFILES/config/nvim/init.vim $HOME/.config/nvim/init.vim
 ln -s $DOTFILES/config/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
+ln -s $DOTFILES/config/nvim/statusline.vim $HOME/.config/nvim/statusline.vim
+
+# tig
+ln -s $DOTFILES/config/tigrc $HOME/.tigrc
 
 # tmux
 ln -s $DOTFILES/config/tmux/tmux.conf $HOME/.tmux.conf
