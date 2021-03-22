@@ -15,17 +15,19 @@
     "codeLens.enable": true,
 
     "diagnostic.displayByAle": true,
-    "diagnostic.refreshOnInsertMode": true,
-
-    "elixirLS.dialyzerEnabled": false,
-    "elixirLS.mixEnv": "dev",
-
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.refreshOnInsertMode": false,
+    "diagnostic.virtualText": true,
     "diagnostic-languageserver.filetypes": {
         "python": "flake8",
+        "go": ["go build", "go vet", "golint"],
         "sh": "shellcheck",
         "elixir": ["mix_credo", "mix_credo_compile"],
         "eelixir": ["mix_credo", "mix_credo_compile"]
     },
+
+    "elixirLS.dialyzerEnabled": false,
+    "elixirLS.mixEnv": "dev",
 
     "suggest.timeout": 5000,
     "suggest.autoTrigger": "always",
@@ -36,7 +38,11 @@
     "python.formatting.provider": "black",
     "python.jediEnabled": false,
 
+    "signature.target": "float",
+
     "solargraph.diagnostics": true,
+    "solargraph.formatting": true,
+    "solargraph.hover": true,
 
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",

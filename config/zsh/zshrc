@@ -110,8 +110,8 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Rust and cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# export PATH="$HOME/.cargo/bin:$PATH"
+# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # node nvm
 export NVM_DIR="$HOME/.nvm"
@@ -120,11 +120,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# python pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 . $HOME/.asdf/asdf.sh
 # . $HOME/.asdf/completions/asdf.sh
