@@ -9,6 +9,10 @@ cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Co
 # Knack Regular
 cd ~/.local/share/fonts && curl -fLo "Knack Regular Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
 
-curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
+download: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
+mkdir -p ~/.local/share/fonts
+cd ~/Downloads/fonts
+mv *.* ~/.local/share/fonts
+
 
 fc-cache -v

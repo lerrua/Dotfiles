@@ -40,6 +40,9 @@ asdf global python 3.9.1
 # neovim on asdf
 pip install pynvim
 
+# tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 source $DOTFILES/scripts/fonts.sh
 source $DOTFILES/scripts/symlinks.sh
 source $DOTFILES/scripts/terminal.sh
